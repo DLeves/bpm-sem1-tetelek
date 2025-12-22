@@ -128,9 +128,9 @@ $X$ mérhető $\iff \forall i$-re $X_i$ mérhető.
 
 $X: \Omega \rarr \mathcal{X}$ val. változóból váltva, $X_i$ val. változó lesz $X$ marginálisa.
 
-- szorzattérbe képez ~ peremeloszlás
+- Szorzattérbe képez ~ peremeloszlás
 
-- több változónál $x_i = \pi_i \cdot x$ függvény $x$ marginálisa, $Q_{x_i}$ marginális eloszlása. 
+- Több változónál $x_i = \pi_i \cdot x$ függvény $x$ marginálisa, $Q_{x_i}$ marginális eloszlása. 
 
 ### Eloszlásfüggvények
 
@@ -148,14 +148,14 @@ Valós eset: $x \in \reals^n$
 Minden ilyen tulajdonságú függvény eloszlásfüggvény:
 
 - $n=1$ esetén:
-    - monoton növő $\Rarr$ nagyobb halmaznak nagyobb vagy egyenlő a mértéke
+    - Monoton növő $\Rarr$ nagyobb halmaznak nagyobb vagy egyenlő a mértéke
     - $\lim\limits_{x \rarr -\infty} F_x(x) = 0, \; \lim\limits_{x \rarr \infty} F_x(x) = 1$
-    - balról folytonos
+    - Balról folytonos
 
 - $n \gt 1$ esetén:
-    - monoton növő mindegyik koordinátában (változóban)
+    - Monoton növő mindegyik koordinátában (változóban)
     - $\lim\limits_{min(x_i) \rarr -\infty} F_x(\underline x) = 0, \; \lim\limits_{min(x_i) \rarr \infty} F_x(\underline x) = 1$
-    - balról folytonos mindegyik változójában
+    - Balról folytonos mindegyik változójában
     - $\forall \underline a \lt \underline b \isin \reals^n$-re (azaz minden koordinátában veszünk egyet, ami nagyobb, mint a másik):
         - $\sum_{\epsilon \isin \{ 0,1\}^n } (-1)^{1-\sum \epsilon_i} \cdot F_x(\epsilon \underline b + (1-\epsilon) \underline a) \ge 0$ = szita formula
 
@@ -163,9 +163,9 @@ Minden ilyen tulajdonságú függvény eloszlásfüggvény:
 
 $x$ változó $x: \Omega \rarr X$ $\mu$-re $x$ által indukált Q_x mérték absz. folytonos $x \ll \mu$, ($\mu \; \sigma$-véges és $(X,\mathcal{B}, \mu)$ mértéktér) ha $Q_x \ll \mu$, ekkor a sűrűségfüggvény a Radon-Nikodym derivált:
 
-$$
+$
     f_x = \frac{dQ_x}{d\mu}
-$$
+$
 
 Spec. visszatérő eset az euklideszi tér és Lebesque-mérték
 
@@ -173,8 +173,8 @@ Spec. visszatérő eset az euklideszi tér és Lebesque-mérték
 
 - $f_x \ge 0$ m.m.
 - $\int_x f_x d\mu = 1$
-- spec. átskálázó fv.
-- már olyan eloszlások is kezelhetőek, amik se nem folytonos, se nem diszkrétek
+- Spec. átskálázó fv.
+- Már olyan eloszlások is kezelhetőek, amik se nem folytonos, se nem diszkrétek
 
 ### Változók transzformációi
 
@@ -261,6 +261,99 @@ Legyen $X$ folytonos valószínűségi változó sűrűségfüggvénye $f_X(x)$:
 
 ## I. Statisztikai mező, alapfogalmak. Tapasztalati becslések
 
+### Statisztikai mező
+
+$(\Omega, \mathcal{A}, \mathcal{P})$ a mérhető tér ugyan az, mint korábban (azaz $(\Omega, \mathcal{A}, P)$), azonban itt $\mathcal{P}$ egy halmaznyi mérték, valószínűségi mértékek egy családja.
+- Több valószínűség van, ahol $\forall P \isin \mathcal{P}$ valószínűségi mezőt kapunk.
+- $\mathcal{P} \sube \mathcal{M}_0 = \{ P$ valószínűségi mérték $(\Omega, \mathcal{A})$-n $\}$
+
+### Paraméter
+
+Paraméterezve a halmaznyi mérték: $P \isin \{ \mathcal{P}_\vartheta: \vartheta \isin \Theta \}$, ahol $\Theta$ a paramétertér és $\vartheta$ a paraméter.
+
+### Statisztikai minta és eloszlása
+
+$x: (\Omega, \mathcal{A}, \mathcal{P}) \rarr (\mathcal{X}, \mathcal{B})$ (azaz a statisztikai mező teréből képez mérhető térbe) mérhető függvényt mintának hívunk.
+
+- A minta eloszlása egy $P \isin \mathcal{P}$ mellett $Q = P \circ X^{-1}$
+- $(\mathcal{X},\mathcal{B},\mathcal{Q})$ is statisztikai mező lesz
+- Sok esetben: $x = (x_1, x_2, ..., x_n)$ FAE
+
+### Statisztika
+
+$T: \mathcal{X} \rarr \mathcal{Y}$ minta teréből valamilyen mérhető térbe $(\mathcal{Y},\mathcal{C})$ képezést statisztikának nevezünk. Ez a mintaelemek mérhető függvénye, lényege, hogy kiszámolunk valamit az adatokból.
+
+$T(x): \Omega \xrightarrow{\mathcal{X}} \mathcal{Y}$
+
+- Mintaátlag
+    - $\overline x = \frac{x_1 + x_2 + ... + x_n}{n}$
+- Rendezett minta
+    - $(x_1^*, ..., x_n^* \quad x_i^* \le x_{i+1}^*)$
+- Mid-range
+    - $\frac{x_n^* - x_1^*}{2}$
+- Tapasztalati medián
+    $
+        m(x) =
+        \begin{cases}
+            x_{k+1}^* & n = 2k+1 \\
+            \frac{x_{k}^*+x_{k+1}^*}{2} & n=2k
+        \end{cases}
+    $
+
+### Tapasztalati eloszlás
+
+Az eloszlást is csak mintából ismerjük, $Q_n^*$ mértéket keressük $(\mathcal{X}, \mathcal{B})$-n, tetszőleges $B \isin \mathcal{B}$-ra:
+
+$
+Q_n^*(B) = \frac{1}{n} \sum_{i=1}^{n} \chi_B(x_i) = \frac{1}{n} \sum_{i=1}^{n} 
+$
+
+Ahol:
+- $Q_n^*(B)$: véletlen mérték, hiszen a minta eloszlása is végtelen
+- $\chi_B(x_i)$: $x_i \isin B$ indikátor
+- $\delta_{x_i}(B)$: pontmértékek az $x_i$ pontra koncentrálódva
+
+Tulajdonságok:
+- $\mathbb{E}[Q_q^*](B) = Q(B) \Rarr Q_n^*(B) \rarr Q(B)$ 1 valószínűséggel a mintanagyság növelésével
+- $\mathrm{Var}(Q_n^*(B)) = \frac{1}{n} Q(B)(1-Q(B))$
+- Normálás: $\sqrt{n} (Q_n^*(B)-Q(B)) \rarr N(0, Q(B)(1-Q(B))$ eloszlásban
+
+### Tapasztalati becslések
+
+Egy $\Psi(Q)$ függvény becslésének mondjuk $\hat \Psi(Q) \coloneqq \Psi(Q_n^*)$-t.
+- Várható érték, $\Psi(Q) = \int_{\reals} x dQ$
+    - $\Psi(Q_n^*) = \int_{\reals} x dQ_n^* = \frac{1}{n} \sum_{i=1}^n x_i = \overline x$
+- Variancia
+    - $\Psi(Q) = \int_{\reals} x^2 dQ_n^* = (\int_{\reals} x dQ_n^*)^2 = \frac{1}{n} [\sum_{i=1}^n x_i^2 - (\sum_{i=1}^n x_i)^2] = \frac{1}{n} \sum_{i=1}^n (x_i-\overline x)^2  = S_n^2(x)$
+    - Korrigált tapasztalati szórásnégyzet: $S_n^{*2} = \frac{1}{n-1} \sum_{i=1}^n (x_i-\overline x)^2$
+
+### Tapasztalati eloszlásfüggvény
+
+Növekvő sorba rendezett mintából:
+
+$
+    F_n^*(t) =
+    \begin{cases}
+        0 & t\le x_1^*, \\
+        \frac{1}{n} & x_i^* \lt t \le x_{i+1}^* \\
+        1 & x_n^* \lt t
+    \end{cases}
+$
+
+- Balról folytonos, magasabb dimben is
+- $\lim\limits_{x \rarr -\infty} F_n^*(x) = 0, \; \lim\limits_{x \rarr \infty} F_n^*(x) = 1$
+- $F_n^*(t) = Q_n^*((-\infty, t))$ egydim esetben
+
+
+### Glivenko-Cantinelli tétel
+
+Ha $\xi_1, ..., \xi_n$ független minta, akkor $n \rarr \infty$-vel:
+
+$\sup \mid F_n^*(t) - F(t) \mid \rarr 0$,  1 valószínűséggel.
+
+Azaz a tapasztalati eloszlás és az elvi eloszlást különbsége a nullához tart a minta növelésével. 
+
+Nem csak egyetlen t-re, hanem egyenletesen tart az általunk megfigyelt minta alapján képzett függvény az elvi eloszláshoz.
 
 ## II. Dominált statisztikai mező, elégséges statisztikák
 
