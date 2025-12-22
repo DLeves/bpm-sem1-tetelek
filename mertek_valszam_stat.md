@@ -1,17 +1,5 @@
 *Készítette: Dittrich Levente, 2025*
 
-többi vidi:
-- [Negyedik előadás](https://youtu.be/o2uHHnHpi0c?si=Ulw4zSMNANNtUYGK)
-- [Ötödik előadás](https://youtu.be/RT-_aTsoUiU?si=1voF8UZPWMwMgmcM)
-- [Hatodik előadás](https://youtu.be/rxe9meZ_U_4?si=-lw57oZYsXkVmY-p)
-- [Hetedik előadás](https://youtu.be/UxXO897rMFY?si=CTL90wsZ-2FZUjEZ)
-- [Nyolcadik előadás](https://youtu.be/va36j0_Pvsc?si=2UVW7EzGmNYT4n85)
-- [Kilencedik előadás](https://youtu.be/fDVl9W8NtyM?si=P8GizxJ7fuxF4T4Y)
-- [Tizedik előadás](https://youtu.be/QvnxFoF7Vi0?si=rsakZAkJHmbU3j0_)
-- [Tizenegyedik előadás](https://youtu.be/wngnbELDnmg?si=_0GUgF7eteBHSMXc)
-- [Tizenkettedik előadás](https://youtu.be/KYoly4FVF3E?si=AAWg8H28boo8hO6Y)
-
-
 # Mértékelmélet
 
 Órai videók:
@@ -100,6 +88,13 @@ Legyen (X, \mathcal{M}) mérhető tér, a $\mu: \mathcal{M} \rarr \overline\real
 
 # Valószínűségszámítás
 
+Órai videók:
+- [Negyedik előadás](https://youtu.be/o2uHHnHpi0c?si=Ulw4zSMNANNtUYGK)
+- [Ötödik előadás](https://youtu.be/RT-_aTsoUiU?si=1voF8UZPWMwMgmcM)
+- [Hatodik előadás](https://youtu.be/rxe9meZ_U_4?si=-lw57oZYsXkVmY-p)
+- [Hetedik előadás](https://youtu.be/UxXO897rMFY?si=CTL90wsZ-2FZUjEZ)
+- [Nyolcadik előadás](https://youtu.be/va36j0_Pvsc?si=2UVW7EzGmNYT4n85)
+
 ## I. Valószínűségi mezők, változók, alapvető objektumok. Eloszlások, sűrűségfüggvények, transzformációk spec esetei, Doob Lemma
 
 ### Valószínűségi mező
@@ -150,19 +145,82 @@ Valós eset: $x \in \reals^n$
 
 #### Tulajdonságok
 
+Minden ilyen tulajdonságú függvény eloszlásfüggvény:
 
+- $n=1$ esetén:
+    - monoton növő $\Rarr$ nagyobb halmaznak nagyobb vagy egyenlő a mértéke
+    - $\lim\limits_{x \rarr -\infty} F_x(x) = 0, \; \lim\limits_{x \rarr \infty} F_x(x) = 1$
+    - balról folytonos
+
+- $n \gt 1$ esetén:
+    - monoton növő mindegyik koordinátában (változóban)
+    - $\lim\limits_{min(x_i) \rarr -\infty} F_x(\underline x) = 0, \; \lim\limits_{min(x_i) \rarr \infty} F_x(\underline x) = 1$
+    - balról folytonos mindegyik változójában
+    - $\forall \underline a \lt \underline b \isin \reals^n$-re (azaz minden koordinátában veszünk egyet, ami nagyobb, mint a másik):
+        - $\sum_{\epsilon \isin \{ 0,1\}^n } (-1)^{1-\sum \epsilon_i} \cdot F_x(\epsilon \underline b + (1-\epsilon) \underline a) \ge 0$ = szita formula
 
 ### Sűrűségfüggvények
 
+$x$ változó $x: \Omega \rarr X$ $\mu$-re $x$ által indukált Q_x mérték absz. folytonos $x \ll \mu$, ($\mu \; \sigma$-véges és $(X,\mathcal{B}, \mu)$ mértéktér) ha $Q_x \ll \mu$, ekkor a sűrűségfüggvény a Radon-Nikodym derivált:
 
+$$
+    f_x = \frac{dQ_x}{d\mu}
+$$
+
+Spec. visszatérő eset az euklideszi tér és Lebesque-mérték
+
+#### Tulajdonságok
+
+- $f_x \ge 0$ m.m.
+- $\int_x f_x d\mu = 1$
+- spec. átskálázó fv.
+- már olyan eloszlások is kezelhetőek, amik se nem folytonos, se nem diszkrétek
 
 ### Változók transzformációi
 
+Összetett függvény külső függvényének sűrűségfüggvénye:
+
+$(\Omega, \mathcal{A}, P) \xrightarrow{x} (\mathcal{X}, \mathcal{B}, \mu) \xrightarrow{h} (Y, \zeta)$, ekkor $h(x)$ val. változó $(Y, \zeta)$-ben.
+
+T.f.h. $x$ absz. folytonos, $f_x$ sűrűségfüggvénnyel, ekkor $Q_{h(x)} = Q_x \circ h^{-1}$ és $Q_{h(x)} \ll \mu \circ h^{-1}$
 
 ### Doob Lemma
 
+Azt szeretnénk, hogy $Q_x \circ h^{-1}(C) = \int_C g \; d(\mu \circ h^{-1}) = \int_{h^{-1}(C)} g \circ h \; d\mu$, viszont kellene $f_x$.
+
+$\frac{dQ_x \circ h^{-1}}{d\mu \circ h^{-1}} \xlongequal{kb.} f_x \circ h^{-1}$, viszont nem biztos, hogy $h^{-1}$ egyértelmű, erre kell a Doob-lemma:
+
+Legyne $h: \mathcal{X} \rarr Y, \; g: \mathcal{X} \rarr \reals^n$ mérhető és $g$ mérhető a $h$ által generált $\sigma$-algebrára. Ekkor létezik: $l: Y \rarr \reals^n$ mérhető függvény úgy, hogy $g = l \circ h$.
+
+- Ez az $l$ függvény összeköti a $g$-t és $h$-t, úgy megy tovább $Y$-ból $\reals^{n}$-be, hogy megkapjuk $g$-t
+- Felhasználása: $f_x^h = \frac{dQ_x \mid_{\sigma(h)}}{d\mu \mid_{\sigma(h)}} \Rarr$ vagyis megszorítjuk a mértéket az adott $\sigma$-algebrára.
+
 
 ### Sűrűségfüggvény spec. esetei
+
+Legyen $X$ folytonos valószínűségi változó sűrűségfüggvénye $f_X(x)$:
+
+- Eltolásparaméteres család
+    - $Y = X + c, \quad c \in \reals$
+    - $f_Y(y) = f_X(y - c)$
+    - Az eloszlás alakja nem változik
+    - $\mathbb{E}[Y] = \mathbb{E}[X] + c$
+    - $\mathrm{Var}(Y) = \mathrm{Var}(X)$
+- Skálaparaméteres család
+    - $Y = aX, \quad a \neq 0$
+    - $f_Y(y) = \frac{1}{|a|} \, f_X\!\left(\frac{y}{a}\right)$
+    - Az eloszlás alakja megmarad
+    - $\mathbb{E}[Y] = a\,\mathbb{E}[X]$
+    - $\mathrm{Var}(Y) = a^2\,\mathrm{Var}(X)$
+- Lineáris transzformált
+    - $Y = aX + b, \quad a \neq 0$
+    - $X = \frac{Y - b}{a}$
+
+    | Transzformáció | Sűrűségfüggvény |
+    |---------------|----------------|
+    | $Y = X + c$ | $f_Y(y) = f_X(y - c)$ |
+    | $Y = aX$ | $f_Y(y) = \frac{1}{\mid a \mid } f_X(y/a)$ |
+    | $Y = aX + b$ | $f_Y(y) = \frac{1}{\mid a \mid} f_X((y-b)/a)$ |
 
 
 ## II. Függetlenség, kapcsolat eloszlással, asszimptotikus állítások, Kolgomorov 1-0, Borell-Cantelli, Konvolúció
@@ -193,6 +251,13 @@ Valós eset: $x \in \reals^n$
 
 
 # Statisztika
+
+Órai videók:
+- [Kilencedik előadás](https://youtu.be/fDVl9W8NtyM?si=P8GizxJ7fuxF4T4Y)
+- [Tizedik előadás](https://youtu.be/QvnxFoF7Vi0?si=rsakZAkJHmbU3j0_)
+- [Tizenegyedik előadás](https://youtu.be/wngnbELDnmg?si=_0GUgF7eteBHSMXc)
+- [Tizenkettedik előadás](https://youtu.be/KYoly4FVF3E?si=AAWg8H28boo8hO6Y)
+
 
 ## I. Statisztikai mező, alapfogalmak. Tapasztalati becslések
 
