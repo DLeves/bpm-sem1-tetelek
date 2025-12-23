@@ -28,7 +28,7 @@ Alapfogalmak:
 
 ### Halmazfüggvények
 
-$\alpha: \mathcal{A} \rarr \reals$ halmazfüggvény, feltevések:
+$\alpha: \mathcal{A} \rarr \R$ halmazfüggvény, feltevések:
 - $\empty \in \mathcal{A}$ (tartalmazza az üreshalmazt)
 - $\alpha \ge 0$ (nemnegatív)
 - $\alpha(\empty) = 0$ (üreshalmaz mértéke 0)
@@ -56,19 +56,19 @@ $U \subset \mathcal{P}(Y) \; \forall u \isin U: f^{-1}(u) \isin M$
 
 ### Egyszerű függvények
 
-Legyen $(X, \mathcal{M})$ mérhető tér, ekkor az $f: x \rarr \reals$ leképezést egyszerű függvénynek nevezzük, ha mérhető és értékkészlete véges. Ha $f,g$ egyszerű függvény, akkor $f+g$, $f \cdot g$, $max(f,g)$, $min(f,g)$ is egyszerű függvény, így mérhető is.
+Legyen $(X, \mathcal{M})$ mérhető tér, ekkor az $f: x \rarr \R$ leképezést egyszerű függvénynek nevezzük, ha mérhető és értékkészlete véges. Ha $f,g$ egyszerű függvény, akkor $f+g$, $f \cdot g$, $max(f,g)$, $min(f,g)$ is egyszerű függvény, így mérhető is.
 
 Az egyszerű függvény előáll $f= \sum_{i=1}^{k} c_i \chi_{A_i}$-ból, ahol
 - $c_i$ a súlyozás
 - $\chi_{A_i}$ indikátorfüggvény
 
-**Egyenletes konvergencia**: Legyen $f: X \rarr \overline\reals$ mérhető, ekkor megadható $f_i$ egyszerű függvények sorozata úgy, hogy 
+**Egyenletes konvergencia**: Legyen $f: X \rarr \overline\R$ mérhető, ekkor megadható $f_i$ egyszerű függvények sorozata úgy, hogy 
 - monoton nőnek
 - $f_i \rarr f$
 - $\{ x: f(x) \lt a\}$-n egyenletesen konvergens
 
 **Suprémum és infinimum**:
-$f_n: X \rarr \overline \reals$ mérhető $\Rarr \sup f_n, \inf f_n, \lim\sup f_n, \lim\sup f_n$ is mérhetők
+$f_n: X \rarr \overline \R$ mérhető $\Rarr \sup f_n, \inf f_n, \lim\sup f_n, \lim\sup f_n$ is mérhetők
 - $\sup f_n$: a függvény legmagasabb értéke az adott pontban
 - $\lim\sup f_n$: a legmagasabb érték, amit elér a függvény, ahogy halad $\infty$ felé
 
@@ -76,7 +76,7 @@ Infinimum hasonlóan, csak legkisebb értékkel.
 
 ### Mérték
 
-Legyen (X, \mathcal{M}) mérhető tér, a $\mu: \mathcal{M} \rarr \overline\reals$ leképezést mértéknek nevezzük, ha
+Legyen (X, \mathcal{M}) mérhető tér, a $\mu: \mathcal{M} \rarr \overline\R$ leképezést mértéknek nevezzük, ha
 1. $\mu \ge 0$
 2. $\mu(\empty) = 0$
 3. $H_n \in \mathcal{M}, H_n \cap H_k = 0$ esetén $\mu(\cup_{i=1}^{\infty} H_i) = \sum_{i=1}^{\infty} \mu(H_i)$
@@ -199,7 +199,7 @@ $(\Omega, \mathcal{A}, P)$ mértéktér, ahol
 
 ### Valószínűségi változó
 
-$x: \Omega \rarr \reals$ valamilyen eseménytérből $(\mathcal{X}, B)$ mérhető térbe képező mérhető függvény.
+$x: \Omega \rarr \R$ valamilyen eseménytérből $(\mathcal{X}, B)$ mérhető térbe képező mérhető függvény.
 
 ### Val. változó eloszlása
 
@@ -229,14 +229,14 @@ $X: \Omega \rarr \mathcal{X}$ val. változóból váltva, $X_i$ val. változó l
 
 $F_x$ meghatározza $Q_x$-et.
 
-Valós eset: $x \in \reals^n$
+Valós eset: $x \in \R^n$
 
 - $n=1$ esetén:
     - $Q_x$ meghatározásához elég $Q_x((-\infty, t)) = P(X \lt t) \coloneqq F_x(t) \rarr$ eloszlásfüggvény a $t$ helyen
 - $n \gt 1$ esetén:
     - $Q_x((-\infty, t_1) \times (-\infty, t_2) \times ... \times (-\infty, t_n)) = P(x_1 < t_1, ... , x_n < t_n) \coloneqq F_x(t_1, ..., t_n)$
 
-#### Tulajdonságok
+**Tulajdonságok:**
 
 Minden ilyen tulajdonságú függvény eloszlásfüggvény:
 
@@ -249,7 +249,7 @@ Minden ilyen tulajdonságú függvény eloszlásfüggvény:
     - Monoton növő mindegyik koordinátában (változóban)
     - $\lim\limits_{min(x_i) \rarr -\infty} F_x(\underline x) = 0, \; \lim\limits_{min(x_i) \rarr \infty} F_x(\underline x) = 1$
     - Balról folytonos mindegyik változójában
-    - $\forall \underline a \lt \underline b \isin \reals^n$-re (azaz minden koordinátában veszünk egyet, ami nagyobb, mint a másik):
+    - $\forall \underline a \lt \underline b \isin \R^n$-re (azaz minden koordinátában veszünk egyet, ami nagyobb, mint a másik):
         - $\sum_{\epsilon \isin \{ 0,1\}^n } (-1)^{1-\sum \epsilon_i} \cdot F_x(\epsilon \underline b + (1-\epsilon) \underline a) \ge 0$ = szita formula
 
 ### Sűrűségfüggvények
@@ -262,7 +262,7 @@ $
 
 Spec. visszatérő eset az euklideszi tér és Lebesque-mérték
 
-#### Tulajdonságok
+**Tulajdonságok:**
 
 - $f_x \ge 0$ m.m.
 - $\int_x f_x d\mu = 1$
@@ -283,9 +283,9 @@ Azt szeretnénk, hogy $Q_x \circ h^{-1}(C) = \int_C g \; d(\mu \circ h^{-1}) = \
 
 $\frac{dQ_x \circ h^{-1}}{d\mu \circ h^{-1}} \xlongequal{kb.} f_x \circ h^{-1}$, viszont nem biztos, hogy $h^{-1}$ egyértelmű, erre kell a Doob-lemma:
 
-Legyne $h: \mathcal{X} \rarr Y, \; g: \mathcal{X} \rarr \reals^n$ mérhető és $g$ mérhető a $h$ által generált $\sigma$-algebrára. Ekkor létezik: $l: Y \rarr \reals^n$ mérhető függvény úgy, hogy $g = l \circ h$.
+Legyne $h: \mathcal{X} \rarr Y, \; g: \mathcal{X} \rarr \R^n$ mérhető és $g$ mérhető a $h$ által generált $\sigma$-algebrára. Ekkor létezik: $l: Y \rarr \R^n$ mérhető függvény úgy, hogy $g = l \circ h$.
 
-- Ez az $l$ függvény összeköti a $g$-t és $h$-t, úgy megy tovább $Y$-ból $\reals^{n}$-be, hogy megkapjuk $g$-t
+- Ez az $l$ függvény összeköti a $g$-t és $h$-t, úgy megy tovább $Y$-ból $\R^{n}$-be, hogy megkapjuk $g$-t
 - Felhasználása: $f_x^h = \frac{dQ_x \mid_{\sigma(h)}}{d\mu \mid_{\sigma(h)}} \Rarr$ vagyis megszorítjuk a mértéket az adott $\sigma$-algebrára.
 
 
@@ -294,7 +294,7 @@ Legyne $h: \mathcal{X} \rarr Y, \; g: \mathcal{X} \rarr \reals^n$ mérhető és 
 Legyen $X$ folytonos valószínűségi változó sűrűségfüggvénye $f_X(x)$:
 
 - Eltolásparaméteres család
-    - $Y = X + c, \quad c \in \reals$
+    - $Y = X + c, \quad c \in \R$
     - $f_Y(y) = f_X(y - c)$
     - Az eloszlás alakja nem változik
     - $\mathbb{E}[Y] = \mathbb{E}[X] + c$
@@ -320,19 +320,74 @@ Legyen $X$ folytonos valószínűségi változó sűrűségfüggvénye $f_X(x)$:
 
 ### Függetlenség
 
-1. $A,B \isin \mathcal{A}$ események függetlenek, ha $P(A \cup B) = P(A) \cdot P(B)$
+1. $A,B \isin \mathcal{A}$ események függetlenek, ha $P(A \cap B) = P(A) \cdot P(B)$
 
 2. Több eseményre nézve:
 
+    $P(A_{i_1} \cap ... \cap A_{i_k}) = \prod_{j=1}^k P(A_{i_j}), \quad \forall \{i_1, ..., i_k\} \sube \{1, ..., n\}$-re.
+
 3. Eseményrendszerre nézve:
 
+    $(R_{\tau}, \tau \isin \Gamma)$ független, ha: $\forall A_{\tau_1}, ..., A_{\tau_n}, \quad A_{\tau_i} \isin R_{\tau_i}, \; \{\tau_1, ... \tau_n \} \sube \Gamma$ független, ami egyenlő azzal, hogy $P(\cap_i A_{\tau_i}) = \prod_i P(A_{\tau_i})$
 
+    Azaz minden különböző eseménypár a halmazban független.
+
+Tehát a valószínűségi változók függetlenek, ha minden változó által generált $\sigma$-algebrák együttes eseményrendszere független.
+
+**Ekvivalens állítások:**
+Legyenek $x = (x_1, ... , x_n): \Omega \rarr \R \;$ $n$ dimenziós val. változók, ekkor:
+
+- $x_1, ..., x_n$ független val. változók
+- $X$ eloszlásfüggvénye a marginális eloszlásfüggvények szorzata: $F_x(t_1, ..., t_n) = \prod_i F_{x_i}(t_i)$
+- $Q_x = \prod_i Q_{x_i}$, vagyis az eloszlás, mint mérték előáll a maginális eloszlások szorzatmértékéből
+
+**Abszolút folytonos esetben:**
+
+T.f.h. $X$ absz. folyt., ekkor $f_x(t_1, ..., t_n) \Rarr \prod_i f_{x_i}(t_i)$
+
+**Csoportosított függetlenség:**
+
+Több $\sigma$-algebra diszjunkt halmazokba csoportosítva is függetlenek maradnak.
 
 ### Kolgomorov 0-1 törvény
 
+Legyen $\mathcal{F_1}, \mathcal{F_2}, ...$ független $\sigma$-algebrák és $g_n = \sigma(\mathcal{F_n}, \mathcal{F_{n+1}}, ...)$, akkor a csoporttosított függetlenség miatt $g_n$ is független az $\mathcal{F}$-ektől.
+
+Legyen $B \isin \cap_{n=1}^{\infty} g_n$ esemény, ekkor $P(B) = 0$ vagy $1$, azaz biztos vagy nincs rá esély.
+
 ### Borel-Cantelli Lemma
 
+$A_1, ..., A_n \isin \mathcal{A}$ események a $\sigma$-algebrában és $\limsup A_n = \cup\cap A_k$, ekkor
+1. $\sum_{n=1}^{\infty} P(A_n) \lt \infty \Rarr P(\limsup A_n) = 0$
+
+    Vagyis 1 valószínűséggel következik be véges sok belőlük.
+
+2. $\sum_{n=1}^{\infty} P(A_n) = \infty $ és függetlenek $\Rarr P(\limsup A_n) = 1$
+
+    Vagyis ha független valószínűségek szummája divergens, akkor 1 valószínűséggel végtelen sok következik be belőle.
+
+
 ### Konvolúció
+
+**$\R$-ben:**
+
+Legyen $x,y: \Omega \rarr \R)$ val. változók és $x+y=z$, ekkor $z$ sűrűségfüggvénye (absz folyt $\lambda$-ra):
+
+$f_{x+y}(z) = \int_{-\infty}^{\infty} f_x(t) \cdot f_y(z-t) d\lambda(t)$
+
+Ha nem absz. folyt, akkor csal az eloszlásfüggvényt lehet megadni, mint Lebesque-Stieljes integrál:
+
+$F_{x+y}(z) = \int_{-\infty}^{\infty} F_x(z-t) dF_y(t)$
+
+Z eloszlása: $Q_z = Q_x \times Q_y \Rarr$ a két eloszlás konvolúciója
+
+**$\R^n$-ben:**
+
+Legyenek Legyen $\underline x, \underline y: \Omega \rarr \R^n$ val. változók és $\underline x+ \underline y=\underline z$:
+
+- absz. folyt. esetben: $f_z(\underline z) = \int_{\R^n} f_x(\underline t) \cdot f_y(\underline z - \underline t) \; d\lambda_n(t)$
+
+- nem absz. folyt. esetben: $F_z(\underline z) = \int_{\R^n} F_x(\underline z - \underline t) \; dF_y(\underline t)$
 
 
 ## III. Várható érték, magasabb momentumok, kapcsolódó egyenlőtlenségek
@@ -430,10 +485,10 @@ Tulajdonságok:
 ### Tapasztalati becslések
 
 Egy $\Psi(Q)$ függvény becslésének mondjuk $\hat \Psi(Q) \coloneqq \Psi(Q_n^*)$-t.
-- Várható érték, $\Psi(Q) = \int_{\reals} x dQ$
-    - $\Psi(Q_n^*) = \int_{\reals} x dQ_n^* = \frac{1}{n} \sum_{i=1}^n x_i = \overline x$
+- Várható érték, $\Psi(Q) = \int_{\R} x dQ$
+    - $\Psi(Q_n^*) = \int_{\R} x dQ_n^* = \frac{1}{n} \sum_{i=1}^n x_i = \overline x$
 - Variancia
-    - $\Psi(Q) = \int_{\reals} x^2 dQ_n^* = (\int_{\reals} x dQ_n^*)^2 = \frac{1}{n} [\sum_{i=1}^n x_i^2 - (\sum_{i=1}^n x_i)^2] = \frac{1}{n} \sum_{i=1}^n (x_i-\overline x)^2  = S_n^2(x)$
+    - $\Psi(Q) = \int_{\R} x^2 dQ_n^* = (\int_{\R} x dQ_n^*)^2 = \frac{1}{n} [\sum_{i=1}^n x_i^2 - (\sum_{i=1}^n x_i)^2] = \frac{1}{n} \sum_{i=1}^n (x_i-\overline x)^2  = S_n^2(x)$
     - Korrigált tapasztalati szórásnégyzet: $S_n^{*2} = \frac{1}{n-1} \sum_{i=1}^n (x_i-\overline x)^2$
 
 ### Tapasztalati eloszlásfüggvény
