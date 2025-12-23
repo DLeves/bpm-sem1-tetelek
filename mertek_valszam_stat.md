@@ -429,7 +429,7 @@ Legyenek Legyen $\underline x, \underline y: \Omega \rarr \R^n$ val. változók 
 
 $(\Omega, \mathcal{A}, \mathcal{P})$ a mérhető tér ugyan az, mint korábban (azaz $(\Omega, \mathcal{A}, P)$), azonban itt $\mathcal{P}$ egy halmaznyi mérték, valószínűségi mértékek egy családja.
 - Több valószínűség van, ahol $\forall P \isin \mathcal{P}$ valószínűségi mezőt kapunk.
-- $\mathcal{P} \sube \mathcal{M}_0 = \{ P$ valószínűségi mérték $(\Omega, \mathcal{A})$-n $\}$
+- $\mathcal{P} \sube \mathcal{M}_0 = $ { $P$ valószínűségi mérték $(\Omega, \mathcal{A})$-n$ }.
 
 ### Paraméter
 
