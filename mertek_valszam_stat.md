@@ -42,13 +42,37 @@ Típusok:
 
 $(X, \mathcal{A})$ mérhető tér, ha $\mathcal{A} \in \mathcal{P}(X)$ $\sigma$-algebra. Ekkor \mathcal{A} elemei mérhető halmazok.
 
+Topologikus tér ($(X,\tau)$) egy általánosított metrikus tér. A metrikus tér, egy olyan halmaz, amin értelmezett egy metrika (távolságfüggvény).
+
 ### Mérhető leképezés
 
 Adott $(X, \mathcal{M})$ és $(Y, \mathcal{N})$ mérhető terek, az $f: X \rarr Y (\mathcal{M}, \mathcal{N})$ mérhető leképezés. Ekkor $\{ A \subset Y: f^{-1}(A) \in \mathcal{M} \}$ az halmazrendszer $\sigma$-algebra $Y$-on.
 
+Generált alterekkel tulajdonság:
+
+$U \subset \mathcal{P}(Y) \; \forall u \isin U: f^{-1}(u) \isin M$
+- $\forall u \isin \sigma(U)$-ra is $\rarr$ a generált altér is a $\sigma$-algebrában van
+- elég a generált alteret nézni, hogy mérhető-e 1-1 helyen, nem kell a teljeset
+
 ### Egyszerű függvények
 
-Legyen $(X, \mathcal{M})$ mérhető tér, ekkor az $f: x \rarr \reals$ leképezést egyszerű függvénynek nevezzük, ha mérhető és értékkészlete véges. Ha $f,g$ egyszerű függvény, akkor $f+g$, $f \cdot g$, $max(f,g)$, $min(f,g)$ is egyszerű függvény.
+Legyen $(X, \mathcal{M})$ mérhető tér, ekkor az $f: x \rarr \reals$ leképezést egyszerű függvénynek nevezzük, ha mérhető és értékkészlete véges. Ha $f,g$ egyszerű függvény, akkor $f+g$, $f \cdot g$, $max(f,g)$, $min(f,g)$ is egyszerű függvény, így mérhető is.
+
+Az egyszerű függvény előáll $f= \sum_{i=1}^{k} c_i \chi_{A_i}$-ból, ahol
+- $c_i$ a súlyozás
+- $\chi_{A_i}$ indikátorfüggvény
+
+**Egyenletes konvergencia**: Legyen $f: X \rarr \overline\reals$ mérhető, ekkor megadható $f_i$ egyszerű függvények sorozata úgy, hogy 
+- monoton nőnek
+- $f_i \rarr f$
+- $\{ x: f(x) \lt a\}$-n egyenletesen konvergens
+
+**Suprémum és infinimum**:
+$f_n: X \rarr \overline \reals$ mérhető $\Rarr \sup f_n, \inf f_n, \lim\sup f_n, \lim\sup f_n$ is mérhetők
+- $\sup f_n$: a függvény legmagasabb értéke az adott pontban
+- $\lim\sup f_n$: a legmagasabb érték, amit elér a függvény, ahogy halad $\infty$ felé
+
+Infinimum hasonlóan, csak legkisebb értékkel.
 
 ### Mérték
 
@@ -66,8 +90,77 @@ Legyen (X, \mathcal{M}) mérhető tér, a $\mu: \mathcal{M} \rarr \overline\real
 
 ## II. Integrál, függvénysorozatok, függvénysorok és integráljaik
 
+### Riemann integrál
+
+Adott $f \ge 0$ egyszerű függgvény és $(X, \mathcal{M}, \mu)$ mértéktér, valamint $H \isin \mathcal{M}$ mérhető halmaz. $f$ értékei $c_1, ..., c_n$ és $A_k = \{x: f(x) = c_k \}$, vagyis $A_k$ az a halmaz, ahol $f$ felveszi a $c_k$ értéket.
+
+Ekkor $f$ függvény $H$-n vett $\mu$ szerinti integrálja:
+
+$\int_H f \, d\mu = \sum_{k=1}^n c_k \cdot \mu(H \cap A_k)$
+
+- Vagyis a halamzok mértéke súlyozva a függvényértékkel
+- Ami nem más, mint a $c_k$ magasságokkal az $A_k$ hosszok szorozva $\Rarr$ terület
+
+**Megjegyzések**:
+
+Adott $0 \le g \le f$ mérhető függvények és $A \subset B$ halmazok, ekkor
+
+- $\int_A g \, d\mu \le \int_A f \, d\mu \le \int_B g \, d\mu$
+
+- $g \mid_A \equiv c$ (konstans) esetén $\int_A f \; d\mu = c \cdot \mu(A)$ (megj: $g \mid_A$ a $g$ függvény megszorítva $A$ pontra/környezetére)
+
+- $\mu(A) = 0 \Rarr \int_A f \; d\mu = 0$, vagyis üres halmazon integrálva nullát kapunk
+
+- $\int_A f \; d\mu = \int_b f \cdot \chi_A \; d\mu$, vagyis $A$-n vett integrál megegyezik a $B$-n vett $f$ és az indikátorfüggvény szorzatának integráljával.
+
+- $\int_A (f + c \cdot g) \; d\mu = \int_A f \; d\mu + c \cdot \int_A g \; d\mu$ integrálási azonosság
+
+- $\varphi(H) = \int_H f \; d\mu$ az integrálás, mint halmazfüggvény mérték
+
+### Lebesque integrál
+
+Legyen $f \ge 0$ mérhető, $H \isin \mathcal{M}$ mérhető halamaz, ekkor:
+
+$\int_H f \; f\mu = \sup \{\int_H g \; d\mu: 0 \le g \le f \}$, g egyszerű függvény. Ez azt jelenti, hogy $f$ integrálja a szuprémuma minden $f$ alatti függvény integráljának.
+
+**Megjegyzések**:
+- $f^+ = \max(f,0), f^- = -\min(f,0)$ adott, ha $\int_X f^+ d\mu$ vagy $\int_X f^- d\mu$ véges akkor $f$ integrálható, illetve $\int_X f^+ d\mu - \int_X f^- d\mu$ véges esetén $f$ végesen integrálható.
+
+- $L_1 = \int \mid f \mid \; d\mu$ értelmes és véges
+### Monton konvergencia tétel
+
+Legyen $0 \le f_1 \le ... \le f_n$ m.m. monoton növekvő, $\lim_{n \rarr \infty} f_n = f$ pontonként konvergáló, mérhető függvénysorozat.
+
+Ekkor az inegrál is konvergál $\lim_{n \rarr \infty} \int_X f_n \; d\mu = \int_x f \; d\mu$ 
+
+Ilyen tételek miatt sokszor jobb a Lebesque integrál a Riemann integrálnál.
+
+### Összeg integrálja
+
+ $\int_A (f + g) \; d\mu = \int_A f \; d\mu + \cdot \int_A g \; d\mu$, ahol $f, g \ge 0$
+
+### Beppo-Levi Tétel
+
+Ha $f_n \ge 0$ mérhető, akkor a függvények összegének integrálja megegyezik az integráljaik összegével.
+
+$\int_X \sum_{n=1}^{\infty} f_n \; d\mu = \sum_{n=1}^{\infty} \int_X f_n \; d\mu$
+
+### Fatou-Lemma
+
+a $f_n \ge 0$ mérhető, akkor:
+
+$\int_A \liminf f_n \; d\mu \le \liminf \int_A f_n \; d\mu$
+
+### Lebesque-dominált konvergencia tétel
+
+$f_n$ mérhető és $\mid f_n \mid \le g, \quad g \isin L_1$, ekkor $f_n \rarr f$, valamint:
+
+$\int_X f \; d\mu = lim \int_x f_n \; d\mu$
+
+Ha a két fv m.m. megegyezik, akkor az integráljuk is. Ilyenkor $g$ majorálja (dominálja) $\mid f_n \mid$-et, vagyis felettük helyezkedik el. 
 
 ## III. Mértékek kiterjesztése. Lebesque- és Lebesque-Stieljes mérték
+
 
 
 ## IV. Riemann- , Riemann-Stieljes integrál, modern kontextusban. Mértéktartó leképezések
@@ -224,6 +317,22 @@ Legyen $X$ folytonos valószínűségi változó sűrűségfüggvénye $f_X(x)$:
 
 
 ## II. Függetlenség, kapcsolat eloszlással, asszimptotikus állítások, Kolgomorov 1-0, Borell-Cantelli, Konvolúció
+
+### Függetlenség
+
+1. $A,B \isin \mathcal{A}$ események függetlenek, ha $P(A \cup B) = P(A) \cdot P(B)$
+
+2. Több eseményre nézve:
+
+3. Eseményrendszerre nézve:
+
+
+
+### Kolgomorov 0-1 törvény
+
+### Borel-Cantelli Lemma
+
+### Konvolúció
 
 
 ## III. Várható érték, magasabb momentumok, kapcsolódó egyenlőtlenségek
