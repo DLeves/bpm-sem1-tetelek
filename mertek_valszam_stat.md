@@ -521,6 +521,58 @@ Nem csak egyetlen t-re, hanem egyenletesen tart az általunk megfigyelt minta al
 
 ## II. Dominált statisztikai mező, elégséges statisztikák
 
+### Domináló mérték
+
+Ha van egy $\mu \; \sigma$-véges mérték, hogy $\forall P \isin \mathcal{P}$-re: $P \ll \mu$ absz. folyt. akkor az a mérték dominálja a statisztikai mezőt. Az erős feltétel, hogy mind ugyan arra legyen absz. folytonos.  
+
+### Mértékek, mértékosztályok ekvivalenciája
+
+- $P$ és $Q$ mérték ekvivalens ($P \backsim Q$), ha $P \ll Q$ és $Q \ll P$
+    
+    Azaz $\forall B$ mérhető halmazra: $P(B) = 0 \Longleftrightarrow Q(B) = 0$, vagyis ugyan azok a nullmértékű halmazok mindkét mérték szerint
+
+- $\mathcal{P}$ és $\mathcal{Q}$ mértékosztályok ekvivalensek, ha bennük minden mérték ekvivalens
+    
+    Azaz $\forall B$ mérhető halmazra: $\forall P \isin \mathcal{P} \;P(B) = 0 \Longleftrightarrow \forall Q \isin \mathcal{Q} \; Q(B) = 0$
+
+### Halmos-Savage tétel
+
+$\mathcal{P}$ mértékosztályra ekvivalensek:
+- $\mathcal{P}$ dominált
+- $\mathcal{P}$ megszámlálható
+- A domináló $\mu$ előállítható $P_1, P_2, ... \isin \mathcal{P}$ lineáris kombinációjaként
+
+### Elégséges statisztika
+
+$T$-statisztika elégséges, ha $P_{\vartheta}(x \isin B \mid T)$ feltételes eloszlások $\vartheta$-tól nem függenek.
+
+- elég egy paramétert megtartani
+
+### Neyman-Fisher faktorizációs tétel
+
+Paraméteres dominált statisztikai mezőn, ahol $P_{\vartheta}$ sűrűségfüggvénye $f_{\vartheta}$, a következők ekvivalensek $T$-re:
+
+- $T$ elégséges statisztika
+
+- Létezik $P$ lineáris kombinációjaként előállított $\mu$:
+    
+    $f_{\vartheta}(x) = g_{\vartheta}​(T(x)) h(x)$, ahol $g_{\vartheta}$ csak $T$-n keresztül függ $x$-től és $h(x)$ nem függ $\vartheta$-tól.
+
+### Minimálisan elégséges statisztika
+
+$T$-statisztika akkor minimálisan elégséges, ha minden $S$ elégséges statisztikára, azaz előáll bármilyen elégséges statisztika függvényeként.
+
+### Hányadoskritérium
+
+Legyen $S$ statisztika, $x,y$ minta. $S$ pontosan akkor elégséges, ha:
+
+$S(x) = S(y) \Rarr \frac{f_{\vartheta}(x)}{f_{\vartheta}(y)}$ nem függ $\vartheta$-tól $\mu \times \mu$ domináló szorzatmérték szerint.
+
+Legyen $S$ statisztika, $x,y$ minta. $S$ pontosan akkor minimálisan elégséges, ha:
+
+$S(x) = S(y) \Longleftrightarrow \frac{f_{\vartheta}(x)}{f_{\vartheta}(y)}$ nem függ $\vartheta$-tól $\mu \times \mu$ domináló szorzatmérték és $(x,y) \isin \mathcal{X}^2$ szerint.
+
+
 
 ## III. Többdimenziós norm. eloszlás, nemcentrális Khi-négyzet eloszlás
 
