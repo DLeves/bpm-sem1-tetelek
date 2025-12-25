@@ -163,22 +163,35 @@ Ha a két fv m.m. megegyezik, akkor az integráljuk is. Ilyenkor $g$ majorálja 
 
 ### Külső mértékek
 
-**Szubadditív külső mérték:**
+$\alpha$ külső mérték: $\mathcal{A} \sube \mathcal{P}(X)$ halmazrendszeren, $\alpha(\empty) = 0$ és $\alpha \ge 0$, $\alpha: \mathcal{A} \rarr \overline \R$. $A_1, A_2, ... \in \mathcal{A}$ halmazokra $\alpha(\cup_{i=1}^{\infty} A_i) \le \sum_{i=1}^{\infty} \alpha(A_i)$
 
+$\empty \isin \mathcal{A} \sube \mathcal{P}(X), \; \alpha \ge 0$-ra:
+$\varphi_\alpha(H) = \inf \{ \sum \alpha(A_i) \mid \cup A_i \gt H_i ; A_i \isin \mathcal{A}\}$
 
+Legyen $\mathcal{l}_\alpha$ egy külső mérték $\mathcal{P(X)}$-en, ha $\alpha$ egy külső mérték az $\mathcal{A}: \varphi_\alpha \mid \mathcal{A} = \alpha$-n.
+
+Legyen $\mathcal{M}_{\varphi_\alpha \subset \mathcal{P}(X) \; \sigma}$-algebra, ekkor: $(X, \mathcal{M}, \mu)$ teljes mértéktér.
 
 
 ### Lebesque mérték
 
+Legyen $X = \R^n, \; \mathcal{A} = $ téglatér és $\alpha$ a térfogat mérték, ekkor a $\varphi_\alpha$ külső mérték a Lebesque-mérték $\lambda_n$.
+
 ### Lebesque-mérhető halmazok
+
+Egy $H \sube \R^n$ halmaz Lebesque-mérhető, ha $\forall A \sube \R^n$-re: $\lambda_n(A) = \lambda_n(A \cap H) + \lambda_n(A \setminus H)$. Jelölése: $\mathcal{L}_p$ a Lebesque-mérhető $\sigma$-algebra.
 
 ### Lebesque-Stieljes mérték
 
+Legyen $f: \R \rarr \R$ monoton növekvő és jobbról folytonos, ekkor a $\mu_f((a,b]) = f(b) - f(a)$ definiál egy félgyűrű mértéket a téglatéren. Ebből kiterjeszthető egy teljes mértéktérre, ez a Lebesque-Stieljes mérték. Jelölése: $\mu_f$.
+
 ## IV. Riemann-, Riemann-Stieljes integrál, modern kontextusban. Mértéktartó leképezések
 
+### Riemann integrál
 
+### Riemann-Stieljes integrál
 
-
+### Mértéktartó leképezések
 
 ## V. Előjeles mértékek és variációik, felbontások
 
