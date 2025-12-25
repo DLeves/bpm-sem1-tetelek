@@ -161,9 +161,23 @@ Ha a két fv m.m. megegyezik, akkor az integráljuk is. Ilyenkor $g$ majorálja 
 
 ## III. Mértékek kiterjesztése. Lebesque- és Lebesque-Stieljes mérték
 
+### Külső mértékek
+
+**Szubadditív külső mérték:**
 
 
-## IV. Riemann- , Riemann-Stieljes integrál, modern kontextusban. Mértéktartó leképezések
+
+
+### Lebesque mérték
+
+### Lebesque-mérhető halmazok
+
+### Lebesque-Stieljes mérték
+
+## IV. Riemann-, Riemann-Stieljes integrál, modern kontextusban. Mértéktartó leképezések
+
+
+
 
 
 ## V. Előjeles mértékek és variációik, felbontások
@@ -392,6 +406,113 @@ Legyenek Legyen $\underline x, \underline y: \Omega \rarr \R^n$ val. változók 
 
 ## III. Várható érték, magasabb momentumok, kapcsolódó egyenlőtlenségek
 
+### Várható érték
+
+$x: \Omega \rarr \R$ esetén $\mathbb{E}(x) = \int_\R x \; dQ_x = \int_\Omega X \; dP$
+
+- $x: \Omega \rarr \R^{n \times m} \quad (X:\Omega \rarr \R)$ esetben elemenként számoljuk a várható értéket
+- Ha a sűrűségfüggvény absz. folyt. $\lambda$ Lebesque mértékre, akkor $\mathbb{E}(X) = \int_\R t f_x(t) \; d\lambda$ Lebesque integrál.
+
+Tulajdonságok:
+- Nem biztos, hogy létezik és értelmes
+- $\mathbb{E}(X + Y) = \mathbb{E}(X) + \mathbb{E}(Y)$
+- $\mathbb{E}(c \cdot X) = c \cdot \mathbb{E}(X)$
+- $\mathbb{E}(X \cdot Y) = \mathbb{E}(X) \cdot \mathbb{E}(Y)$, amennyiben X és Y függetlenek és véges várható értékűek.
+
+### Szóráségyzet
+
+Legyen $X$ valószínűségi változó véges várható értékkel, akkor a szórásnégyzet($\mathrm{Var}(X)$, $D^2(X)$):
+
+$\mathrm{Var}(X) = \mathbb{E}((X - \mathbb{E}(X))^2) = \mathbb{E}(X^2) - (\mathbb{E}(X))^2$
+
+Tulajdonságok:
+- $\mathrm{Var}(X) \ge 0$
+- $\mathrm{Var}(X) = 0 \iff P(X = \mathbb{E}(X)) = 1$, azaz ha a valószínűségi változó m.m. 1 valószínűséggel konstans akkor a szórásnégyzet 0
+- $\mathrm{Var}(c \cdot X) = c^2 \cdot \mathrm{Var}(X)$
+- Ha $X, Y$ független valószínűségi változók, akkor $\mathrm{Var}(X + Y) = \mathrm{Var}(X) + \mathrm{Var}(Y)$ és $\mathrm{Cov}(X,Y) = 0$
+- Amennyiben $X, Y$ valószínűségi változók nem feltétlenül függetlenek, akkor $\mathrm{Var}(X + Y) = \mathrm{Var}(X) + \mathrm{Var}(Y) + 2 \cdot \mathrm{Cov}(X,Y)$
+
+### Magasabb momentumok
+
+**k-adik momentum:**
+
+$\mathbb{E}(\vert X \vert^k), \quad k \in \N^+$ a k-adik abszolút momentum
+
+**k-adik centrált momentum:**
+
+$\mathbb{E}(\vert X - \mathbb{E}(X) \vert^k), \quad k \in \N^+$ a k-adik centrált abszolút momentum
+
+(a 2. centrált momentum a variancia)
+
+### Kovariancia
+
+Kovariancia két valószínűségi változó között:
+
+$\mathrm{Cov}(X,Y) = \mathbb{E}((X - \mathbb{E}(X)) \cdot (Y - \mathbb{E}(Y))) = \mathbb{E}(X \cdot Y) - \mathbb{E}(X) \cdot \mathbb{E}(Y)$
+
+Tulajdonságok:
+- $\mathrm{Cov}(X,X) = \mathrm{Var}(X)$
+- $\mathrm{Cov}(a \cdot X, b \cdot Y) = a \cdot b \cdot \mathrm{Cov}(X,Y)$
+- $\mathrm{Cov}(X + Y, Z) = \mathrm{Cov}(X,Z) + \mathrm{Cov}(Y,Z)$
+- $a$ konstans esetén $\mathrm{Cov}(X, a) = 0$
+- Ha $X, Y$ független valószínűségi változók, akkor $\mathrm{Cov}(X,Y) = 0$
+
+### Kovariancia mátrix
+
+Legyen $\underline X = (X_1, X_2, ..., X_n): \Omega \rarr \R^n$ valószínűségi változó, akkor a kovariancia mátrix:
+
+$\Sigma = \mathbb{E}\left( (\underline X - \mathbb{E}(X)) \cdot (\underline X - \mathbb{E}(X))^T \right)$
+
+vagyis:
+
+$
+\Sigma = \begin{bmatrix}
+\mathrm{Var}(X_1) & \mathrm{Cov}(X_1, X_2) & ... & \mathrm{Cov}(X_1, X_n) \\
+\mathrm{Cov}(X_2, X_1) & \mathrm{Var}(X_2) & ... & \mathrm{Cov}(X_2, X_n) \\
+... & ... & ... & ... \\
+\mathrm{Cov}(X_n, X_1) & \mathrm{Cov}(X_n, X_2) & ... & \mathrm{Var}(X_n)
+\end{bmatrix}
+$
+
+Tulajdonságok:
+- $\Sigma$ szimmetrikus mátrix
+- $\Sigma$ pozitív szemidefinit mátrix
+- Ha $X_1, X_2, ..., X_n$ független valószínűségi változók, akkor $\Sigma$ diagonális mátrix
+
+### Korrelációs együttható
+
+A korrelációs együttható két valószínűségi változó között:
+$R(X,Y) = \frac{\mathrm{Cov}(X,Y)}{\sqrt{\mathrm{Var}(X)} \cdot \sqrt{\mathrm{Var}(Y)}}$
+
+Tulajdonságok:
+- $-1 \le R(X,Y) \le 1$
+- X és Y kapcsolatát normalizálva mutatkja meg, lineáris az összefüggésük:
+    - $R(X,Y) = 1 \iff$ létezik olyan $a > 0$ és $b \in \R$, hogy $P(Y = a \cdot X + b) = 1$
+    - $R(X,Y) = -1 \iff$ létezik olyan $a < 0$ és $b \in \R$, hogy $P(Y = a \cdot X + b) = 1$
+- Ha $X, Y$ független valószínűségi változók, akkor $R(X,Y) = 0$
+
+### Egyenlőtlenségek
+
+**Jensen-egyenlőtlenség:**
+
+Legyen $\mathbb{E}(X)$ létező várható értékű valószínűségi változó és $f: \R \rarr \R$ konvex függvény, akkor:
+
+$f(\mathbb{E}(X)) \le \mathbb{E}(f(X))$
+
+Konvex függvény két pont közötti szakasza a függvény felett helyezkedik el.
+
+**Minkowski-egyenlőtlenség:**
+
+Ha $p \ge 1$ és $X, Y$ valószínűségi változók és $\Vert x \Vert_p = \mathbb{E}(\vert x \vert^p)^{\frac{1}{p}}$, ekkor a norma kielégíti a háromszög-egyenlőtlenséget:
+
+$\Vert X + Y \Vert_p \le \Vert X \Vert_p + \Vert Y \Vert_p$
+
+**Hölder-egyenlőtlenség:**
+
+Legyenek $p, q \ge 1$ úgy, hogy $\frac{1}{p} + \frac{1}{q} = 1$ és $X, Y$ valószínűségi változók, akkor:
+
+$\mathbb{E}(\vert X \cdot Y \vert) \le \Vert X \Vert_p \cdot \Vert Y \Vert_q = \mathbb{E}(\vert X \vert^p)^{\frac{1}{p}} \cdot \mathbb{E}(\vert Y \vert^p)^{\frac{1}{p}}$
+
 
 ## IV. Valószínűségi változók konvergenciája, 1 valószínűség, $L_p$-beli sztochasztikus konvergencia, kapcsolatok és eszközei
 
@@ -576,6 +697,85 @@ $S(x) = S(y) \Longleftrightarrow \frac{f_{\vartheta}(x)}{f_{\vartheta}(y)}$ nem 
 
 ## III. Többdimenziós norm. eloszlás, nemcentrális Khi-négyzet eloszlás
 
+### Többdimenziós normális eloszlás
+
+Legyen $\underline X = (X_1, X_2, ..., X_n): \Omega \rarr \R^n$ valószínűségi változó, akkor $\underline X$ többdimenziós normális eloszlású, ha minden $\underline a \in \R^n$-re az egydimenziós valószínűségi változó $\underline a^T \cdot \underline X$ normális eloszlású.
+
+#### Sűrűségfüggvény
+
+T.f.h. $\underline X \sim N_n(\underline \mu, \Sigma)$, ahol $\underline \mu = \mathbb{E}(\underline X) \in \R^n$ és $\Sigma = \mathrm{Cov}(\underline X)$ pozitív szemidefinit mátrix, akkor $\underline X$ sűrűségfüggvénye:
+
+$f_(\underline x) = (2\pi)^{-\frac{n}{2} \cdot e^{-\frac{\sum_{i=1}^n x_i^2}{2}}}$
+
+**Tulajdonságok**:
+- $\underline X$ komponensei függetlenek $\iff \Sigma$ diagonális mátrix
+- gömbszimmetrikus eloszlás: elég tudni, hogy x milyen távol van a középponttól
+- alap forma: $f(x) = \frac{1}{\sigma \sqrt{2\pi}} \cdot e^{-\frac{(x-\mu)^2}{2\sigma^2}}$
+- alap std. norm. forma: $f(x) = \frac{1}{\sqrt{2\pi}} \cdot e^{-\frac{x^2}{2}}$
+
+**Lineáris transzformációk:**
+
+Legyen x n-dimen std. norm. eloszlású, $A \isin \R^{k \times n}, m \isin \R^k$, akkor $y = A \cdot x + m$ k-dimenziós eloszlású. Ekkor $y \sim N_k(m, A \cdot A^T)$
+
+- Ha $A$ nem-elfajuló mátrix, akkor absz. folyt. a $k$-dimenziós Lebesque mértékre és sűrűségfüggvénye megadható a várható érték és a kovariancia mátrix segítségével: $f_y(y) = \frac{1}{(2\pi)^{\frac{k}{2}} \cdot det(\Sigma)^{\frac{1}{2}}} \cdot e^{-\frac{1}{2} (y-m)^T \cdot (\Sigma)^{-1} \cdot (y-m)}$
+
+- $B \isin \R^{\mathcal{l} \ times n}, \; n \isin \R^{\mathcal{l}}$, akkor $z = B \cdot y + n$ is $\mathcal{l}$-dimenziós normális eloszlású, $z \sim N_{\mathcal{l}}(B \cdot m + n, B \cdot A \cdot A^T \cdot B^T)$
+
+- Ha $\underline y \isin \R^2$ vektort két részre bontjuk: $\underline y = \begin{bmatrix} \underline y_1 \\ \underline y_2 \end{bmatrix}$, akkor $\underline y_1$ és $\underline y_2$ is normális eloszlású, továbbá függetlenek, ha a kovariancia mátrixukban a megfelelő helyeken 0 szerepel.
+
+#### Függetlenség
+
+Legyen $\underline y \isin \R^2$ vektort két részre bontjuk: $\underline y = \begin{bmatrix} \underline y_1 \\ \underline y_2 \end{bmatrix}$, akkor $\underline y_1$ és $\underline y_2$-ra a kovariancia mátrix $2\times 2$ blokkmátrix lesz:
+
+$ \Sigma = \begin{bmatrix}
+\Sigma_{11} & \Sigma_{12} \\
+\Sigma_{21} & \Sigma_{22}
+\end{bmatrix} $
+
+Amennyiben $\underline y$ normális eloszlásű volt, úgy $\Sigma_{12} = \Sigma_{21} = 0$, akkor $\underline y_1$ és $\underline y_2$ függetlenek. A nulla kovariancia szükséges és elégséges feltétel a függetlenségre, ha egy $\underline y$-ból jönnek. Fordítva nem igaz, hogy nulla kovariancia esetén függetlenek lennének.
+
+**Két független normális eloszl. kovariancia mátrixa:**
+
+Legyen $\underline y = N(m, \Sigma)$ esetén:
+
+$ Ay + b $ és $ Cy + d $ függetlenek $\Longleftrightarrow A \cdot \Sigma \cdot C^T = 0$
+
+**Szingularitás esetén:**
+
+Ha $\Sigma$ nem szinguláris $\underline y = \begin{bmatrix} \underline y_1 \\ \underline y_2 \end{bmatrix}$-ra, akkor $\underline y_1$ és $\underline y_2$ függetlenek $\iff \Sigma_{12} = \Sigma_{21} = 0$
+
+**Feltételes eloszlás:**
+
+Legyen $\underline y = \begin{bmatrix} \underline y_1 \\ \underline y_2 \end{bmatrix} \sim N(m, \Sigma)$, ahol
+
+$P(y_1 \mid y_2) \sim N(m_{1|2}, \Sigma_{1|2})$ továbbra is normális eloszlású és a feltételes várható érték megadható a kovariancia mátrix segítségével:
+
+$m_{1|2} = m_1 + \Sigma_{12} \cdot \Sigma_{22}^{-1} \cdot (y_2 - m_2) \Rarr$ a várható érték lineáris függvénye a feltételnek
+
+$\Sigma_{1|2} = \Sigma_{11} - \Sigma_{12} \cdot \Sigma_{22}^{-1} \cdot \Sigma_{21} \Rarr$ a kovariancia mátrix nem függ a feltételtől
+
+### Nemcentrális Khi-négyzet eloszlás
+
+Legyenek $X_1, X_2, ..., X_n$ független normális eloszlású valószínűségi változók, ahol $X_i \sim N(0,1)$, akkor a következő valószínűségi változó nemcentrális Khi-négyzet eloszlású:
+
+$\sum_{j = 1}^n x_j^2 = \Vert x \Vert^2$ n szabadságfokú $\chi^2$ eloszlású.
+
+$ \Vert \underline u \Vert_2 = \sqrt{\sum_{i=1}^n u_i^2}$ 2-es norma, ha $\underline u \isin \R^n$.
+
+Ha $\underline Y \sim N(m, Id) \Rarr \Vert \underline Y \Vert_2^2$ eloszlása csak $\Vert m \Vert_2^2$-től függ, azaz a várható érték vektortól, ez a $\lambda$ paraméter a nemcentrálisitás paramétere.
+
+**Ortogonális felbontás alterekre**
+
+Legyen $\underline x \sim N_n(m, \sigma^2 Id),\; \R^n = L_1 \oplus L_2 \oplus ... \oplus L_k, \; \dim L_i = r_i$  (ortogonális felbontás alterekre), akkor: $P_i$ vetítés mátrixa $L_i$-re, $\; \underline x_i = P_i\underline x,\; \underline m_i = P_i \underline m$
+
+Ebből következik, hogy:
+$ \underline x_i \sim N_{ri}(\underline m_i, \sigma^2 P_i)$ és $\Vert x_i \Vert_2^2 \sim \sigma^2 x_{ri}^2 [\frac{\Vert \underline m_i \Vert^2}{\sigma^2}]$
+
+**Nem-szingularitás esetén:**
+
+Ha $\Sigma$ nem szinguláris, akkor $\underline X \sim N_n(m, \Sigma)$ esetén:
+
+$\underline x^T \cdot \Sigma^{-1} \cdot \underline x \sim \chi_n^2[\underline m^T \cdot \Sigma^{-1} \cdot \underline m]$
 
 ## IV. Becslések elmélete, Blackwell-izálás
 
