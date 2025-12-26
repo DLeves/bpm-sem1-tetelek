@@ -193,6 +193,16 @@ Legyen $f: \R \rarr \R$ monoton növekvő és jobbról folytonos, ekkor a $\mu_f
 
 ### Mértéktartó leképezések
 
+$(X, \mathcal{M}, \mu) \xrightarrow{f} (Y, \mathcal{N}, \nu)$ mértéktartó leképezés, ha:
+
+ $\forall B \in \mathcal{N}: f^{-1}(B) \in \mathcal{M}$ és $\mu(f^{-1}(B)) = \nu(B)$
+
+ Tulajdonságok:
+- Legyen $h: Y \rarr \R$, és $f: X \rarr Y$ mértéktartó, ha $\int_x h \; d\mu = \int_y h \; d\nu$
+- $(X, \mathcal{M}, \mu) \xrightarrow{f} (Y, \mathcal{N}, \nu)$ mértéktartó leképezés, ha $h: Y \rarr \R$ mérhető, akkor $h \circ f: X \rarr \R$ is mérhető és $\int_X h \circ f \; d\mu = \int_Y h \; d\nu$
+
+
+
 ## V. Előjeles mértékek és variációik, felbontások
 
 
@@ -529,8 +539,58 @@ $\mathbb{E}(\vert X \cdot Y \vert) \le \Vert X \Vert_p \cdot \Vert Y \Vert_q = \
 
 ## IV. Valószínűségi változók konvergenciája, 1 valószínűség, $L_p$-beli sztochasztikus konvergencia, kapcsolatok és eszközei
 
+**Mértékelmeleti konvergenciák:**
+
+- monoton konvergencia tétel: Ha $X_n \xrightarrow{n \rarr \infty} X$ és $X_n \le X_{n+1}\; \forall n$, akkor $\lim\limits_{n \rarr \infty} \mathbb{E}(X_n) = \mathbb{E}(X)$
+- Fatou-lemma: $X_n \ge 0$ valószínűségi változók, akkor $\mathbb{E}(\liminf\limits_{n \rarr \infty} X_n) \le \liminf\limits_{n \rarr \infty} \mathbb{E}(X_n)$
+- Lebesuqe-dominált konvergencia tétel: Ha $X_n \xrightarrow{1 \; p.} X$ és létezik olyan $Y$ valószínűségi változó, hogy $\forall n: \vert X_n \vert \le Y$ és $\mathbb{E}(Y) \lt \infty$, akkor $\lim\limits_{n \rarr \infty} \mathbb{E}(X_n) = \mathbb{E}(X)$
+
+**1 valószínűséggel konvergencia:**
+
+$X_n \xrightarrow{1 \; p.} X \iff P(\{ \omega \in \Omega: \lim\limits_{n \rarr \infty} X_n(\omega) = X(\omega) \}) = 1$
+
+**L_p-beli konvergencia:**
+
+$X_n \xrightarrow{L_p} X \iff \lim\limits_{n \rarr \infty} \mathbb{E}(\vert X_n - X \vert^p) = 0$
+
+**Sztochasztikus konvergencia:**
+
+$X_n \xrightarrow{sztoch.} X \iff \forall \epsilon > 0: \lim\limits_{n \rarr \infty} P(\vert X_n - X \vert \ge \epsilon) = 0$
+
+
+**Kapcsolatok:**
+- $X_n \xrightarrow{1 \; p.} X \Rarr X_n \xrightarrow{sztoch.} X$
+- $X_n \xrightarrow{L_p} X \Rarr X_n \xrightarrow{sztoch.} X$
+- $X_n \xrightarrow{L_p} X \Rarr X_n \xrightarrow{L_q} X, \quad p \ge q \ge 1$
+
+**Riesz-lemma:**
+
+Ha $X_n \xrightarrow{sztoch.} X$, akkor létezik olyan részhalmaz $X_{n_k}$, hogy $X_{n_k} \xrightarrow{1 \; p.} X$.
+
+**Egyenletes integrálhatóság:**
+
+Legyen $X \isin L_1 \; \mathbb{E}(\vert x \vert) \lt \infty \; H \subset L_1(P)$, $H$ egyeneletesen integrálható, ha:
+
+$\sup \int\limits_{x \isin H \, \{ x \gt c\}} \vert x \vert dP \xmapsto{x \rarr \infty} 0$
+
+Átfogalmazva $H$ egyenletesen integrálható, ha $\mathbb{E}(x) \lt \infty$ és kicsi halmazokon egy korláton belül marad az integrál értéke.
+
+L_p-beli konvergencia ekvivalens azzal, hogy sztochasztikusan konvergál és $\forall \; \vert x_n \vert^p$ képzett halmaz egyenletesen integrálható.
+
+**Vallée-Poussin tétel:**
+
+Egy $H \subset L_1(P)$ halmaz egyenletesen integrálható, ha:
+
+$\lim\limits_{x \rarr \infty} \frac{f(x)}{x} = \infty$ és $\sup\limits_{x \in H} \mathbb{E}(f(\vert x \vert)) \lt \infty$.
+
+Vagyis létezik olyan növekvő függvény, ami gyorsabban nő, mint az identitás($x$) és a halmaz elemeinek képeire vett várható értékek korlátosak.
+
+**Scheffé állítás:**
+
+Legyen $x_n \ge 0$ és $X_n \rarr X$ 1 valószínűséggel, valamint $\mathbb{E}(X_n) \rarr \mathbb{E}(X)$, akkor $X_n \xrightarrow{L_1} X$.
 
 ## V. Valószínűségi változók gyenge és eloszlásbeli konvergenciája, karakterisztikus függvény
+
 
 
 ## VI. Nagy számok gyenge és erős törvényei, független sorok
