@@ -21,14 +21,14 @@ Alapfogalmak:
 - **Algebra**: ha $A, B \in \mathcal{A}$ esetén $X \setminus A \in \mathcal{A}$
 - **$\sigma$-algebra**: $\mathcal{A} \sube \mathcal{P}(X)$ $\sigma$-algebra, ha:
     - $0, X \in \mathcal{A}$
-    - $a \in \mathcal{A} \Rarr \mathcal{A^c} := X \setminus A \in \mathcal{A}$
-    - $\mathcal{A_i} \in \mathcal{A}, i \in \N \Rarr \cup_{i=1}^{\infty} \mathcal{A_i} \in \mathcal{A}$
+    - $a \in \mathcal{A} \mapsto \mathcal{A^c} := X \setminus A \in \mathcal{A}$
+    - $\mathcal{A_i} \in \mathcal{A}, i \in \N \mapsto \cup_{i=1}^{\infty} \mathcal{A_i} \in \mathcal{A}$
 - **Generált $\sigma$-algebra**: Tetszőleges $\mathcal{U}$ rendszerhez $\exists$ egy legszűkebb $\sigma$-algebra ami tartalmazza $\mathcal{U}$-t, jelölés: $\sigma(\mathcal{U})$
 - **Borel $\sigma$-algebra**: A legkisebb $\sigma$-algebra, ami tartalmaz minden nyílt halmazt. Legyen $(X,\tau)$ topologikus tér, ekkor $B(X):= \sigma(\tau)$
 
 ### Halmazfüggvények
 
-$\alpha: \mathcal{A} \rarr \R$ halmazfüggvény, feltevések:
+$\alpha: \mathcal{A} \mapsto \R$ halmazfüggvény, feltevések:
 - $\empty \in \mathcal{A}$ (tartalmazza az üreshalmazt)
 - $\alpha \ge 0$ (nemnegatív)
 - $\alpha(\empty) = 0$ (üreshalmaz mértéke 0)
@@ -46,29 +46,29 @@ Topologikus tér ($(X,\tau)$) egy általánosított metrikus tér. A metrikus t�
 
 ### Mérhető leképezés
 
-Adott $(X, \mathcal{M})$ és $(Y, \mathcal{N})$ mérhető terek, az $f: X \rarr Y (\mathcal{M}, \mathcal{N})$ mérhető leképezés. Ekkor $\{ A \subset Y: f^{-1}(A) \in \mathcal{M} \}$ az halmazrendszer $\sigma$-algebra $Y$-on.
+Adott $(X, \mathcal{M})$ és $(Y, \mathcal{N})$ mérhető terek, az $f: X \mapsto Y (\mathcal{M}, \mathcal{N})$ mérhető leképezés. Ekkor $\{ A \subset Y: f^{-1}(A) \in \mathcal{M} \}$ az halmazrendszer $\sigma$-algebra $Y$-on.
 
 Generált alterekkel tulajdonság:
 
 $U \subset \mathcal{P}(Y) \; \forall u \isin U: f^{-1}(u) \isin M$
-- $\forall u \isin \sigma(U)$-ra is $\rarr$ a generált altér is a $\sigma$-algebrában van
+- $\forall u \isin \sigma(U)$-ra is $\mapsto$ a generált altér is a $\sigma$-algebrában van
 - elég a generált alteret nézni, hogy mérhető-e 1-1 helyen, nem kell a teljeset
 
 ### Egyszerű függvények
 
-Legyen $(X, \mathcal{M})$ mérhető tér, ekkor az $f: x \rarr \R$ leképezést egyszerű függvénynek nevezzük, ha mérhető és értékkészlete véges. Ha $f,g$ egyszerű függvény, akkor $f+g$, $f \cdot g$, $max(f,g)$, $min(f,g)$ is egyszerű függvény, így mérhető is.
+Legyen $(X, \mathcal{M})$ mérhető tér, ekkor az $f: x \mapsto \R$ leképezést egyszerű függvénynek nevezzük, ha mérhető és értékkészlete véges. Ha $f,g$ egyszerű függvény, akkor $f+g$, $f \cdot g$, $max(f,g)$, $min(f,g)$ is egyszerű függvény, így mérhető is.
 
 Az egyszerű függvény előáll $f= \sum_{i=1}^{k} c_i \chi_{A_i}$-ból, ahol
 - $c_i$ a súlyozás
 - $\chi_{A_i}$ indikátorfüggvény
 
-**Egyenletes konvergencia**: Legyen $f: X \rarr \overline\R$ mérhető, ekkor megadható $f_i$ egyszerű függvények sorozata úgy, hogy 
+**Egyenletes konvergencia**: Legyen $f: X \mapsto \overline\R$ mérhető, ekkor megadható $f_i$ egyszerű függvények sorozata úgy, hogy 
 - monoton nőnek
-- $f_i \rarr f$
+- $f_i \mapsto f$
 - $\{ x: f(x) \lt a\}$-n egyenletesen konvergens
 
 **Suprémum és infinimum**:
-$f_n: X \rarr \overline \R$ mérhető $\Rarr \sup f_n, \inf f_n, \lim\sup f_n, \lim\sup f_n$ is mérhetők
+$f_n: X \mapsto \overline \R$ mérhető $\mapsto \sup f_n, \inf f_n, \lim\sup f_n, \lim\sup f_n$ is mérhetők
 - $\sup f_n$: a függvény legmagasabb értéke az adott pontban
 - $\lim\sup f_n$: a legmagasabb érték, amit elér a függvény, ahogy halad $\infty$ felé
 
@@ -76,7 +76,7 @@ Infinimum hasonlóan, csak legkisebb értékkel.
 
 ### Mérték
 
-Legyen (X, \mathcal{M}) mérhető tér, a $\mu: \mathcal{M} \rarr \overline\R$ leképezést mértéknek nevezzük, ha
+Legyen (X, \mathcal{M}) mérhető tér, a $\mu: \mathcal{M} \mapsto \overline\R$ leképezést mértéknek nevezzük, ha
 1. $\mu \ge 0$
 2. $\mu(\empty) = 0$
 3. $H_n \in \mathcal{M}, H_n \cap H_k = 0$ esetén $\mu(\cup_{i=1}^{\infty} H_i) = \sum_{i=1}^{\infty} \mu(H_i)$
@@ -99,7 +99,7 @@ Ekkor $f$ függvény $H$-n vett $\mu$ szerinti integrálja:
 $\int_H f \, d\mu = \sum_{k=1}^n c_k \cdot \mu(H \cap A_k)$
 
 - Vagyis a halamzok mértéke súlyozva a függvényértékkel
-- Ami nem más, mint a $c_k$ magasságokkal az $A_k$ hosszok szorozva $\Rarr$ terület
+- Ami nem más, mint a $c_k$ magasságokkal az $A_k$ hosszok szorozva $\mapsto$ terület
 
 **Megjegyzések**:
 
@@ -109,7 +109,7 @@ Adott $0 \le g \le f$ mérhető függvények és $A \subset B$ halmazok, ekkor
 
 - $g \mid_A \equiv c$ (konstans) esetén $\int_A f \; d\mu = c \cdot \mu(A)$ (megj: $g \mid_A$ a $g$ függvény megszorítva $A$ pontra/környezetére)
 
-- $\mu(A) = 0 \Rarr \int_A f \; d\mu = 0$, vagyis üres halmazon integrálva nullát kapunk
+- $\mu(A) = 0 \mapsto \int_A f \; d\mu = 0$, vagyis üres halmazon integrálva nullát kapunk
 
 - $\int_A f \; d\mu = \int_b f \cdot \chi_A \; d\mu$, vagyis $A$-n vett integrál megegyezik a $B$-n vett $f$ és az indikátorfüggvény szorzatának integráljával.
 
@@ -129,9 +129,9 @@ $\int_H f \; f\mu = \sup \{\int_H g \; d\mu: 0 \le g \le f \}$, g egyszerű füg
 - $L_1 = \int \mid f \mid \; d\mu$ értelmes és véges
 ### Monton konvergencia tétel
 
-Legyen $0 \le f_1 \le ... \le f_n$ m.m. monoton növekvő, $\lim_{n \rarr \infty} f_n = f$ pontonként konvergáló, mérhető függvénysorozat.
+Legyen $0 \le f_1 \le ... \le f_n$ m.m. monoton növekvő, $\lim_{n \mapsto \infty} f_n = f$ pontonként konvergáló, mérhető függvénysorozat.
 
-Ekkor az inegrál is konvergál $\lim_{n \rarr \infty} \int_X f_n \; d\mu = \int_x f \; d\mu$ 
+Ekkor az inegrál is konvergál $\lim_{n \mapsto \infty} \int_X f_n \; d\mu = \int_x f \; d\mu$ 
 
 Ilyen tételek miatt sokszor jobb a Lebesque integrál a Riemann integrálnál.
 
@@ -153,7 +153,7 @@ $\int_A \liminf f_n \; d\mu \le \liminf \int_A f_n \; d\mu$
 
 ### Lebesque-dominált konvergencia tétel
 
-$f_n$ mérhető és $\mid f_n \mid \le g, \quad g \isin L_1$, ekkor $f_n \rarr f$, valamint:
+$f_n$ mérhető és $\mid f_n \mid \le g, \quad g \isin L_1$, ekkor $f_n \mapsto f$, valamint:
 
 $\int_X f \; d\mu = lim \int_x f_n \; d\mu$
 
@@ -163,7 +163,7 @@ Ha a két fv m.m. megegyezik, akkor az integráljuk is. Ilyenkor $g$ majorálja 
 
 ### Külső mértékek
 
-$\alpha$ külső mérték: $\mathcal{A} \sube \mathcal{P}(X)$ halmazrendszeren, $\alpha(\empty) = 0$ és $\alpha \ge 0$, $\alpha: \mathcal{A} \rarr \overline \R$. $A_1, A_2, ... \in \mathcal{A}$ halmazokra $\alpha(\cup_{i=1}^{\infty} A_i) \le \sum_{i=1}^{\infty} \alpha(A_i)$
+$\alpha$ külső mérték: $\mathcal{A} \sube \mathcal{P}(X)$ halmazrendszeren, $\alpha(\empty) = 0$ és $\alpha \ge 0$, $\alpha: \mathcal{A} \mapsto \overline \R$. $A_1, A_2, ... \in \mathcal{A}$ halmazokra $\alpha(\cup_{i=1}^{\infty} A_i) \le \sum_{i=1}^{\infty} \alpha(A_i)$
 
 $\empty \isin \mathcal{A} \sube \mathcal{P}(X), \; \alpha \ge 0$-ra:
 $\varphi_\alpha(H) = \inf \{ \sum \alpha(A_i) \mid \cup A_i \gt H_i ; A_i \isin \mathcal{A}\}$
@@ -183,13 +183,41 @@ Egy $H \sube \R^n$ halmaz Lebesque-mérhető, ha $\forall A \sube \R^n$-re: $\la
 
 ### Lebesque-Stieljes mérték
 
-Legyen $f: \R \rarr \R$ monoton növekvő és jobbról folytonos, ekkor a $\mu_f((a,b]) = f(b) - f(a)$ definiál egy félgyűrű mértéket a téglatéren. Ebből kiterjeszthető egy teljes mértéktérre, ez a Lebesque-Stieljes mérték. Jelölése: $\mu_f$.
+Legyen $f: \R \mapsto \R$ monoton növekvő és jobbról folytonos, ekkor a $\mu_f((a,b]) = f(b) - f(a)$ definiál egy félgyűrű mértéket a téglatéren. Ebből kiterjeszthető egy teljes mértéktérre, ez a Lebesque-Stieljes mérték. Jelölése: $\mu_f$.
 
 ## IV. Riemann-, Riemann-Stieljes integrál, modern kontextusban. Mértéktartó leképezések
 
 ### Riemann integrál
 
+Legyen $f: [a,b] \mapsto \R$ korlátos függvény, valamint $P = \{ x_0, x_1, ... , x_n \}$ egy felosztás $[a,b]$-n, ahol $a = x_0 \lt x_1 \lt ... \lt x_n = b$. Ekkor az $i$-edik részintervallumon:
+
+- $m_i = \inf\{ f(x): x \in [x_{i-1}, x_i] \}$
+- $M_i = \sup\{ f(x): x \in [x_{i-1}, x_i] \}$
+- $\Delta x_i = x_i - x_{i-1}$
+
+Ekkor a felül- és alulösszeg:
+- $U(f,P) = \sum_{i=1}^{n} M_i \cdot \Delta x_i$
+- $L(f,P) = \sum_{i=1}^{n} m_i \cdot \Delta x_i$
+
+A $f$ függvényt Riemann-integrálhatónak nevezzük, ha $\sup\{ L(f,P): P \}$ = $\inf\{ U(f,P): P \}$. Ekkor az integrál értéke:
+
+$\int_a^b f(x) \; dx = \sup\{ L(f,P): P \} = \inf\{ U(f,P): P \}$
+
 ### Riemann-Stieljes integrál
+
+Legyen $f,g: [a,b] \mapsto \R$ korlátos függvények, valamint $P = \{ x_0, x_1, ... , x_n \}$ egy felosztás $[a,b]$-n, ahol $a = x_0 \lt x_1 \lt ... \lt x_n = b$. Ekkor az $i$-edik részintervallumon:
+
+- $m_i = \inf\{ f(x): x \in [x_{i-1}, x_i] \}$
+- $M_i = \sup\{ f(x): x \in [x_{i-1}, x_i] \}$
+- $\Delta g_i = g(x_i) - g(x_{i-1})$
+
+Ekkor a felül- és alulösszeg:
+- $U(f,g,P) = \sum_{i=1}^{n} M_i \cdot \Delta g_i$
+- $L(f,g,P) = \sum_{i=1}^{n} m_i \cdot \Delta g_i$
+
+A $f$ függvényt Riemann-Stieljes integrálhatónak nevezzük $g$ szerint, ha $\sup\{ L(f,g,P): P \}$ = $\inf\{ U(f,g,P): P \}$. Ekkor az integrál értéke:
+
+$\int_a^b f(x) \; dg(x) = \sup\{ L(f,g,P): P \} = \inf\{ U(f,g,P): P \}$
 
 ### Mértéktartó leképezések
 
@@ -198,12 +226,44 @@ $(X, \mathcal{M}, \mu) \xrightarrow{f} (Y, \mathcal{N}, \nu)$ mértéktartó lek
  $\forall B \in \mathcal{N}: f^{-1}(B) \in \mathcal{M}$ és $\mu(f^{-1}(B)) = \nu(B)$
 
  Tulajdonságok:
-- Legyen $h: Y \rarr \R$, és $f: X \rarr Y$ mértéktartó, ha $\int_x h \; d\mu = \int_y h \; d\nu$
-- $(X, \mathcal{M}, \mu) \xrightarrow{f} (Y, \mathcal{N}, \nu)$ mértéktartó leképezés, ha $h: Y \rarr \R$ mérhető, akkor $h \circ f: X \rarr \R$ is mérhető és $\int_X h \circ f \; d\mu = \int_Y h \; d\nu$
-
+- Legyen $h: Y \mapsto \R$, és $f: X \mapsto Y$ mértéktartó, ha $\int_x h \; d\mu = \int_y h \; d\nu$
+- $(X, \mathcal{M}, \mu) \xrightarrow{f} (Y, \mathcal{N}, \nu)$ mértéktartó leképezés, ha $h: Y \mapsto \R$ mérhető, akkor $h \circ f: X \mapsto \R$ is mérhető és $\int_X h \circ f \; d\mu = \int_Y h \; d\nu$
 
 
 ## V. Előjeles mértékek és variációik, felbontások
+
+### Előjeles mérték
+
+Legyen $(X, \mathcal{M})$ mérhető tér, az $\mu: \mathcal{M} \mapsto \overline \R$ leképezést előjeles mértéknek nevezzük, ha
+1. $\mu(\empty) = 0$
+2. $\mu \; \sigma$-additív
+
+### Variációk
+
+**Teljes variáció**:
+
+$\mid \mu \mid (A) = \sup \{ \sum_{i=1}^{n} \mid \mu(A_i) \mid \mid A = \cup_{i=1}^{n} A_i, A_i \cap A_j = \empty, A_i \in \mathcal{M} \}$
+
+**Pozitív variáció:**
+
+$\mu^+(A) = \sup \{ \mu(B) \mid B \subset A, B \in \mathcal{M} \}$
+
+**Negatív variáció:**
+
+$\mu^-(A) = -\inf \{ \mu(B) \mid B \subset A, B \in \mathcal{M} \}$
+
+### Jordan-felbontás
+
+$\mu = \mu^+ - \mu^-$ és $\mid \mu \mid = \mu^+ + \mu^-$
+
+Minden mérték előállítható két pozitív mérték különbségeként.
+
+### Hahn-felbontás
+
+Legyen $(X, \mathcal{M}, \mu)$ előjeles mértéktér, ekkor létezik $P, N \in \mathcal{M}$ olyan, hogy
+- $P \cup N = X, \; P \cap N = \empty$
+- $\forall A \in \mathcal{M}, A \subset P \mapsto \mu(A) \ge 0$
+- $\forall A \in \mathcal{M}, A \subset N \mapsto \mu(A) \le 0$
 
 
 ## VI. Abszolút folytonos és szinguláris mértékek, Lebesque-felbontás, Radon-Nikodym tétel, mértékek differenciálása
@@ -236,27 +296,27 @@ $(\Omega, \mathcal{A}, P)$ mértéktér, ahol
 
 ### Valószínűségi változó
 
-$x: \Omega \rarr \R$ valamilyen eseménytérből $(\mathcal{X}, B)$ mérhető térbe képező mérhető függvény.
+$x: \Omega \mapsto \R$ valamilyen eseménytérből $(\mathcal{X}, B)$ mérhető térbe képező mérhető függvény.
 
 ### Val. változó eloszlása
 
 Egy mérték $Q_x(B) = P(X^{-1}(B))$ mértéktartó transzformáció x-szerinti ősképének valószínűsége, $B \in \mathcal{B}$.
 - Mértéktartó az eloszlás, így $(\mathcal{X}, \mathcal{B}, Q_x)$ mértéktér lesz, sőt valószínűségi tér.
-- $Q_x(X) = P(X^{-1}(\mathcal{X})) = P(\Omega) \Rarr$ a mértéktér inverze a valószínűségi tér 
+- $Q_x(X) = P(X^{-1}(\mathcal{X})) = P(\Omega) \mapsto$ a mértéktér inverze a valószínűségi tér 
 
 #### Mértékterek szorzata és annak mérhetősége
 
 Több változót összeszorozva is val. változót kapunk. Eloszlása mértékteret alkot, hiszen mértéktereket tudunk szorozni.
 
-$(\Omega_i, \mathcal{A}_i, P_i)$ ahol $i \in I$-re $X_i: \Omega_i \rarr (\mathcal{X}_i, B_i) \quad (\Omega, \mathcal{A}, P) = \prod_{i = I} (\Omega_i, \mathcal{A}_i, P_i)$
+$(\Omega_i, \mathcal{A}_i, P_i)$ ahol $i \in I$-re $X_i: \Omega_i \mapsto (\mathcal{X}_i, B_i) \quad (\Omega, \mathcal{A}, P) = \prod_{i = I} (\Omega_i, \mathcal{A}_i, P_i)$
 
-$(\mathcal{X}, B) = \prod_{i \in I} (\mathcal{X}_i, B_i) \rarr$ csak a téglatér $X=(x_1 \times x_2 \times ...) \quad \Omega \rarr X$
+$(\mathcal{X}, B) = \prod_{i \in I} (\mathcal{X}_i, B_i) \mapsto$ csak a téglatér $X=(x_1 \times x_2 \times ...) \quad \Omega \mapsto X$
 
 $X$ mérhető $\iff \forall i$-re $X_i$ mérhető. 
 
 #### Margináns
 
-$X: \Omega \rarr \mathcal{X}$ val. változóból váltva, $X_i$ val. változó lesz $X$ marginálisa.
+$X: \Omega \mapsto \mathcal{X}$ val. változóból váltva, $X_i$ val. változó lesz $X$ marginálisa.
 
 - Szorzattérbe képez ~ peremeloszlás
 
@@ -269,7 +329,7 @@ $F_x$ meghatározza $Q_x$-et.
 Valós eset: $x \in \R^n$
 
 - $n=1$ esetén:
-    - $Q_x$ meghatározásához elég $Q_x((-\infty, t)) = P(X \lt t) \coloneqq F_x(t) \rarr$ eloszlásfüggvény a $t$ helyen
+    - $Q_x$ meghatározásához elég $Q_x((-\infty, t)) = P(X \lt t) \coloneqq F_x(t) \mapsto$ eloszlásfüggvény a $t$ helyen
 - $n \gt 1$ esetén:
     - $Q_x((-\infty, t_1) \times (-\infty, t_2) \times ... \times (-\infty, t_n)) = P(x_1 < t_1, ... , x_n < t_n) \coloneqq F_x(t_1, ..., t_n)$
 
@@ -278,20 +338,20 @@ Valós eset: $x \in \R^n$
 Minden ilyen tulajdonságú függvény eloszlásfüggvény:
 
 - $n=1$ esetén:
-    - Monoton növő $\Rarr$ nagyobb halmaznak nagyobb vagy egyenlő a mértéke
-    - $\lim\limits_{x \rarr -\infty} F_x(x) = 0, \; \lim\limits_{x \rarr \infty} F_x(x) = 1$
+    - Monoton növő $\mapsto$ nagyobb halmaznak nagyobb vagy egyenlő a mértéke
+    - $\lim\limits_{x \mapsto -\infty} F_x(x) = 0, \; \lim\limits_{x \mapsto \infty} F_x(x) = 1$
     - Balról folytonos
 
 - $n \gt 1$ esetén:
     - Monoton növő mindegyik koordinátában (változóban)
-    - $\lim\limits_{min(x_i) \rarr -\infty} F_x(\underline x) = 0, \; \lim\limits_{min(x_i) \rarr \infty} F_x(\underline x) = 1$
+    - $\lim\limits_{min(x_i) \mapsto -\infty} F_x(\underline x) = 0, \; \lim\limits_{min(x_i) \mapsto \infty} F_x(\underline x) = 1$
     - Balról folytonos mindegyik változójában
     - $\forall \underline a \lt \underline b \isin \R^n$-re (azaz minden koordinátában veszünk egyet, ami nagyobb, mint a másik):
         - $\sum_{\epsilon \isin \{ 0,1\}^n } (-1)^{1-\sum \epsilon_i} \cdot F_x(\epsilon \underline b + (1-\epsilon) \underline a) \ge 0$ = szita formula
 
 ### Sűrűségfüggvények
 
-$x$ változó $x: \Omega \rarr X$ $\mu$-re $x$ által indukált Q_x mérték absz. folytonos $x \ll \mu$, ($\mu \; \sigma$-véges és $(X,\mathcal{B}, \mu)$ mértéktér) ha $Q_x \ll \mu$, ekkor a sűrűségfüggvény a Radon-Nikodym derivált:
+$x$ változó $x: \Omega \mapsto X$ $\mu$-re $x$ által indukált Q_x mérték absz. folytonos $x \ll \mu$, ($\mu \; \sigma$-véges és $(X,\mathcal{B}, \mu)$ mértéktér) ha $Q_x \ll \mu$, ekkor a sűrűségfüggvény a Radon-Nikodym derivált:
 
 $
     f_x = \frac{dQ_x}{d\mu}
@@ -320,10 +380,10 @@ Azt szeretnénk, hogy $Q_x \circ h^{-1}(C) = \int_C g \; d(\mu \circ h^{-1}) = \
 
 $\frac{dQ_x \circ h^{-1}}{d\mu \circ h^{-1}} \xlongequal{kb.} f_x \circ h^{-1}$, viszont nem biztos, hogy $h^{-1}$ egyértelmű, erre kell a Doob-lemma:
 
-Legyne $h: \mathcal{X} \rarr Y, \; g: \mathcal{X} \rarr \R^n$ mérhető és $g$ mérhető a $h$ által generált $\sigma$-algebrára. Ekkor létezik: $l: Y \rarr \R^n$ mérhető függvény úgy, hogy $g = l \circ h$.
+Legyne $h: \mathcal{X} \mapsto Y, \; g: \mathcal{X} \mapsto \R^n$ mérhető és $g$ mérhető a $h$ által generált $\sigma$-algebrára. Ekkor létezik: $l: Y \mapsto \R^n$ mérhető függvény úgy, hogy $g = l \circ h$.
 
 - Ez az $l$ függvény összeköti a $g$-t és $h$-t, úgy megy tovább $Y$-ból $\R^{n}$-be, hogy megkapjuk $g$-t
-- Felhasználása: $f_x^h = \frac{dQ_x \mid_{\sigma(h)}}{d\mu \mid_{\sigma(h)}} \Rarr$ vagyis megszorítjuk a mértéket az adott $\sigma$-algebrára.
+- Felhasználása: $f_x^h = \frac{dQ_x \mid_{\sigma(h)}}{d\mu \mid_{\sigma(h)}} \mapsto$ vagyis megszorítjuk a mértéket az adott $\sigma$-algebrára.
 
 
 ### Sűrűségfüggvény spec. esetei
@@ -372,7 +432,7 @@ Legyen $X$ folytonos valószínűségi változó sűrűségfüggvénye $f_X(x)$:
 Tehát a valószínűségi változók függetlenek, ha minden változó által generált $\sigma$-algebrák együttes eseményrendszere független.
 
 **Ekvivalens állítások:**
-Legyenek $x = (x_1, ... , x_n): \Omega \rarr \R \;$ $n$ dimenziós val. változók, ekkor:
+Legyenek $x = (x_1, ... , x_n): \Omega \mapsto \R \;$ $n$ dimenziós val. változók, ekkor:
 
 - $x_1, ..., x_n$ független val. változók
 - $X$ eloszlásfüggvénye a marginális eloszlásfüggvények szorzata: $F_x(t_1, ..., t_n) = \prod_i F_{x_i}(t_i)$
@@ -380,7 +440,7 @@ Legyenek $x = (x_1, ... , x_n): \Omega \rarr \R \;$ $n$ dimenziós val. változ�
 
 **Abszolút folytonos esetben:**
 
-T.f.h. $X$ absz. folyt., ekkor $f_x(t_1, ..., t_n) \Rarr \prod_i f_{x_i}(t_i)$
+T.f.h. $X$ absz. folyt., ekkor $f_x(t_1, ..., t_n) \mapsto \prod_i f_{x_i}(t_i)$
 
 **Csoportosított függetlenség:**
 
@@ -395,11 +455,11 @@ Legyen $B \isin \cap_{n=1}^{\infty} g_n$ esemény, ekkor $P(B) = 0$ vagy $1$, az
 ### Borel-Cantelli Lemma
 
 $A_1, ..., A_n \isin \mathcal{A}$ események a $\sigma$-algebrában és $\limsup A_n = \cup\cap A_k$, ekkor
-1. $\sum_{n=1}^{\infty} P(A_n) \lt \infty \Rarr P(\limsup A_n) = 0$
+1. $\sum_{n=1}^{\infty} P(A_n) \lt \infty \mapsto P(\limsup A_n) = 0$
 
     Vagyis 1 valószínűséggel következik be véges sok belőlük.
 
-2. $\sum_{n=1}^{\infty} P(A_n) = \infty $ és függetlenek $\Rarr P(\limsup A_n) = 1$
+2. $\sum_{n=1}^{\infty} P(A_n) = \infty $ és függetlenek $\mapsto P(\limsup A_n) = 1$
 
     Vagyis ha független valószínűségek szummája divergens, akkor 1 valószínűséggel végtelen sok következik be belőle.
 
@@ -408,7 +468,7 @@ $A_1, ..., A_n \isin \mathcal{A}$ események a $\sigma$-algebrában és $\limsup
 
 **$\R$-ben:**
 
-Legyen $x,y: \Omega \rarr \R)$ val. változók és $x+y=z$, ekkor $z$ sűrűségfüggvénye (absz folyt $\lambda$-ra):
+Legyen $x,y: \Omega \mapsto \R)$ val. változók és $x+y=z$, ekkor $z$ sűrűségfüggvénye (absz folyt $\lambda$-ra):
 
 $f_{x+y}(z) = \int_{-\infty}^{\infty} f_x(t) \cdot f_y(z-t) d\lambda(t)$
 
@@ -416,11 +476,11 @@ Ha nem absz. folyt, akkor csal az eloszlásfüggvényt lehet megadni, mint Lebes
 
 $F_{x+y}(z) = \int_{-\infty}^{\infty} F_x(z-t) dF_y(t)$
 
-Z eloszlása: $Q_z = Q_x \times Q_y \Rarr$ a két eloszlás konvolúciója
+Z eloszlása: $Q_z = Q_x \times Q_y \mapsto$ a két eloszlás konvolúciója
 
 **$\R^n$-ben:**
 
-Legyenek Legyen $\underline x, \underline y: \Omega \rarr \R^n$ val. változók és $\underline x+ \underline y=\underline z$:
+Legyenek Legyen $\underline x, \underline y: \Omega \mapsto \R^n$ val. változók és $\underline x+ \underline y=\underline z$:
 
 - absz. folyt. esetben: $f_z(\underline z) = \int_{\R^n} f_x(\underline t) \cdot f_y(\underline z - \underline t) \; d\lambda_n(t)$
 
@@ -431,9 +491,9 @@ Legyenek Legyen $\underline x, \underline y: \Omega \rarr \R^n$ val. változók 
 
 ### Várható érték
 
-$x: \Omega \rarr \R$ esetén $\mathbb{E}(x) = \int_\R x \; dQ_x = \int_\Omega X \; dP$
+$x: \Omega \mapsto \R$ esetén $\mathbb{E}(x) = \int_\R x \; dQ_x = \int_\Omega X \; dP$
 
-- $x: \Omega \rarr \R^{n \times m} \quad (X:\Omega \rarr \R)$ esetben elemenként számoljuk a várható értéket
+- $x: \Omega \mapsto \R^{n \times m} \quad (X:\Omega \mapsto \R)$ esetben elemenként számoljuk a várható értéket
 - Ha a sűrűségfüggvény absz. folyt. $\lambda$ Lebesque mértékre, akkor $\mathbb{E}(X) = \int_\R t f_x(t) \; d\lambda$ Lebesque integrál.
 
 Tulajdonságok:
@@ -482,7 +542,7 @@ Tulajdonságok:
 
 ### Kovariancia mátrix
 
-Legyen $\underline X = (X_1, X_2, ..., X_n): \Omega \rarr \R^n$ valószínűségi változó, akkor a kovariancia mátrix:
+Legyen $\underline X = (X_1, X_2, ..., X_n): \Omega \mapsto \R^n$ valószínűségi változó, akkor a kovariancia mátrix:
 
 $\Sigma = \mathbb{E}\left( (\underline X - \mathbb{E}(X)) \cdot (\underline X - \mathbb{E}(X))^T \right)$
 
@@ -518,7 +578,7 @@ Tulajdonságok:
 
 **Jensen-egyenlőtlenség:**
 
-Legyen $\mathbb{E}(X)$ létező várható értékű valószínűségi változó és $f: \R \rarr \R$ konvex függvény, akkor:
+Legyen $\mathbb{E}(X)$ létező várható értékű valószínűségi változó és $f: \R \mapsto \R$ konvex függvény, akkor:
 
 $f(\mathbb{E}(X)) \le \mathbb{E}(f(X))$
 
@@ -541,27 +601,27 @@ $\mathbb{E}(\vert X \cdot Y \vert) \le \Vert X \Vert_p \cdot \Vert Y \Vert_q = \
 
 **Mértékelmeleti konvergenciák:**
 
-- monoton konvergencia tétel: Ha $X_n \xrightarrow{n \rarr \infty} X$ és $X_n \le X_{n+1}\; \forall n$, akkor $\lim\limits_{n \rarr \infty} \mathbb{E}(X_n) = \mathbb{E}(X)$
-- Fatou-lemma: $X_n \ge 0$ valószínűségi változók, akkor $\mathbb{E}(\liminf\limits_{n \rarr \infty} X_n) \le \liminf\limits_{n \rarr \infty} \mathbb{E}(X_n)$
-- Lebesuqe-dominált konvergencia tétel: Ha $X_n \xrightarrow{1 \; p.} X$ és létezik olyan $Y$ valószínűségi változó, hogy $\forall n: \vert X_n \vert \le Y$ és $\mathbb{E}(Y) \lt \infty$, akkor $\lim\limits_{n \rarr \infty} \mathbb{E}(X_n) = \mathbb{E}(X)$
+- monoton konvergencia tétel: Ha $X_n \xrightarrow{n \mapsto \infty} X$ és $X_n \le X_{n+1}\; \forall n$, akkor $\lim\limits_{n \mapsto \infty} \mathbb{E}(X_n) = \mathbb{E}(X)$
+- Fatou-lemma: $X_n \ge 0$ valószínűségi változók, akkor $\mathbb{E}(\liminf\limits_{n \mapsto \infty} X_n) \le \liminf\limits_{n \mapsto \infty} \mathbb{E}(X_n)$
+- Lebesuqe-dominált konvergencia tétel: Ha $X_n \xrightarrow{1 \; p.} X$ és létezik olyan $Y$ valószínűségi változó, hogy $\forall n: \vert X_n \vert \le Y$ és $\mathbb{E}(Y) \lt \infty$, akkor $\lim\limits_{n \mapsto \infty} \mathbb{E}(X_n) = \mathbb{E}(X)$
 
 **1 valószínűséggel konvergencia:**
 
-$X_n \xrightarrow{1 \; p.} X \iff P(\{ \omega \in \Omega: \lim\limits_{n \rarr \infty} X_n(\omega) = X(\omega) \}) = 1$
+$X_n \xrightarrow{1 \; p.} X \iff P(\{ \omega \in \Omega: \lim\limits_{n \mapsto \infty} X_n(\omega) = X(\omega) \}) = 1$
 
 **L_p-beli konvergencia:**
 
-$X_n \xrightarrow{L_p} X \iff \lim\limits_{n \rarr \infty} \mathbb{E}(\vert X_n - X \vert^p) = 0$
+$X_n \xrightarrow{L_p} X \iff \lim\limits_{n \mapsto \infty} \mathbb{E}(\vert X_n - X \vert^p) = 0$
 
 **Sztochasztikus konvergencia:**
 
-$X_n \xrightarrow{sztoch.} X \iff \forall \epsilon > 0: \lim\limits_{n \rarr \infty} P(\vert X_n - X \vert \ge \epsilon) = 0$
+$X_n \xrightarrow{sztoch.} X \iff \forall \epsilon > 0: \lim\limits_{n \mapsto \infty} P(\vert X_n - X \vert \ge \epsilon) = 0$
 
 
 **Kapcsolatok:**
-- $X_n \xrightarrow{1 \; p.} X \Rarr X_n \xrightarrow{sztoch.} X$
-- $X_n \xrightarrow{L_p} X \Rarr X_n \xrightarrow{sztoch.} X$
-- $X_n \xrightarrow{L_p} X \Rarr X_n \xrightarrow{L_q} X, \quad p \ge q \ge 1$
+- $X_n \xrightarrow{1 \; p.} X \mapsto X_n \xrightarrow{sztoch.} X$
+- $X_n \xrightarrow{L_p} X \mapsto X_n \xrightarrow{sztoch.} X$
+- $X_n \xrightarrow{L_p} X \mapsto X_n \xrightarrow{L_q} X, \quad p \ge q \ge 1$
 
 **Riesz-lemma:**
 
@@ -571,7 +631,7 @@ Ha $X_n \xrightarrow{sztoch.} X$, akkor létezik olyan részhalmaz $X_{n_k}$, ho
 
 Legyen $X \isin L_1 \; \mathbb{E}(\vert x \vert) \lt \infty \; H \subset L_1(P)$, $H$ egyeneletesen integrálható, ha:
 
-$\sup \int\limits_{x \isin H \, \{ x \gt c\}} \vert x \vert dP \xmapsto{x \rarr \infty} 0$
+$\sup \int\limits_{x \isin H \, \{ x \gt c\}} \vert x \vert dP \xmapsto{x \mapsto \infty} 0$
 
 Átfogalmazva $H$ egyenletesen integrálható, ha $\mathbb{E}(x) \lt \infty$ és kicsi halmazokon egy korláton belül marad az integrál értéke.
 
@@ -581,17 +641,73 @@ L_p-beli konvergencia ekvivalens azzal, hogy sztochasztikusan konvergál és $\f
 
 Egy $H \subset L_1(P)$ halmaz egyenletesen integrálható, ha:
 
-$\lim\limits_{x \rarr \infty} \frac{f(x)}{x} = \infty$ és $\sup\limits_{x \in H} \mathbb{E}(f(\vert x \vert)) \lt \infty$.
+$\lim\limits_{x \mapsto \infty} \frac{f(x)}{x} = \infty$ és $\sup\limits_{x \in H} \mathbb{E}(f(\vert x \vert)) \lt \infty$.
 
 Vagyis létezik olyan növekvő függvény, ami gyorsabban nő, mint az identitás($x$) és a halmaz elemeinek képeire vett várható értékek korlátosak.
 
 **Scheffé állítás:**
 
-Legyen $x_n \ge 0$ és $X_n \rarr X$ 1 valószínűséggel, valamint $\mathbb{E}(X_n) \rarr \mathbb{E}(X)$, akkor $X_n \xrightarrow{L_1} X$.
+Legyen $x_n \ge 0$ és $X_n \mapsto X$ 1 valószínűséggel, valamint $\mathbb{E}(X_n) \mapsto \mathbb{E}(X)$, akkor $X_n \xrightarrow{L_1} X$.
 
 ## V. Valószínűségi változók gyenge és eloszlásbeli konvergenciája, karakterisztikus függvény
 
+### Konvergenciák
 
+**Valószínűségi mérték gyenge konvergenciája:**
+
+$Q_n \xrightarrow{gyengén} Q \iff \forall f: \R \mapsto \R$ folytonos és korlátos függvényre:
+
+$\int f \; dQ_n \mapsto \int  f \; dQ$
+
+**Valószínűségi változók eloszlásbeli konvergenciája:**
+
+$X_n \xrightarrow{eloszlásban} X \iff \forall t \isin C(F_X): \lim\limits_{n \mapsto \infty} F_{X_n}(t) = F_X(t)$
+
+**Eloszlásbeli konvergergencia és más konvergenciák kapcsolata:**
+- $X_n \xrightarrow{1 \; p.} X \mapsto X_n \xrightarrow{sztoch.} X \mapsto X_n \xrightarrow{eloszlásban} X \iff X_n \xrightarrow{gyengén} X$
+
+**Lévy-Prohorov metrika:**
+
+Lehet olyan távolságot definiálni valószínűségi mértékek között, ami metrika és a gyenge konvergenciát méri.
+
+Levy-Prohorov metrika:
+
+$\pi(P,Q) = \inf \{ \epsilon > 0: \forall A \isin \mathcal{A}, \; P(A) \le Q(A_{\epsilon}) + \epsilon \; \text{és} \; Q(A) \le P(A_{\epsilon}) + \epsilon \}$
+
+Vagyis a két mérték akkor közel van egymáshoz, ha minden esemény mértéke közel van a másik esemény egy kis kiterjesztett változatának mértékéhez.
+
+### Karakterisztikus függvény
+
+$x$ valószínűségi változó karakterisztikus függvénye:
+
+$\varphi_x(t) = \mathbb{E}(e^{i t x}) = \int\limits_{-\infty}^{\infty} e^{i t x} \; dQ_x(x)$
+
+Ami egy $\R \mapsto \C$ komplex értékű függvény.
+
+**Tulajdonságok**:
+- $\varphi_x(0) = 1$
+- $\vert \varphi_x(t) \vert \le 1$
+- $\varphi_x(t)$ egyenletesen folytonos minden $t \isin \R$-en
+- Mivel $f$ szimmetrikus: $\varphi_x(-t) = \overline{\varphi_x(t)}$
+- Ha $x$ és $y$ független valószínűségi változók, akkor $\varphi_{x+y}(t) = \varphi_x(t) \cdot \varphi_y(t)$
+- Ha $X$ absz. folyt. valószínűségi változó sűrűségfüggvénnyel $f_x$, akkor $\varphi_x(t) = \int\limits_{-\infty}^{\infty} e^{i t x} f_x(x) \; d\lambda(x)$, azaz a karakterisztikus függvény a sűrűségfüggvény Fourier-transzformáltja
+- Ha $x \; L^p$-beli, akkor $\varphi_x$ differenciálható $p$-szer és $\varphi_x^{(k)}(t) = \int\limits_{-\infty}^{\infty} (i x)^k e^{i t x} \; dQ_x(x)$, valamint $\varphi_x^{(k)}(0) = i^k \mathbb{E}(X^k)$
+
+**Inverziós formula:**
+
+Legyen $X$ valószínűségi változó karakterisztikus függvénnyel $\varphi_x(t)$ és eloszlásfüggvénnyel $F_x(x)$, akkor ha $a,b \isin C(F_x)$, akkor:
+
+$F_x(b) - F_x(a) = \lim\limits_{T \mapsto \infty} \frac{1}{2 \pi} \int\limits_{-T}^{T} \frac{e^{-i t a} - e^{-i t b}}{i t} \varphi_x(t) \; dt$
+
+**Sűrűségfüggvény inverziós formula:**
+
+Ha $X$ absz. folyt. valószínűségi változó sűrűségfüggvénnyel $f_x(x)$ és karakterisztikus függvénnyel $\varphi_x(t)$, akkor ha $f_x$ folytonos az $x$ pontban, akkor:
+
+$f_x(x) = \lim\limits_{T \mapsto \infty} \frac{1}{2 \pi} \int\limits_{-T}^{T} e^{-i t x} \varphi_x(t) \; dt$
+
+**Konvergencia karakterisztikus függvények alapján:**
+
+$X_n \xrightarrow{eloszlásban} X \iff \varphi_n(t) \xrightarrow{egyenletesen} \varphi(t) $
 
 ## VI. Nagy számok gyenge és erős törvényei, független sorok
 
@@ -631,7 +747,7 @@ Paraméterezve a halmaznyi mérték: $P \isin \{ \mathcal{P}_\vartheta: \varthet
 
 ### Statisztikai minta és eloszlása
 
-$x: (\Omega, \mathcal{A}, \mathcal{P}) \rarr (\mathcal{X}, \mathcal{B})$ (azaz a statisztikai mező teréből képez mérhető térbe) mérhető függvényt mintának hívunk.
+$x: (\Omega, \mathcal{A}, \mathcal{P}) \mapsto (\mathcal{X}, \mathcal{B})$ (azaz a statisztikai mező teréből képez mérhető térbe) mérhető függvényt mintának hívunk.
 
 - A minta eloszlása egy $P \isin \mathcal{P}$ mellett $Q = P \circ X^{-1}$
 - $(\mathcal{X},\mathcal{B},\mathcal{Q})$ is statisztikai mező lesz
@@ -639,7 +755,7 @@ $x: (\Omega, \mathcal{A}, \mathcal{P}) \rarr (\mathcal{X}, \mathcal{B})$ (azaz a
 
 ### Statisztika
 
-$T: \mathcal{X} \rarr \mathcal{Y}$ minta teréből valamilyen mérhető térbe $(\mathcal{Y},\mathcal{C})$ képezést statisztikának nevezünk. Ez a mintaelemek mérhető függvénye, lényege, hogy kiszámolunk valamit az adatokból.
+$T: \mathcal{X} \mapsto \mathcal{Y}$ minta teréből valamilyen mérhető térbe $(\mathcal{Y},\mathcal{C})$ képezést statisztikának nevezünk. Ez a mintaelemek mérhető függvénye, lényege, hogy kiszámolunk valamit az adatokból.
 
 $T(x): \Omega \xrightarrow{\mathcal{X}} \mathcal{Y}$
 
@@ -672,9 +788,9 @@ Ahol:
 - $\delta_{x_i}(B)$: pontmértékek az $x_i$ pontra koncentrálódva
 
 Tulajdonságok:
-- $\mathbb{E}[Q_q^*](B) = Q(B) \Rarr Q_n^*(B) \rarr Q(B)$ 1 valószínűséggel a mintanagyság növelésével
+- $\mathbb{E}[Q_q^*](B) = Q(B) \mapsto Q_n^*(B) \mapsto Q(B)$ 1 valószínűséggel a mintanagyság növelésével
 - $\mathrm{Var}(Q_n^*(B)) = \frac{1}{n} Q(B)(1-Q(B))$
-- Normálás: $\sqrt{n} (Q_n^*(B)-Q(B)) \rarr N(0, Q(B)(1-Q(B))$ eloszlásban
+- Normálás: $\sqrt{n} (Q_n^*(B)-Q(B)) \mapsto N(0, Q(B)(1-Q(B))$ eloszlásban
 
 ### Tapasztalati becslések
 
@@ -699,15 +815,15 @@ $
 $
 
 - Balról folytonos, magasabb dimben is
-- $\lim\limits_{x \rarr -\infty} F_n^*(x) = 0, \; \lim\limits_{x \rarr \infty} F_n^*(x) = 1$
+- $\lim\limits_{x \mapsto -\infty} F_n^*(x) = 0, \; \lim\limits_{x \mapsto \infty} F_n^*(x) = 1$
 - $F_n^*(t) = Q_n^*((-\infty, t))$ egydim esetben
 
 
 ### Glivenko-Cantinelli tétel
 
-Ha $\xi_1, ..., \xi_n$ független minta, akkor $n \rarr \infty$-vel:
+Ha $\xi_1, ..., \xi_n$ független minta, akkor $n \mapsto \infty$-vel:
 
-$\sup \mid F_n^*(t) - F(t) \mid \rarr 0$,  1 valószínűséggel.
+$\sup \mid F_n^*(t) - F(t) \mid \mapsto 0$,  1 valószínűséggel.
 
 Azaz a tapasztalati eloszlás és az elvi eloszlást különbsége a nullához tart a minta növelésével. 
 
@@ -760,7 +876,7 @@ $T$-statisztika akkor minimálisan elégséges, ha minden $S$ elégséges statis
 
 Legyen $S$ statisztika, $x,y$ minta. $S$ pontosan akkor elégséges, ha:
 
-$S(x) = S(y) \Rarr \frac{f_{\vartheta}(x)}{f_{\vartheta}(y)}$ nem függ $\vartheta$-tól $\mu \times \mu$ domináló szorzatmérték szerint.
+$S(x) = S(y) \mapsto \frac{f_{\vartheta}(x)}{f_{\vartheta}(y)}$ nem függ $\vartheta$-tól $\mu \times \mu$ domináló szorzatmérték szerint.
 
 Legyen $S$ statisztika, $x,y$ minta. $S$ pontosan akkor minimálisan elégséges, ha:
 
@@ -772,7 +888,7 @@ $S(x) = S(y) \Longleftrightarrow \frac{f_{\vartheta}(x)}{f_{\vartheta}(y)}$ nem 
 
 ### Többdimenziós normális eloszlás
 
-Legyen $\underline X = (X_1, X_2, ..., X_n): \Omega \rarr \R^n$ valószínűségi változó, akkor $\underline X$ többdimenziós normális eloszlású, ha minden $\underline a \in \R^n$-re az egydimenziós valószínűségi változó $\underline a^T \cdot \underline X$ normális eloszlású.
+Legyen $\underline X = (X_1, X_2, ..., X_n): \Omega \mapsto \R^n$ valószínűségi változó, akkor $\underline X$ többdimenziós normális eloszlású, ha minden $\underline a \in \R^n$-re az egydimenziós valószínűségi változó $\underline a^T \cdot \underline X$ normális eloszlású.
 
 #### Sűrűségfüggvény
 
@@ -823,9 +939,9 @@ Legyen $\underline y = \begin{bmatrix} \underline y_1 \\ \underline y_2 \end{bma
 
 $P(y_1 \mid y_2) \sim N(m_{1|2}, \Sigma_{1|2})$ továbbra is normális eloszlású és a feltételes várható érték megadható a kovariancia mátrix segítségével:
 
-$m_{1|2} = m_1 + \Sigma_{12} \cdot \Sigma_{22}^{-1} \cdot (y_2 - m_2) \Rarr$ a várható érték lineáris függvénye a feltételnek
+$m_{1|2} = m_1 + \Sigma_{12} \cdot \Sigma_{22}^{-1} \cdot (y_2 - m_2) \mapsto$ a várható érték lineáris függvénye a feltételnek
 
-$\Sigma_{1|2} = \Sigma_{11} - \Sigma_{12} \cdot \Sigma_{22}^{-1} \cdot \Sigma_{21} \Rarr$ a kovariancia mátrix nem függ a feltételtől
+$\Sigma_{1|2} = \Sigma_{11} - \Sigma_{12} \cdot \Sigma_{22}^{-1} \cdot \Sigma_{21} \mapsto$ a kovariancia mátrix nem függ a feltételtől
 
 ### Nemcentrális Khi-négyzet eloszlás
 
@@ -835,7 +951,7 @@ $\sum_{j = 1}^n x_j^2 = \Vert x \Vert^2$ n szabadságfokú $\chi^2$ eloszlású.
 
 $ \Vert \underline u \Vert_2 = \sqrt{\sum_{i=1}^n u_i^2}$ 2-es norma, ha $\underline u \isin \R^n$.
 
-Ha $\underline Y \sim N(m, Id) \Rarr \Vert \underline Y \Vert_2^2$ eloszlása csak $\Vert m \Vert_2^2$-től függ, azaz a várható érték vektortól, ez a $\lambda$ paraméter a nemcentrálisitás paramétere.
+Ha $\underline Y \sim N(m, Id) \mapsto \Vert \underline Y \Vert_2^2$ eloszlása csak $\Vert m \Vert_2^2$-től függ, azaz a várható érték vektortól, ez a $\lambda$ paraméter a nemcentrálisitás paramétere.
 
 **Ortogonális felbontás alterekre**
 
@@ -852,9 +968,172 @@ $\underline x^T \cdot \Sigma^{-1} \cdot \underline x \sim \chi_n^2[\underline m^
 
 ## IV. Becslések elmélete, Blackwell-izálás
 
+Keretrendszer: valamilyen $g(\nu)$-t szeretnénk becsülni, ahol $\nu$ ismeretlen paraméter. Van egy $T$ statisztikánk, ami alapján becslést készítünk: $\hat g(T)$.
+
+### Becslés
+
+$g: \varTheta \mapsto \mathcal{Y}, \; T: \mathcal{X} \mapsto \mathcal{Y}$, ahol $g$ a paramétermező mérhető függvénye és $T$ a minta alapján képzett statisztika. Ekkor $T(x)$ a $g(\nu)$ becslése.
+
+**Torzítatlan becslés:**
+
+Akkor mondjuk, hogy $T$ torzítatlan becslés $g(\nu)$-ra, ha:
+
+$\mathbb{E}_{\nu}(T) = g(\nu), \; \forall \nu \in \varTheta$
+
+Vagyis várható értékben megegyezik a becsült paraméterrel minden paraméterértékre.
+
+Ha van torzítás, akkor:
+
+$B_{\nu}(T) = \mathbb{E}_{\nu}(T) - g(\nu)$
+
+**Veszteségfüggvény:**
+
+Legyen $W: \R^k \times \Theta \mapsto \R_+$, ekkor 
+
+$W(T(x); \nu)$ azt mutatja meg, hogy mennyire rossz a $T(x)$ becslés, ha a valódi paraméter $\nu$.
+
+Tulajdonságok:
+- $W(z; \nu) \ge 0, \; \forall z \isin \R^k, \nu \isin \Theta$
+- $W(g(\nu); \nu) = 0, \; \forall \nu \isin \Theta$
+- Első változójában konvex függvény
+
+**Rizikófüggvény:**
+
+Legyen $T$ becslés $g(\nu)$-ra és $W$ veszteségfüggvény, akkor a rizikófüggvény:
+
+$R_{\nu}(T) = \mathbb{E}_{\nu}[W(T(X); \nu)]$
+
+Vagyis a várható veszteség a becslés és a valódi paraméter között.
+
+**Becslés összehasonlítása rizikófüggvénnyel:**
+
+- Ekvivalens becslések: $R_{\nu}(T_1) = R_{\nu}(T_2), \; \forall \nu \isin \Theta$
+- Jobb becslés: $R_{\nu}(T_1) \le R_{\nu}(T_2), \; \forall \nu \isin \Theta$ és van olyan $\nu_0$, hogy $R_{\nu_0}(T_1) \lt R_{\nu_0}(T_2)$
+- Mátrix- és skalárfüggvényeknél nem mindig tudunk összehasonlítani
+
+**Megengedhető, optimális, minimax becslések:**
+
+Ha $\mathcal{D}$ becslések halmaza, akkor:
+- $T \isin \mathcal{D}$ megengedhető, ha maximális, azaz nincs nála jobb nem-ekvivalens becslés a $\mathcal{D}$-ben, de lehet olyan, amivel nem összehasonlítható
+- $T^* \isin \mathcal{D}$ optimális, ha minden $T$-vel összehasonlítható és jobb náluk. Négyzetes veszeteségfüggvénynél hatásosnak is hívják.
+- $T^{**} \isin \mathcal{D}$ minimax, ha $\sup\limits_{\nu \in \Theta} R_{\nu}(T^{**}) = \inf\limits_{T \in \mathcal{D}} \sup\limits_{\nu \in \Theta} R_{\nu}(T)$, azaz a rizikófüggvény maximumát minimalizálja 
+
+**Becslések besorolásának kapcsolata:**
+
+Optimális $T$ becslés megengedhető és minimax is egyben.
+
+**Négyzetes veszteségfüggvény (hatásos becslés feltétele):**
+
+Négyzetes veszteségfüggvény esetén a hatásos/optimális becslés $\iff$ minimális varianciájú torzítatlan becslés. Képlettel:
+
+$R_{\nu}(T) = \mathbb{E}_{\nu}[(T(X) - g(\nu))^2] = \mathrm{Var}_{\nu}(T) + B_{\nu}^2(T)$
+
+**Hatásos becslés egyértelműsége:**
+
+Ha $\mathcal{D}$ becslésosztály konvex, $W$ első változójában szigorúan konvex veszteségfüggvény és létezik hatásos becslés $T^* \isin \mathcal{D}$, akkor az egyértelmű.
+
+**Konzisztencia:**
+
+A becslések számának növelésével $T_n$ becsléssorozatot kapunk $g(\nu)$-ra. Ekkor:
+- Gyenge konzisztencia: $T_n \xrightarrow{Sztoch.} g(\nu)$ minden $\nu \isin \Theta$-ra
+- Erős konzisztencia: $T_n \xrightarrow{1} g(\nu)$ minden $\nu \isin \Theta$-ra
+
+### Blackwell-izálás
+
+Adott $g(\nu)$ becslésére egy $T$ becslése és $S$ elégséges statisztika. Ekkor a következő becslés:
+
+$\tilde T(x) = \mathbb{E}_{\nu}(T \mid S = S(x))$
+
+Egy új becslés, ami $S$-re kondicionálja az eredeti becslést.
+
+$\tilde T$ torzítása megegyezik $T$ torzításával, de kisebb vagy egyenlő a varianciája minden $\nu \isin \Theta$-ra, azaz $\tilde T$ jobb vagy egyenlő $T$-nél rizikófüggvény alapján.
+
+**Teljes T-statisztika:**
+
+$S$ statisztika teljes, ha nem lehet olyan nem-triviális elégséges statisztikát találni, hogy:
+
+$\mathbb{E}_{\nu}(\varphi(T)) = 0, \; \forall \nu$-re.
+
+- Ha $T$ teljes elégséges statisztika, akkor bármely $g(\nu)$-ra egyetlen torzítatlan becslés létezik $T$-re kondicionálva.
+- Ha $S$ teljes elégséges statisztika, akkor minimálisan elégséges is egyben.
+
+**Optimális $\tilde T$ blackwell-izálással:**
+
+Tetszőleges $T$ becslés és $S$ teljes elégséges statisztika esetén a $\tilde T$ blackwell-izált becslés optimális minden $\nu \isin \Theta$-ra.
+
+$\tilde T(x)$ optimális a torzítatlan becslések halmazában, mert:
+- $R_{\nu}(\tilde T) \le R_{\nu}(T)$ minden $\nu$-ra
+- mindennel összehasonlítható
+- $\tilde T /; T$-től független
 
 ## V. Fisher-információ és regularitás-feltételek
 
+### Likelihood és loglikelihood függvény
+
+Adott egy $x$ minta, ekkor a likelihood függvény:
+
+$L(\vartheta; x) = f_{\vartheta}(x)$
+
+Loglikelihood függvény:
+
+$l(\vartheta; x) = \ln L(\vartheta; x) = \ln f_{\vartheta}(x)$
+
+### Fisher-információ
+
+Legyen $X$ valószínűségi változó sűrűségfüggvénye $f_{\vartheta}(x)$, ahol $\vartheta \in \Theta \subset \R$ egy paraméter. Ekkor a Fisher-információ a következőképpen definiálható:
+
+$I(\vartheta) = \mathbb{E}_{\vartheta} \left[ \left( \frac{\partial}{\partial \vartheta} \ln f_{\vartheta}(X) \right)^2 \right]$
+
+**Tulajdonságok:**
+
+- Domináló mértéktől független
+- Szimmetrikus, pozitív szemidefinit mátrix
+- Additív független minták esetén: $I_n(\vartheta) = n \cdot I(\vartheta)$
+- Ha a sűrűségfüggvény kétszer differenciálható, akkor: $I(\vartheta) = - \mathbb{E}_{\vartheta} \left[ \frac{\partial^2}{\partial \vartheta^2} \ln f_{\vartheta}(X) \right]$
+
+### Regularitás-feltételek
+
+**Gyenge regularitás-feltétel:**
+
+$\mu$ domináló mérték mellett a következők teljesülnek:
+- $\vartheta \mapsto f_{\vartheta}(x)$ folytonosan differenciálható $\mu$- majdnem minden $x$-re
+- $I(\vartheta)$ véges, nem-szinguláris és $\vartheta$-ban folytonos
+
+Gyenge regularitás esetén ha adott egy lokálisan korlátos $T(x)$ statisztika és $g(\vartheta) = \mathbb{E}_{\vartheta}(T(x))$ ekkor a deriváltja jól számolható, azaz $g$ folytonosan differenciálható: 
+
+$\partial_{\vartheta} g(\vartheta) = \mathbb{E}_{\vartheta}(T(X) \cdot \partial_{\vartheta} l(\vartheta; X))$
+
+**Erős regularitás-feltétel:**
+
+$\mu$ domináló mérték mellett a következők teljesülnek:
+- $l(\vartheta)$ kétszer folytonosan differenciálható $\vartheta$-ban, $\mu$- majdnem minden $x$-re
+- $\sup\limits_{\vartheta} \Vert \partial_{\vartheta}^{2}l_x(\vartheta)\Vert \le M(x)$ és $\sup\limits_{\vartheta} \mathbb{E}_{\vartheta}(M(X))^2 \lt \infty$
+
+Erős regularitás esetén:
+- $\forall \vartheta \in \Theta : \int \partial_{\vartheta} f_{\vartheta}(x) d\mu(x) = 0$
+- $I(\vartheta) = - \mathbb{E}_{\vartheta}(\partial_{\vartheta}^{2} l(\vartheta; X))$
+
+### Állítások Fisher-információról
+
+**Független minta esetén az információk összeadódnak**:
+
+$x,y$ független, de ugyan olyan paraméterű eloszlásból, akkor:
+$I_{x,y}(\vartheta) = I_x(\vartheta) + I_y(\vartheta)$
+
+**Fisher-információ statisztikából**:
+
+Ha $\mathcal{X}$ téren értelmezett mintából egy $\mathcal{Y}$ téren értelmezett $T$ statisztikát képezünk, akkor a Fisher-információ csökkenhet:
+$I_T(\vartheta) \le I_X(\vartheta)$
+
+Ha $T$ elégséges statisztika, akkor egyenlőség áll fenn:
+$I_T(\vartheta) = I_X(\vartheta)$
+
+**Fisher-információ és átparaméterezés**:
+
+Ha átparaméterezünk egy $\varphi: \Psi \mapsto \Theta$ sima bijekcióval, akkor az új paraméter szerinti Fisher-információ a következőképpen alakul:
+$I_{\Psi}(\psi) = I_{\Theta}(\varphi(\psi)) \cdot (\varphi'(\psi))^2$
+
+Vagyis a Fisher-információ skálázódik az átparaméterezés deriváltjának négyzetével.
 
 ## VI. Információs határ, MM és ML módszerek
 
