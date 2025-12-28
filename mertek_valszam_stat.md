@@ -1,5 +1,3 @@
-*Készítette: Dittrich Levente, 2025*
-
 # Mértékelmélet
 
 Órai videók:
@@ -268,6 +266,77 @@ Legyen $(X, \mathcal{M}, \mu)$ előjeles mértéktér, ekkor létezik $P, N \in 
 
 ## VI. Abszolút folytonos és szinguláris mértékek, Lebesque-felbontás, Radon-Nikodym tétel, mértékek differenciálása
 
+### Abszolút folytonos és szinguláris mértékek
+
+**Abszolút folytonos mérték**:
+
+$\alpha$ mérték abszolút folytonos $\beta$ mértékhez képest, ha
+
+$\forall A \in \mathcal{M}, \beta(A) = 0 \mapsto \alpha(A) = 0$. Jelölése: $\alpha \ll \beta$
+
+- A halmazok amik 0-ák $\beta$-ra, azok $\alpha$-ra is 0-ák
+
+- Jele: $\alpha \ll \beta$
+
+**Szinguláris mérték**:
+
+$\alpha$ és $\beta$ mérték szingulárisak egymáshoz képest, ha van $X = A \cup B$ diszjunkt halmazok és $\alpha(B) = \beta(A) = 0$. Jelölése: $\alpha \perp \beta$. $A$ csak az $\alpha$-nak, $B$ csak a $\beta$-nak a hordozója.
+
+### Lebesque-felbontási tétel
+
+Adott egy $\nu$ akár előjeles és egy $mu$ hagyományos mérték, mindkettő $\sigma$-additív. Ekkor létezik olyan $\alpha$ és $\beta$ mérték, hogy
+
+- $\nu = \alpha + \beta$ egyértelmű felbontás, ahol 
+    - $\alpha \ll \mu$ (absz. folytonos)
+    - $\beta \perp \mu$ (szinguláris)
+
+### Radon-Nikodym tétel
+
+Adott $\nu$ előjeles és $\mu$ hagyományos mérték, mindkettő $\sigma$-véges, továbbá $\nu \ll \mu$. Ekkor létezik olyan $f: X \mapsto \overline \R$ mérhető függvény, hogy:
+
+$\nu(A) = \int_A f \; d\mu, \quad \forall A \in \mathcal{M}$
+
+**Radon-Nikodym derivált**:
+
+Az $f$ függvényt a $\nu$ mérték $\mu$ mérték szerinti Radon-Nikodym deriváltjának nevezzük, ha:
+- Ha van egy abszolút folytonos mértékünk egy másik mértékhez képest, akkor létezik egy olyan függvény, ami az első mértéket a második mérték integráljaként adja vissza.
+- $f$ egy sűrűségfüggvénynek is megfelel
+
+f = $\frac{d\nu}{d\mu}$
+
+Adott $\alpha \ll \beta$ mértékek és $h \isin L_1(\beta)$ és $f = \frac{d\alpha}{d\beta}$, akkor:
+
+$\int_H h \; d\alpha = \int_X h \cdot f \; d\beta = \int_H h \frac{d\alpha}{d\beta} \; d\beta$
+
+**Előjeles mérték szerinti integrálás**:
+
+Adott $\nu \ll \tau$  előjeles mérték, $h \isin L_1(\tau)$ és $f: X \mapsto \overline \R$ mérhető függvény, akkor:
+
+$\int_H h \; d\nu = \int_H h \cdot f \; d\tau = \int_H h \frac{d\nu}{d\tau} \; d\tau$
+
+**Totális variáció:**
+
+$\mid \nu \mid (A) = \int_A \mid \frac{d\nu}{d\tau} \mid \; d\tau$
+
+Legyen $\nu(A)$ előjeles és $\mu \; \sigma$-véges mértékek, $\nu \ll \mu$, ha $\forall \epsilon \gt 0 \; \exists \delta \gt 0$ úgy, hogy $\mu(A) \lt \delta \implies \mid \nu(A) \mid \lt \epsilon$ 
+
+
+**Alsó és felső derivált:**
+
+- Alsó derivált: $\underline{D}_\mu \nu(x) = \liminf_{r \mapsto 0} \frac{\nu(B(x,r))}{\mu(B(x,r))}$
+
+- Felső derivált: $\overline{D}_\mu \nu(x) = \limsup_{r \mapsto 0} \frac{\nu(B(x,r))}{\mu(B(x,r))}$
+
+Összefüggés:
+- $\underline{D}_\mu \nu(x) \le \overline{D}_\mu \nu(x)$
+- Ha $\underline{D}_\mu \nu(x) = \overline{D}_\mu \nu(x)$, akkor a közös értéket $\mu$-szer majdnem minden $x$-re $\frac{d\nu}{d\mu}(x)$-nek nevezzük.
+
+Legyen $\nu$ lokálisan véges, előjeles Borel-mérték és van egy $\nu = \int f \; d\mu$ felbontása, ahol $f \in L_1(\mu)$, akkor $\mu$-szer majdnem minden $x$-re:
+
+$\underline{D}_\mu \nu(x) = \overline{D}_\mu \nu(x) = f(x)$
+
+- $\mu$ majdnem minden $x$-re létezik a derivált és az egyenlő $f(x)$-el
+- $D_\mu \nu(x) = f(x)$ visszaadja a Radon-Nikodym deriváltat
 
 ## VII. Korlátos változású, absz folyt. és szinguláris függvények, felbontásuk, differenciálásuk
 
@@ -711,6 +780,63 @@ $X_n \xrightarrow{eloszlásban} X \iff \varphi_n(t) \xrightarrow{egyenletesen} \
 
 ## VI. Nagy számok gyenge és erős törvényei, független sorok
 
+**Markov egyenlőtlenség:**
+
+Legyen $X$ nem negatív valószínűségi változó és $a \gt 0$, akkor:
+
+$P(X \ge a) \le \frac{\mathbb{E}(X)}{a}$
+
+**Nagy számok törvényének általános teljesülése:**
+
+Legyenek $X_1, X_2, ...$ független valószínűségi változók azonos eloszlással és véges várható értékkel $\mathbb{E}(X_i) = \mu \lt \infty$, akkor a mintaátlag:
+
+$\overline{X_n} = \frac{X_1 + X_2 + ... + X_n}{n} \xrightarrow{sztoch.} \mu$
+
+### Nagy számok gyenge törvénye
+
+Legyenek $X_1, X_2, ...$ független, egymással páronként korrelálatlan valószínűségi változók azonos eloszlással és véges várható értékkel $\mathbb{E}(X_i) = \mu, \quad \mathrm{Var}(X_i) = \sigma^2 \lt \infty$, ekkor $\forall \epsilon \gt 0$-ra:
+
+$P(\vert \overline{X_n} - \mu \vert \ge \epsilon) \xmapsto{n \mapsto \infty} 0$
+
+Vagyis a tapasztalati és elméleti átlag különbsége $0$-ba konvergál sztochasztikusan $L_2$-ben.
+
+**Feller gyenge nagy számok törvénye:**
+
+Legyenek $X_1, X_2, ...$ független valószínűségi változók azonos eloszlással és véges várható értékkel $\mathbb{E}(X_1) = \mu \lt \infty$, valamint teljesüljön, hogy:
+
+$\frac{\sum\limits_{i=1}^{n} X_i}{n} \xmapsto{Sztoch.} \mathbb{E}(X_1)$ 
+
+A tapasztalati átlag sztochasztikusan konvergál az elméleti átlaghoz.
+
+### Nagy számok erős törvénye
+
+Legyenek $X_1, X_2, ...$ független valószínűségi változók azonos eloszlással és véges várható értékkel $\mathbb{E}(\vert X_1 \vert) \lt \infty$, akkor:
+
+$\frac{\sum\limits_{i=1}^{n} X_i}{n} \xmapsto{1 \; p.} \mathbb{E}(X_1)$
+
+Tapasztalati átlag 1 valószínűséggel konvergál az elméleti átlaghoz.
+
+Megjegzések:
+- Ha $\mathbb{E}(\vert X_1 \vert^2) \lt \infty$, akkor a gyenge és erős törvény is teljesül.
+- Ha csak $\mathbb{E}(\vert X_1 \vert) \lt \infty$, akkor csak az erős törvény teljesül.
+
+Alkalmazás:
+- Borel-Cantelli lemma bizonyítása az erős törvény segítségével.
+- Monte-Carlo integrálok numerikus közelítése.
+
+
+### Egyenlőtlenségek becsléseknél
+
+**Markov egyenlőtlenség:**
+Legyen $X \ge 0$ és $\mathbb{E}(X) \lt \infty$, ekkor bármilyen T statisztika esetén:
+
+$P(x \ge T) \le \frac{\mathbb{E}(x)}{T}$
+
+**Csebisev egyenlőtlenség:**
+
+Legyen $X$ valószínűségi változó véges várható értékkel és szórásnégyzettel, akkor bármilyen T statisztika esetén:
+
+$P(\vert X - \mathbb{E}(X) \vert \ge T) \le \frac{\mathrm{Var}(X)}{T^2}$
 
 ## VII. Centrális határeloszlás tétel változatai
 
