@@ -125,6 +125,7 @@ $\int_H f \; f\mu = \sup \{\int_H g \; d\mu: 0 \le g \le f \}$, g egyszerű füg
 - $f^+ = \max(f,0), f^- = -\min(f,0)$ adott, ha $\int_X f^+ d\mu$ vagy $\int_X f^- d\mu$ véges akkor $f$ integrálható, illetve $\int_X f^+ d\mu - \int_X f^- d\mu$ véges esetén $f$ végesen integrálható.
 
 - $L_1 = \int \mid f \mid \; d\mu$ értelmes és véges
+
 ### Monton konvergencia tétel
 
 Legyen $0 \le f_1 \le ... \le f_n$ m.m. monoton növekvő, $\lim_{n \mapsto \infty} f_n = f$ pontonként konvergáló, mérhető függvénysorozat.
@@ -157,6 +158,12 @@ $\int_X f \; d\mu = lim \int_x f_n \; d\mu$
 
 Ha a két fv m.m. megegyezik, akkor az integráljuk is. Ilyenkor $g$ majorálja (dominálja) $\mid f_n \mid$-et, vagyis felettük helyezkedik el. 
 
+**The Bright Side of Mathematics vidik**: 
+- [Lebesque integrál](https://www.youtube.com/watch?v=TG67nsccqeQ&list=PLBh2i93oe2qvMVqAzsX1Kuv6-4fjazZ8j&index=6)
+- [Riemann integrál vs. Lebesgue integrál](https://www.youtube.com/watch?v=PGPZ0P1PJfw&list=PLBh2i93oe2qvMVqAzsX1Kuv6-4fjazZ8j&index=24)
+- [Monton konvergencia tétel](https://www.youtube.com/watch?v=1tzaUiZJXm8&list=PLBh2i93oe2qvMVqAzsX1Kuv6-4fjazZ8j&index=7)
+- [Lebesque-dominált konvergencia](https://www.youtube.com/watch?v=eu-6_wpTE-A&list=PLBh2i93oe2qvMVqAzsX1Kuv6-4fjazZ8j&index=10)
+
 ## III. Mértékek kiterjesztése. Lebesque- és Lebesque-Stieljes mérték
 
 ### Külső mértékek
@@ -182,6 +189,13 @@ Egy $H \sube \R^n$ halmaz Lebesque-mérhető, ha $\forall A \sube \R^n$-re: $\la
 ### Lebesque-Stieljes mérték
 
 Legyen $f: \R \mapsto \R$ monoton növekvő és jobbról folytonos, ekkor a $\mu_f((a,b]) = f(b) - f(a)$ definiál egy félgyűrű mértéket a téglatéren. Ebből kiterjeszthető egy teljes mértéktérre, ez a Lebesque-Stieljes mérték. Jelölése: $\mu_f$.
+
+**The Bright Side of Mathematics vidik**: 
+- [Lebesque mérték](https://youtu.be/7O7qPrNIt7w?t=852&si=j4vxLnAO6Dx9XJWC)
+- [Lebesque-Stieljes mérték](https://youtu.be/IsmgLGVpLpQ?si=rNoRbBoMjnO0qJ-g)
+- [Külső mértékek 1.](https://youtu.be/LC-9KzxVoWI?si=7Q91X0ORbRqdFcav)
+- [Külső mértékek 2.](https://youtu.be/e8yg3FtjO5s?si=G4dsGltlNrT0WEwH)
+- [Külső mértékek 3.](https://youtu.be/iA6ATJFViUs?si=iWtzaH82o7FhTFRg)
 
 ## IV. Riemann-, Riemann-Stieljes integrál, modern kontextusban. Mértéktartó leképezések
 
@@ -338,12 +352,90 @@ $\underline{D}_\mu \nu(x) = \overline{D}_\mu \nu(x) = f(x)$
 - $\mu$ majdnem minden $x$-re létezik a derivált és az egyenlő $f(x)$-el
 - $D_\mu \nu(x) = f(x)$ visszaadja a Radon-Nikodym deriváltat
 
+**The Bright Side of Mathematics vidik**: 
+- [Radon-Nikodym tétel és Lebesque felbontás](https://youtu.be/12kFDeN6xuI?si=5LAAf9_PP6JjGB9a)
+
 ## VII. Korlátos változású, absz folyt. és szinguláris függvények, felbontásuk, differenciálásuk
 
+### Korlátos változású függvények
+
+Adott $f: I \mapsto \R$ függvény, ekkor az $f$ korlátos változású, ha létezik olyan $M \ge 0$, hogy minden felosztásra $I = \{ x_0, x_1, ... , x_n \}$, ahol $a = x_0 \lt x_1 \lt ... \lt x_n = b$ teljesül:
+
+$\tau_f(I) = \sup \{ \sum_{i=1}^{n} \vert f(x_i) - f(x_{i-1}) \vert: n \ge 1, x_0 < x_1 < ... < x_n \in I \} \le \infty$
+
+Azaz feldarabolva az $I$ intervallumot, a függvényértékek különbségeinek összege felülről korlátos, vagyis supremuma véges.
+
+$f: I \mapsto \R$ akkor és csak akkor korlátos változású, ha $f = f_1 - f_2$, ahol $f_1, f_2$ véges, monoton növekvő függvények.
+
+### Abszolút folytonos függvények
+
+Egy $f: I \mapsto \R$ függvény abszolút folytonos, ha bármely diszjunkt intervallum családra, melynek összhossza(Lebesque mértéke) kisebb, mint egy adott $\delta$ érték, a függvényértékek különbségeinek összege kisebb, mint egy adott $\epsilon$ érték.
+
+$\forall \epsilon \gt 0 \; \exists \delta \gt 0$ úgy, hogy bármely diszjunkt intervallum családra $\{ (a_i, b_i) \}$, ahol $\sum (b_i - a_i) \lt \delta$, teljesül: $\sum \vert f(b_i) - f(a_i) \vert \lt \epsilon$
+
+- $\vert b_i - a_i \vert = \lambda(I_i)$, ahol $\lambda$ a Lebesque-mérték
+- $\vert f(b_i) - f(a_i) \vert = \mu_f(I_i)$, ahol $\mu_f$ a $f$-hez tartozó Lebesque-Stieljes mérték
+
+**Tétel:** Korlátos változású függvény Lebesque-Stieljes mértéke majdnem minden pontban differenciálható, és a derivált integrálja visszaadja a függvényt.
+
+### Szinguláris függvények
+
+Egy $f: I \mapsto \R$ függvény szinguláris, ha korlátos változású és létezik olyan $N \subset I$ halmaz, melynek Lebesque mértéke $0$, és $f$ csak ezen a halmazon változik.
+
+### Korlátos változású függvények
+
+Legyem $f: I \mapsto \R$ függvény, ekkor léteznek olyan $f_{1}, ..., f_n: I \mapsto \R$ korlátos változású függvények, hogy:
+- $f = \sum_{i=1}^n f_i$
+- $f$ korlátos változású $\iff$ minden $f_i$ korlátos változású
+- Tagonként lehet deriválni m.m. x-en, és az eredmény a teljes függvény deriváltja lesz m.m. x-en
+
+### Luzin tulajdonságú függvények
+
+Olyan halmazfüggvények, amik minden nullmértékű halmazt nullmértékű halmazra képeznek.
+
+$\lambda(A) = 0 \implies \lambda(f(A)) = 0$
+
+### Abszolút folytonos függvények 2.
+
+Ha létezik $f$ mérhető függvény és $f'$ véges minden $x \isin H$-en, akkor:
+- $f'$ mérhető
+- $\lambda(f(H)) = \int_H \vert f' \vert \; d\lambda$, azaz a mértéke felülről becsülhető a derivált abszolútértékének integráljával $H$-n
+- $\lambda(f(H)) \lt \int_H \vert f'' \vert \; d\lambda$, ha $f''$ létezik és véges minden $x \isin H$-en, vagyis a függvény mértéke kisebb lesz, mint a második derivált abszolútértékének integrálja $H$-n
+
+
+$f$ függvény pontosan akkor lesz abszolút folytonos, ha van egy $g$ függvény, amire igaz, hogy $f$ megváltozása $g$ integráljával egyenlő minden intervallumon.
+
+$f(y)-f(x) = \int\limits_{[x,y]} g(t) \, d\lambda(t), \; \forall x \le y \isin I$
+
+Ez akkor is érvényes, ha $f$ deriválható és $f' = g$ majdnem minden pontban. Abszolút folytonosság $\iff$ deriválhatóság majdnem minden pontban és a függvény visszaállítása a derivált integráljával.
+
+### Lipschitz-folytonos függvények
+
+Legyem $f: I \mapsto \R$ függvény, akkor Lipschitz-folytonos, ha létezik olyan $K \gt 0$ konstans, hogy minden $x,y \isin I$-re:
+
+$\vert f(x) - f(y) \vert \le K \cdot \vert x - y \vert$, ahol $K$ a Lipschitz-állandó.
+
+Ha korlátos változású a függvény, akkor felbontható abszolút folytonos és szinguláris részre.
+
+**The Bright Side of Mathematics vidik**: 
+- []()
+- []()
 
 ## VIII. Mértékek szorzata
 
+**Intuíció**:
 
+### Szorzatmérték
+
+### Fubini-tétel
+
+### Véges sok tér szorzata
+
+### Tetszőleges sok tér szorzata
+
+**The Bright Side of Mathematics vidik**: 
+- [Mértékek szorzata](https://youtu.be/BTU69ezkpZw?si=Wq68uU3O9sAs7i7P)
+- [Fubini-tétel](https://youtu.be/sedRkfTNCRE?si=D5cvqtnc0WnC2QY6)
 
 # Valószínűségszámítás
 
@@ -422,9 +514,7 @@ Minden ilyen tulajdonságú függvény eloszlásfüggvény:
 
 $x$ változó $x: \Omega \mapsto X$ $\mu$-re $x$ által indukált Q_x mérték absz. folytonos $x \ll \mu$, ($\mu \; \sigma$-véges és $(X,\mathcal{B}, \mu)$ mértéktér) ha $Q_x \ll \mu$, ekkor a sűrűségfüggvény a Radon-Nikodym derivált:
 
-$
-    f_x = \frac{dQ_x}{d\mu}
-$
+$f_x = \frac{dQ_x}{d\mu}$
 
 Spec. visszatérő eset az euklideszi tér és Lebesque-mérték
 
@@ -840,6 +930,53 @@ $P(\vert X - \mathbb{E}(X) \vert \ge T) \le \frac{\mathrm{Var}(X)}{T^2}$
 
 ## VII. Centrális határeloszlás tétel változatai
 
+### Centrális határeloszlás tétel
+
+Legyen $x_1, x_2, ...$ független, azonos eloszlású valószínűségi változók véges várható értékkel és szórásnégyzettel: $\mathbb{E}(x_i) = \mu, \quad \mathrm{Var}(x_i) = \sigma^2 \lt \infty$, ekkor a normált összeg:
+
+$S_n = \sum\limits_{i=1}^{n} x_i$, ekkor:
+
+$\frac{S_n - n \mu}{\sigma \sqrt{n}} \xmapsto{eloszlásban} N(0,1)$
+
+Tulajdonságok:
+- Az összeg eloszlása közelít a normális eloszláshoz, ha a mintaelemek száma elég nagy.
+- Az eloszlásfüggvények konvergenciája egyenletes a valószínűségi változó folytonos pontjain.
+
+### Független szériasorozat
+
+Legyenek $x_{n,j}, \quad n=1,2,..., \quad j=1,2,...,k_n$ valószínűségi változók, ahol minden rögzített $n$-re $x_{n,1}, ..., x_{n,k_n}$ függetlenek. Nem szükséges, hogy azonos eloszlásúak legyenek, csak függetleneknek. 
+
+
+### Lindeberg-Feller tétel
+
+Legyen $x_{n,j}, \quad n=1,2,..., \quad j=1,2,...,k_n$ független szlriasorozat, aminek várható értéke nulla, szórásnégyzete pedig 1: $\mathbb{E}(x_{n,j}) = 0, \quad \mathrm{Var}(x_{n,j}) = 1$.
+
+- CHT: $S_n \xmapsto{eloszlásban} N(0,1)$
+- $\max\limits_{1 \le j \le k_n} \sigma_{n,j}^2 \xmapsto{n \mapsto \infty} 0$ asszimptotikusan kicsi
+
+Lindeberg-Feller:
+
+$\sum\limits_{j=1}^{k_n} \mathbb{E} (x_{n,j}^2 \cdot \chi_{\{ \vert x_{n,j} \vert \ge \epsilon \}}) \xmapsto{n \mapsto \infty} 0, \quad \forall \epsilon \gt 0$
+
+
+### Ljapunov tétel
+
+A momentumok segítségével mondja meg, hogy mikor tartunk a normális eloszláshoz. Feltételei a ugyan azok. mint a Lindeberg-Feller esetén.
+
+$\varGamma_n^{2 + \delta} = \sum\limits_{j=1}^{k_n} \mathbb{E}(\vert x_{n,j} \vert^{2 + \delta}) \xmapsto{n \mapsto \infty} 0, \quad \text{valamilyen} \; \delta \gt 0$
+
+### Berry-Esseen tétel
+
+Legyenek $x_1, x_2, ...$ FAE val. változók, $\mathbb{E}(x_1) = 0, \; \sigma^2(x_1) = \mathbb{E}(x_1^2) és $\mathbb{E}(\vert x_{n,j} \vert^{2 + \delta}) \lt \infty$ valamilyen $0 \lt \delta \le 1$ mellett. Ekkor:
+
+$\sup \vert P (\frac{\sum\limits_{j =1}^n x_j}{\sigma \cdot \sqrt{n}} \lt x) - \phi(x) \vert \le c_{\vartheta} \cdot \frac{\mathbb{E}(\vert x_1 \vert^{2 + \delta})}{\sigma^{2 + \delta} \cdot n^{\delta/2}}$
+
+Ahol:
+- $P(...)$ a normált átlag eloszlásfüggvénye
+- $\phi(x)$ a standard normális eloszlásfüggvénye
+- $c_{\vartheta}$ egy abszolút állandó, ami csak $\delta$-től függ, azaz, hogy milyen magas momentumunk van
+
+Azért legjobb a $\delta = 1$, mert akkor lesz a legkisebb a hiba.
 
 ## VIII. Feltételes várható érték és tulajdonságai, feltételes eloszlás
 
@@ -1263,8 +1400,107 @@ Vagyis a Fisher-információ skálázódik az átparaméterezés deriváltjának
 
 ## VI. Információs határ, MM és ML módszerek
 
+### Információs határ
+
+Az információs határ azt jelenti, hogy bármely torzítatlan becslés varianciája nem lehet kisebb, mint a Fisher-információ inverze.
+
+Előfeltételek:
+- Gyenge regularitás
+- $T$ torzítatlan becslés $g(\vartheta)$-ra
+- $\mathbb{E}_{\vartheta}(\Vert T(X) \Vert^2) \lt \infty$, lokálisan korlátos
+- $G(\vartheta) = \partial_{\vartheta} g(\vartheta)$ létezik és folytonos
+
+Ekkor a becslés szórása alulról korlátos:
+
+$\mathrm{Var}_{\vartheta}(T) \ge G(\vartheta) \cdot I^{-1}(\vartheta) \cdot G^T(\vartheta)$
+
+Következmények:
+- Amilyen nagy Fisher-információ, olyan kicsi lehet a becslés varianciája
+- Akármilyen jól becsülünk, a szórás nem közelíti a nullát, ha a Fisher-információ véges
+- Ha $\nu$-t becsüljük, akkor a korlát egyszerűsödik: $\mathrm{Var}_{\vartheta}(T) \ge I^{-1}(\vartheta)$
+
+### Cramér-Rao egyenlőtlenség
+
+**Torzítatlan becslésekre:**
+Előfeltételek:
+- Gyenge regularitás
+- $T$ becslés $g(\vartheta)$-ra
+- Torzítás nem megengedett
+- $\mathbb{E}_{\vartheta}(\Vert T(X) \Vert^2) \lt \infty$, lokálisan korlátos
+- $G(\vartheta) = \partial_{\vartheta} g(\vartheta)$ létezik
+
+Ekkor a becslés szórása alulról korlátos:
+
+$\mathrm{Var}_{\vartheta}(T) \ge (G(\vartheta)) \cdot I^{-1}(\vartheta) \cdot (G(\vartheta))^T$
+
+**Torzított becslésekre:**
+Előfeltételek:
+- Gyenge regularitás
+- $T$ becslés $g(\vartheta)$-ra
+- $\mathbb{E}_{\vartheta}(\Vert T(X) \Vert^2) \lt \infty$, lokálisan korlátos
+
+Ha nem torztatlan a $T$ statisztika, akkor is van információs határ, de korrigálni kell a torzítás és a torzítás deriváltjának függvényével:
+
+$g: \Theta \mapsto \R^k$ folytonosan differenciálható $ \implies b_T(\vartheta)$ differenciálható ($B = \partial_{\vartheta} b_T$)
+
+$R_T(\vartheta) \ge (G(\vartheta) + B(\vartheta)) \cdot I^{-1}(\vartheta) \cdot (G(\vartheta) + B(\vartheta))^T$
+
+### Momentum-módszer (MM)
+
+Legyen $\varphi: \mathcal{X} \mapsto \R^k$ mérhető függvény, akkor a momentum-módszerrel úgy próbáljuk megbecsülni a $\vartheta$ paramétert, hogy a minta alapján képzett tapasztalati momentumokat egyenlővé tesszük az elvi momentummal.
+
+Legyen még $\varphi(\vartheta) = (\mathbb{E}_{\vartheta}(\varphi_1(X)), ..., \mathbb{E}_{\vartheta}(\varphi_k(X)))$ kiválasztott több momentumfüggvény, akkor a becslés:
+
+$\hat{\vartheta} = \varphi^{-1}(\frac{1}{n} \sum_{i=1}^n \varphi(X_i^{j1}), ... , \frac{1}{n} \sum_{i=1}^n \varphi(X_i^{jp}))$
+
+Ha $\varphi$ $p$-dimenziós, akkor $p$ db momentum kell, viszont figyelni kell arra, hogy ne egy altérbe essenek, vagyis lineárisan független alterekben legyenek.
+
+### Maximum likelihood módszer (ML)
+
+**Paraméter ML becslése:**
+
+A maximum-likelihood elve szerint az ismeretlen paraméter azon értékét fogadjuk el, amely mellett a bekövetkezett eredmény maximális valószínűségű/sűrűségű.
+
+Legyen x fix minta, $x \mapsto f_{\vartheta}(x)$-t adott $\vartheta$-ban maximalizáljuk és azt a $\hat{\vartheta}$-t választjuk, ahol $\partial_{\vartheta} l(\vartheta; x) = 0$, ez a likelihood egyenlet. 
+
+Tulajdonságok, ha a minta mérete elég nagy és teljesülnek az erős regularitás-feltételek:
+- Van a likelihood egyenletnek megoldása
+- Van olyan $\hat \vartheta$ ami lokális maximum
+- Erősen konzisztens, azaz $\hat \vartheta_n \xmapsto{1} \vartheta$
+- Aszimptotikusan normális eloszlású: $\sqrt{n}(\hat \vartheta_n - \vartheta) \xmapsto{d} N(0, I^{-1}(\vartheta))$
+
+**Indukált likelihood, paraméter függvények ML becslése:**
+
+Ha $g(\vartheta)$-t szeretnénk becsülni, akkor az máshogy kell hozzáállni:
+- Ha $g$ bijektív, akkor átparaméterezve becslünk: $\psi = g(\vartheta)$ és az új paraméter szerinti likelihood egyenletet oldjuk meg
+- Ha $g$ nem bijektív, akkor az indukált likelihood függvényt kell maximalizálni:
+    $f_{\gamma}^*(x) = \sup \{ f_{\vartheta}(x) : g(\vartheta) = \gamma \}$
+
+Ha $\vartheta$ ML becslője $\hat \vartheta$, akkor $g(\hat \vartheta)$ az indukált likelihood szerinti ML becslés $g(\vartheta)$-ra.
+
+**ML becslés és elégséges statisztika:**
+ 
+Ha van ML becslés, akkor felírható olyan is, ami elégséges statisztika függvénye.
+
+**Bahadur-tétele, asszimptotikus Cramer-Rao:**
+
+Cramer-Rao-t terjeszti ki aszimptotikus esetre:
+
+Legyenek adottak az erős regularitási feltételek, legyen $g$ folytonosan differenciálható, $G (\vartheta) = \partial_{\vartheta} g(\vartheta)$ és legyen $T_n: \mathcal{X}^n \mapsto \R^k$ torzítatlan becslés $g(\vartheta)$-ra, ami konzisztens és aszimptotikusan normális eloszlású:
+
+$Q(\vartheta) = \ge G(\vartheta) \cdot I^{-1}(\vartheta) \cdot G^T(\vartheta)$
+
+Következménye, hogy az ML becslés aszimptotikusan optimális, azaz eléri az információs határt.
 
 ## VII. Hipotézisvizsgálat alapjai, likelihood-hányados próba egyszerű hipotéziseknél
+
+### Hipotézis, ellenhipotézis
+
+
+### Hibák
+
+
+### Likelihood-hányados próba
 
 
 ## VIII. Normális eloszlás paramétereire vonatkozó próbák

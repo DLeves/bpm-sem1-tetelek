@@ -209,11 +209,39 @@ Első Magyar Általános Biztosító Társaság
 
 ### 22.	Milyen jelentősége volt a CSÉB biztosításoknak a biztosítási piac demonopolizálása szempontjából?
 
+CSÉB: Csoportos élet- és balesetbiztosítás
+
+Az állami biztosítási monopólium idején minden munkavállalóra megkötötték a CSÉB-et, csúcsidőszakban ez több, mint 4-4,5 millió munkavállalót jelentett. Visszafogott kínálat és a verseny hiánya jellemezte a piacot. A kiterjedt termékkör viszont megalapozta a szaktudást a monopol helyzet megszűnése utáni időkre.
+
+1986-ban, a rendszerváltás előtt liberalizálták a biztosítási piacot, lehetővé téve a magánbiztosítók belépését. A monopol Állami Biztoító megszűnt helyére az Állami Biztosító(később Aegon, majd Alfa) és a Hungária Biztosító(később Allianz) lépett. A CSÉB biztosítások jelentősége abban rejlett, hogy a meglévő ügyfélkör és a termékek ismerete révén a magánbiztosítók gyorsan tudtak piacot szerezni, és versenyképes termékeket kínálni. Ez elősegítette a biztosítási piac fejlődését és diverzifikációját Magyarországon. 
+
 ### 23.	Milyen kockázatokat fedezhetnek az egészségbiztosítások (betegségbiztosítások), mi fékezi a terjedésüket Magyarországon? 
+
+Az egészségbiztosítások különböző kockázatokat fedezhetnek, mint például:
+- Kórházi ellátás költségei
+- Műtéti költségek
+- Orvosi vizsgálatok és kezelések költségei
+- Gyógyszerek költségei
+- Jövedelemkiesés betegségek miatt
+
+A terjedésüket Magyarországon több tényező is fékezi:
+- Magas költségek: Az egészségbiztosítások díjai gyakran magasak lehetnek, ami megnehezíti a hozzáférést a szélesebb lakosság számára
+- Van biztosítva állami egészségügyi rendszer
+- Alacsony tudatosság és igény a magán egészségbiztosításokra
+- Sokszor munkádói juttatásként érhető el, amit munkahelyváltás esetén elveszíthetnek az alkalmazottak
 
 ### 24.	Milyen „leszállítandó” dokumentumokat kell elkészíteni a termékfejlesztési folyamat során?
 
+- Ügyféltájékoztató (IPID/KID): Rövid, egyszerű leírása a biztosítási terméknek. Ez az amiből az ügyfelek átfogó képet kapnak a biztosításról.
+- Ügyféldokumentumok: Minden dokumentum amit majd az ügyfél látni fog. Ide tartozik a szerződés maga, de az online felület is, ha van.
+- Díjkalkuláció: Milyen elv alapján számítják a díjat? (pl ekvivalencia) Milyen kockázatokat mérlegelnek? Hogyan történik a tartalékolás, zillmerezés?
+- Üzleti terv: Más területekhez hasonlóan, itt is azt tartalmazza milyen célokat kíván a biztosító elérni. Továbbá, hogy milyen módszerekkel és milyen ütemezéssel tervezi ezeket elérni. Egy útmutatóként szolgál, hogy merre tervez haladni a biztosító
+- Oktatási anyag, értékesítési anyag: Promóció megtervezésének dokumentumai, oktatási anyagok, nyomtatványok amiket az értékesítőknek juttatnak.
+- IT háttér: Rendszertől függ, de általánosan azt kell dokumentálni, hogyan implementálják az új terméket a rendszerbe, csatolni kell ennek dokumentációját.
+
 ### 25.	Mire vonatkozik az IDD szabályozás? Mi az alapvető célja? Mely területekre vonatkoznak a legfontosabb szabályai?
+
+
 
 ### 26.	Mik azok a kockázati indikátorok? Mi a szerepük a biztosító kockázatkezelési folyamatában?
 
