@@ -425,13 +425,49 @@ Ha korlátos változású a függvény, akkor felbontható abszolút folytonos �
 
 **Intuíció**:
 
+Legyen két mérhető térünk $(X, \mathcal{M}, \mu)$ és $(Y, \mathcal{N}, \nu)$. Ekkor a két tér szorzata egy új mérhető teret hoz létre, ahol a halmazok a két eredeti tér halmazainak szorzataként értelmezhetők. A mértékek szorzata pedig egy új mértéket definiál ezen a szorzat téren, amely a két eredeti mérték kombinációját tükrözi.
+
+Legyen a két mérhető tér szorzata pl. egy mérhető tégla, ekkor $\mathcal{T} = \{ A \times B \}$, ahol $A \in \mathcal{M}, B \in \mathcal{N}$. Ekkor a szorzatmérték a következőképpen definiálható:
+
+$\alpha(\mathcal{T}) = \alpha(A \times B) = \mu(A) \cdot \nu(B)$
+
+Tétel: $\alpha \; \sigma$-additv $\mathcal{T}$-re.
+
+Ha vesszük $\mathcal{T}$ véges unióját, akkor:
+- $A$ modulus lesz
+- $\alpha$ kiterjeszthető lesz $A$-ra
+- $\alpha \implies \varphi$ külső mérték lesz 
+
 ### Szorzatmérték
+
+Legyen két mérhető térünk $(X, \mathcal{M}, \mu)$ és $(Y, \mathcal{N}, \nu)$. Ekkor a szorzatmérték egy új mértéket definiál a szorzat téren $(Z, \mathcal{S}, \varphi)$, ha:
+- $Z = X \times Y$
+- $\varphi$ az $\alpha$ kiterjesztése az A modulusról, megszorítva $\mathcal{S}$-re.
+- $\mathcal{S}$ a $\varphi$-mérhető $\sigma$-algebra
 
 ### Fubini-tétel
 
+A adott  $(X, \mathcal{M}, \mu)$ és $(Y, \mathcal{N}, \nu)$ és az általuk alkotott szorzatmértékes tér $(Z, \mathcal{S}, \varphi)$ esetén, ha $f \isin L_1(\varphi)$ vagy $\int_Z f \; d\varphi$ létezik és $\varphi$-véges, akkor:
+
+$g(x) = \int_Y f(x,y) \; d\nu(y)$ m.m. mérhető és $g \isin L_1(\mu)$, továbbá:
+
+$\int_Z g(x,y) \; d\varphi(x,y) = \int_X g(x) \; d\mu(x)$
+
 ### Véges sok tér szorzata
 
+Adott $(X_i, \mathcal{M}_i, \mu_i)$ mérhető terek esetén, ahol $i = 1, 2, ... , n$, a szorzatmértékes tér $(Z, \mathcal{S}, \varphi)$ a következőképpen definiálható:
+
+- $Z = X_1 \times X_2 \times ... \times X_n$
+- $k$-szoros téglákhoz $\alpha$, ezek kiterjesztése $\varphi$-re $\mathcal{S}$-en
+- $\mathcal{S}$ a $\varphi$-mérhető $\sigma$-algebra 
+
 ### Tetszőleges sok tér szorzata
+
+Tetszőlegesen sok mértéktér esetén legyen majdnem minden tag mértéke 1, azaz $(X_i, \mathcal{M}_i, \mu_i)$, ahol $i \in I$ és $\mu_i(X_i) = 1$ minden kivétellel. Ekkor a szorzatmértékes tér $(Z, \mathcal{S}, \varphi)$ a következőképpen definiálható:
+
+- $Z = \prod_{i \in I} X_i$
+- $k$-szoros téglákhoz $\alpha$, ezek kiterjesztése $\varphi$-re $\mathcal{S}$-en
+- $\mathcal{S}$ a $\varphi$-mérhető $\sigma$-algebra
 
 **The Bright Side of Mathematics vidik**: 
 - [Mértékek szorzata](https://youtu.be/BTU69ezkpZw?si=Wq68uU3O9sAs7i7P)
