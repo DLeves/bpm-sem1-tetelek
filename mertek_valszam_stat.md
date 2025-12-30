@@ -1016,11 +1016,90 @@ Azért legjobb a $\delta = 1$, mert akkor lesz a legkisebb a hiba.
 
 ## VIII. Feltételes várható érték és tulajdonságai, feltételes eloszlás
 
+Feltételes valószínűség: $P(A \vert B) = \frac{P(A \cap B)}{P(B)}$, ha $P(B) \gt 0$
+
+### Feltételes várható érték
+
+**Klasszikus fogalma:**
+
+Pozitív valószínűségű eseményre nézve($P(A) \gt 0$):
+
+$\mathbb{E}(X \vert A) = \frac{\mathbb{E}(X \cdot \chi_A)}{P(A)}$
+
+Ahol $\chi_A$ az $A$ esemény indikátora.
+
+**Teljes várható érték tétele:**
+
+Legyenek $A_1, A_2, ...$ diszjunkt események, ekkor:
+
+$\mathbb{E}(X) = \sum\limits_{i} \mathbb{E}(X \vert A_i) \cdot P(A_i)$
+
+Feltételes várható érték feltételei:
+
+Legyen $x: \Omega \to \mathbb{R}$ egy valós értékű valószínűségi változó, melyre $\mathbb{E}$ véges és $\mathcal{F} \sube \mathcal{A}$ egy $\sigma$-algebra. $z$ változó $x$-nek $\mathcal{F}$-re vonatkozó feltételes várható értéke, ha teljesül $z = \mathbb{E}(x \mid \mathcal{F})$ 
+
+- $\mathcal{F}$-mérhető
+- $\forall B \in \mathcal{F}$-re: $\int\limits_{B} z \; dP = \int\limits_{B} x \; dP$
+
+Ez továbbra sem egy szám, hanem egy valószínűségi változó. A $\sigma$-algebra reprezentálja a rendelkezésre álló információt.
+
+**Tulajdonságok:**
+
+- Lineáris: $\mathbb{E}(aX + bY \mid \mathcal{F}) = a \mathbb{E}(X \mid \mathcal{F}) + b \mathbb{E}(Y \mid \mathcal{F})$
+- $x \ge 0 \; p. \Rightarrow \mathbb{E}(x \mid \mathcal{F}) \ge 0$ 1 valószínűséggel
+- $\vert \mathbb{E}(x \mid \mathcal{F}) \vert \le \mathbb{E}(\vert x \vert \mid \mathcal{F})$ (Jensen egyenlőtlenség)
+- $\mathbb{E}(x \cdot y \mid \mathcal{F}) = y \cdot \mathbb{E}(x \mid \mathcal{F})$, ha $y$ $\mathcal{F}$-mérhető
+- $x$ $\mathcal{F}$-mérhető $\Rightarrow \mathbb{E}(x \mid \mathcal{F}) = x$
+- Ha $\mathcal{F}$ a triviális $\sigma$-algebra, akkor $\mathbb{E}(x \mid \mathcal{F}) = \mathbb{E}(x)$
+- Két feltétel esetén a szűkebb számít: $y \isin \mathcal{F}: \mathbb{E}(\mathbb{E}(x \mid \mathcal{F}) \mid \mathcal{G}) = \mathbb{E}(x \mid \mathcal{G})$
+- Teljes várható érték tétele: $\mathbb{E}(\mathbb{E}(x \mid \mathcal{F})) = \mathbb{E}(x)$
+
+**Feltételes várható érték létezése és egyértelműsége:**
+
+Tetszőleges $x$ valószínűségi változó létezik, $\mathbb{E}(x)$ létezik és véges, akkor $z = \mathbb{E}(x \mid \mathcal{F})$ létezik és m.m. egyértelmű.
+
+**Feltételes Jensen egyenlőtlenség:**
+
+Legyen $x: \Omega \mapsto \R^n$ valószínűségi változó és $f: \R^n \mapsto \R$ konvex függvény, akkor:
+
+$f(\mathbb{E}(x \mid \mathcal{F})) \le \mathbb{E}(f(x) \mid \mathcal{F})$
+
+Következmény:
+
+$\mathbb{E}(x^2) \lt \infty,\; p = 2,\; y \; \mathcal{F}$-mérhető és $y \ne \mathbb{E}(x \mid \mathcal{F})$, akkor:
+
+$\mathbb{E}((x - \mathbb{E}(x \mid \mathcal{F}))^2 \mid \mathcal{F}) \le \mathbb{E}((x - y)^2 \mid \mathcal{F})$
+
+**Konvergenciák mértékelméletből:**
+
+- Monoton konvergencia: $0 \ge z_1 \ge z_2 \ge ... \to z \; \mathbb{E}(z_n \mid \mathcal{F})$ 1 valószínűséggel
+- Fatou-lemma: $\mathbb{E}(\liminf z_n \mid \mathcal{F}) \le \liminf \mathbb{E}(z_n \mid \mathcal{F})$ 1 valószínűséggel
+- Lebesque-dominált konvergencia: ha van $x_n$-hez olyan $z$, hogy $\vert x_n \vert \le z$ és $\mathbb{E}(z) \lt \infty$, továbbá $x_n \to x$ 1 valószínűséggel, akkor:
+$\mathbb{E}(x_n \mid \mathcal{F}) \to \mathbb{E}(x \mid \mathcal{F})$ 1 valószínűséggel
+
+### Feltételes eloszlás
+
+A feltételes eloszlás esetében fordítva dolgozunk, először definiálunk egy feltételes várható értéket, majd abból következtetünk a feltételes eloszlásra.
+
+$P(A \mid \mathcal{F}) = \mathbb{E}(\chi_A \mid \mathcal{F})$ továbbra is valószínűségi változó.
+
+Ahol $A \in \mathcal{A}$ esemény, $\mathcal{F} \sube \mathcal{A}$ egy $\sigma$-algebra és $\chi_A$ az $A$ esemény indikátora.
+
+Megválaszthatóak $P(A \mid \mathcal{F})$ értékei úgy, hogy $\forall \omega in \Omega$-ra a valószínűségi mérték: $P(A \mid \mathcal{F})(\omega)$ legyen.
+
+### Feltételes sűrűségfüggvény
+
+Legyen $x, y: \Omega \to \R^2$ folytonos eloszlással $f_{x,y} = f(x,y)$ és a marginálisok $f_x(x)$ és $f_y(y)$. Ekkor a feltételes sűrűségfüggvény:
+
+$f_{x \mid y}(x,y) = \begin{cases}
+\frac{f_{x,y}(x,y)}{f_y(y)}, & f_y(y) \gt 0 \\
+f_x(x), & \ f_y(y) = 0
+\end{cases}$
 
 ## IX. Martingálok tulajdonságai, Doob-felbontás, kanonikus növekvő folyamata, megállás idő
 
 
-## X. Martingálok konvergancia tételei, nagy-eltérés tételek
+## X. Martingálok konvergencia tételei, nagy-eltérés tételek
 
 
 # Statisztika
