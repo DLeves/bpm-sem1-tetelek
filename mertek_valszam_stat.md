@@ -1496,12 +1496,97 @@ Következménye, hogy az ML becslés aszimptotikusan optimális, azaz eléri az 
 
 ### Hipotézis, ellenhipotézis
 
+Intuíció: Nem az összes mérték közül keressük az igazit, hanem $\mathcal{P} = \mathcal{P}_0 \cup^* \mathcal{P}_1$ diszjunkt halmazokra bontjuk fel. Az eloszlás vagy paraméter teret ketté bontjuk és a kérdés, hogy melyik részbe tartozik a valódi eloszlás.
+
+$H_0: P \in \mathcal{P}_0$ nullhipotézis
+
+$H_1: P \in \mathcal{P}_1$ ellenhipotézis
+
+Ha paramétermezőn vagyunk, akkor: $\Theta = \Theta_0 \cup^* \Theta_1$
+
+Vagy elfogadjuk, vagy elvetjük a nullhipotézist.
+
+**Döntés vs minta:**
+
+A mintát is szét kell bontani $\mathcal{X} = \mathcal{X}_k \cup \mathcal{X}_e$, ahol $\mathcal{X}_k$ elfogadási tartomány és $\mathcal{X}_e$ elutasítási tartomány.
+
+Ekkor a döntési szabály:
+- Ha $x \in \mathcal{X}_e$, akkor elfogadjuk $H_0$-t
+- Ha $x \in \mathcal{X}_k$, akkor elutasítjuk $H_0$-t
+
+**Asszimetria a hipotézisek között:**
+
+- Ha $H_0$: $\mathcal{P}_0$ nagyvonalúan belefér a képbe $x$ minta alapján, akkor engedékenyebbek vagyunk
+- Ha $H_1$: $\mathcal{P}_0$ iszonyúan nem stimmel, szinte köze nincs hozzá, akkor nagyon markánsan, szignifikánsan $\mathcal{P}_1$-ben vagyunk
 
 ### Hibák
 
+**Hibák típusai:**
+- Elsőfajú hiba: $H_0$ ($P \in \mathcal{P}_0$) igaz, de elutasítjuk, ezt nagyon nem szeretnénk
+- Másodfajú hiba: $H_1$ ($P \in \mathcal{P}_1$) igaz, de elfogadjuk $H_0$-t, ezt is szeretnénk elkerülni, de nem annyira, mint az elsőfajút
+
+**Terjedelem:**
+
+$\alpha = \sup\limits_{P \in \mathcal{P}_0} P_{\vartheta}(\mathcal{X}_k)$ a kritikus tartomány valószínűsége, ha a valódi $\vartheta$ a nullhipotézis tartományában van, vagyis az elsőfajú hiba valószínűsége.
+
+**Erő:**
+
+$\beta(\vartheta) = P_{\vartheta}(\mathcal{X}_e)$ a kritikus tartomány valószínűsége, ha a valódi $\vartheta$ az ellenhipotézis tartományában van, vagyis a másodfajú hiba valószínűsége.
+
+**Mikor jó egy próba?**
+
+- Torzítatlan: Erő $\ge$ terjedelem $\rarr$ $\beta(\vartheta) \ge \alpha, \; \forall \vartheta \in \Theta_1$
+- Összehasonlítás: Egy próba $(\mathcal{X}_k, \mathcal{X}_e)$ jobb egy másiknál $(\mathcal{X}_k', \mathcal{X}_e')$, ha ugyan olyan terjedelme van, de nagyobb az ereje minden $\vartheta \in \Theta_1$-re.
+- Definiálható fix $\alpha$ mellett egyenletesen legerősebb próba, ami $\max \beta(\vartheta)$-t adja minden $\vartheta \in \Theta_1$-re.
+- Egy próbasorozat konzisztens, ha rögzített $\alpha$ esetén a minta méretének ($n$) növelésével az erő tart 1-hez: $\lim\limits_{n \to \infty} \beta_n(\vartheta) = 1, \; \forall \vartheta \in \Theta_1$
+
+**Véletlenített próba:**
+
+Nem egy döntést kapunk, hanem valószínűséget és a végén ez alapján sorsolunk eredményt.
 
 ### Likelihood-hányados próba
 
+**Neyman-Pearson lemma:**
+
+Ha $H_0, H_1$ egyszerű hipotézisek és $n$ elemű mintánk van, akkor a próbafüggvény:
+
+$\varphi(x) = \begin{cases}
+1, & \text{ha } \frac{f(\vartheta_1; x)}{f(\vartheta_0; x)} \gt c \\
+\gamma, & \text{ha } \frac{f(\vartheta_1; x)}{f(\vartheta_0; x)} = c \\
+0, & \text{ha } \frac{f(\vartheta_1; x)}{f(\vartheta_0; x)} \lt c
+\end{cases}$ 
+
+Ahol $c$ a kritikus érték. A próbafüggvényt paramétereit minden $\alpha$-hoz lehet úgy választani, hogy a próba terjedelme $\alpha$ legyen. Ez a próba lesz az egyenletesen legerősebb próba minden $\alpha$-ra.
+
+Ez a likelihood-hányados próba: Ha $x$-nek $n$ elemű mintáját nézzük, akkor nem egy tört, hanem többnek a szorzata van, ezért logaritmizálva kényelmesebb dolgozni vele.
+
+Aszimptotikusan: $\frac{\prod\limits_{i=1}^{n} f_1 (x_i)}{\prod\limits_{i=1}^{n} f_0 (x_i)} \xRightarrow{log} \sum\limits_{i=1}^n \log \frac{f_1(x_i)}{f_0(x_i)} \approx -n D(P_1 \Vert P_0)$ a nagy számok erős törvénye miatt. Itt $\Vert$ a két mérték összehasonlítását jelenti.
+
+**Kullback-Leibler divergencia:**
+
+A Neyman-Pearson lemmában szereplő $D(P_1 \Vert P_0)$ a Kullback-Leibler divergencia, ami két eloszlás közötti távolságot méri:
+
+$D(P_1 \Vert P_0) = \int - \log \frac{dQ}{dP} \; dP$
+
+Nem szimmetrikus, azaz $D(P_1 \Vert P_0) \neq D(P_0 \Vert P_1)$ általában. A minta méretének növelésével a két eloszlás közötti különbség egyre jobban látszik a divergencia miatt, azaz jobb lesz a próba és eloszlásban normális lesz.
+
+**Nagy minta esetén az erő határértéke:**
+
+Nagymintás próba esetén az erő tart egyhez:
+
+$d_n = n D(P_0 \vert P_1) + \sqrt{n} \cdot \sigma \Phi^{-1}(\alpha)$
+
+Ahol $\sigma: \log \frac{f_1}{f_0}$ szórása és $\Phi^{-1}$ a standard normális eloszlás inverze.
+
+Ekkor a próba:
+
+$\varphi(x) = \begin{cases}
+1, & \text{ha } \log \frac{f_1(x)}{f_0(x)} \ge e^{-d_n} \\
+0, & \text{egyébként}
+\end{cases}$
+
+- Terjedelme $n \mapsto \infty$-ben tart $\alpha$-hoz
+- Ereje $n \mapsto \infty$-ben tart 1-hez, $\beta \gt 1 - e^{-nD(P_1 \Vert P_0)-\delta(n)}$
 
 ## VIII. Normális eloszlás paramétereire vonatkozó próbák
 
