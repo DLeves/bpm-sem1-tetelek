@@ -1705,9 +1705,141 @@ $\varphi(x) = \begin{cases}
 
 ## VIII. Normális eloszlás paramétereire vonatkozó próbák
 
+### Khi-négyzet eloszlás
+
+$x \sim N(0, I_n) \; n$-dimenziós normális eloszlás esetén: $y = \Vert x \Vert^2, \; y \isin [0, \infty)$ eloszlása $n$ szabadságfokú Khi-négyzet eloszlású.
+
+### Student-féle t eloszlás
+
+Legyen $x \sim N(0,1), \; y \sim \chi^2_n$ eloszlású független valószínűségi változók, akkor a következő valószínűségi változó eloszlása Student-féle t eloszlású $n$ szabadságfokkal:
+
+$t = \frac{x}{\sqrt{\frac{y}{n}}}$
+
+Tulajdonságok:
+- az eloszlás szimmetrikus
+- $n = 1$ esetén Cauchy-eloszlás
+- $n \to \infty$ esetén normális eloszlás
+
+### F-eloszlás
+
+Legyenek $x \sim \chi^2_m, \; y \sim \chi^2_n$ független valószínűségi változók, akkor a következő valószínűségi változó eloszlása F-eloszlású $m$ és $n$ szabadságfokkal:
+
+$F = \frac{\frac{x}{m}}{\frac{y}{n}}$
+
+Tulajdonságok:
+- $F_{n,m} \sim \frac{1}{F_{m,n}}$
+- $F_{1,n} \sim t_n^2$
+- Rögzített $n$ mellett, $F_{m,n} \xmapsto{m \to \infty} \chi_n^2$
+
+### Fisher-Bartlett tétel
+
+Ha $n$ elemű mintánk van, $X_1, ..., X_n \sim N(\mu, \sigma^2)$ független, akkor:
+
+- A mintaátlag és a tapasztalati szórás $(\overline x, s_n^*)$ együtt elégséges statisztika
+- $\overline X$ és $s_n^*$ függetlenek egymástól
+- $\overline X \sim N(\mu, \frac{\sigma^2}{n})$
+- $s_n^{*2} \sim \frac{\sigma^2 }{n-1} \cdot \chi_{n-1}^2$
+
+### u-próbák
+
+**Egymintás u-próba:**
+
+A várható értéket keressük, $\sigma^2$ ismert, $\mu$ nem, a terjedelem $\alpha$ adott.
+
+A próbafüggvény:
+
+$u = \frac{\overline X - \mu_0}{\sigma / \sqrt{n}} \sim N(0,1)$
+
+Hipotézisek:
+- Kétoldali próba: $H_0: \mu = \mu_0$ vs $H_1: \mu \neq \mu_0$
+- Jobb oldali próba: $H_0: \mu \le \mu_0$ vs $H_1: \mu \gt \mu_0$
+- Bal oldali próba: $H_0: \mu \ge \mu_0$ vs $H_1: \mu \lt \mu_0$
+
+Kritikus tartomány:
+- Kétoldali próba: $\mathcal{X}_e = \{ x : |u| \gt u_{\alpha/2} \}$
+- Jobb oldali próba: $\mathcal{X}_e = \{ x : u \gt u_{\alpha} \}$
+- Bal oldali próba: $\mathcal{X}_e = \{ x : u \lt -u_{\alpha} \}$
+
+**Kétmintás u-próba:**
+
+A várható értékek egyezését keressük.
+
+Van két független mintánk, $X_1, ..., X_n \sim N(\mu_1, \sigma_1^2)$ és $Y_1, ..., Y_m \sim N(\mu_2, \sigma_2^2)$, ahol $\sigma_1^2, \sigma_2^2$ ismertek.
+
+A próbafüggvény:
+
+$u = \frac{(\overline X - \overline Y) - (\mu_1 - \mu_2)}{\sqrt{\frac{\sigma_1^2}{n} + \frac{\sigma_2^2}{m}}} \sim N(0,1)$
+
+Ha $\mu_1 - \mu_2 = 0$, akkor a hipotézisek és kritikus tartományok ugyan azok, mint az egymintás u-próbánál.
+
+### t-próbák
+
+**Egymintás t-próba:**
+
+A várható értéket keressük, $\mu, \sigma^2$ ismeretlen, $x_1, ..., x_n \sim N(\mu, \sigma^2)$ független minta, $\mu_0$ adott.
+
+Próbafüggvény:
+
+$t = \frac{\overline X - \mu_0}{s_n^*} \cdot \sqrt{n} \sim t_{n-1}$
+
+ha $H_0: \mu = \mu_0$.
+
+Kritikus tartomány:
+- Kétoldali próba: $\mathcal{X}_e = \{ x : |t| \gt t_{n-1, \alpha/2} \}$
+- Jobb oldali próba: $\mathcal{X}_e = \{ x : t \gt t_{n-1, \alpha} \}$
+- Bal oldali próba: $\mathcal{X}_e = \{ x : t \lt -t_{n-1, \alpha} \}$
+
+**Kétmintás t-próba:**
+
+Két független minta, minden paraméter ismeretlen, de a szórások egyenlőek: $X_1, ..., X_n \sim N(\mu_1, \sigma^2)$ és $Y_1, ..., Y_m \sim N(\mu_2, \sigma^2)$.
+
+Próbafüggvény:
+
+$t = \frac{(\overline X - \overline Y) - (\mu_1 - \mu_2)}{s_p^* \cdot \sqrt{\frac{1}{n} + \frac{1}{m}}} \sim t_{n+m-2}$
+
+**Welch-próba:**
+
+Két független minta, minden paraméter ismeretlen, a szórások nem feltétlen egyenlőek: $X_1, ..., X_n \sim N(\mu_1, \sigma_1^2)$ és $Y_1, ..., Y_m \sim N(\mu_2, \sigma_2^2)$.
+
+Próbafüggvény:
+
+$t = \frac{(\overline X - \overline Y) - (\mu_1 - \mu_2)}{\sqrt{\frac{s_{n}^{*2}}{n} + \frac{s_{m}^{*2}}{m}}} \sim t_{\nu}$
+
+Ahol a $\nu$ szabadságfok fiktív, képlettel számolható.
+
+### F-próbák
+
+**Kétmintás F-próba:**
+
+Két független minta szórásnégyzetének egyezését keressük: $X_1, ..., X_n \sim N(\mu_1, \sigma_1^2)$ és $Y_1, ..., Y_m \sim N(\mu_2, \sigma_2^2)$.
+
+Ha $H_0: \sigma_1^2 = \sigma_2^2, \; H_1: \sigma_1^2 \ne \sigma_2^2$, akkor a próbafüggvény:
+
+$F = \frac{s_{n}^{*2}}{s_{m}^{*2}} \sim F_{n-1, m-1}$
+
+Kritikus tartomány:
+- Kétoldali próba: $\mathcal{X}_e = \{ x : F \lt F_{n-1, m-1, \alpha/2} \text{ vagy } F \gt F_{n-1, m-1, 1-\alpha/2} \}$
+- Jobb oldali próba: $\mathcal{X}_e = \{ x : F \gt F_{n-1, m-1, 1-\alpha} \}$
+- Bal oldali próba: $\mathcal{X}_e = \{ x : F \lt F_{n-1, m-1, \alpha} \}$
+
+**Egymintás F-próba:**
+
+A kétmintás F-próba leegszerűsödik egymintás F-próbává, ha a második minta szórásnégyzetét ismertnek vesszük. Hipotézisek: $H_0: \sigma^2 = \sigma_0^2, \; H_1: \sigma^2 \ne \sigma_0^2$.
+
+Próbafüggvény:
+
+$F = \frac{s_{n}^{*2}}{\sigma_0^2} \sim \frac{1}{n-1} \cdot \chi_{n-1}^2$
+
+Kritikus tartomány:
+- Kétoldali próba: $\mathcal{X}_e = \{ x : F \lt \frac{1}{n-1} \cdot \chi_{n-1, \alpha/2}^2 \text{ vagy } F \gt \frac{1}{n-1} \cdot \chi_{n-1, 1-\alpha/2}^2 \}$
+- Jobb oldali próba: $\mathcal{X}_e = \{ x : F \gt \frac{1}{n-1} \cdot \chi_{n-1, 1-\alpha}^2 \}$
+- Bal oldali próba: $\mathcal{X}_e = \{ x : F \lt \frac{1}{n-1} \cdot \chi_{n-1, \alpha}^2 \}$  
 
 ## IX. Khi-négyzet próbák illeszkedésvizsgálatra és következményeik. Folytonos illeszkedésvizsgálat
 
+### Diszkrét illeszkedésvizsgálat
+
+### Diszkrét homogenitásvizsgálat
 
 ## X. Lineáris modell, Lineáris hipotézis normális lineáris modellben
 
