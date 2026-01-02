@@ -1098,9 +1098,156 @@ f_x(x), & \ f_y(y) = 0
 
 ## IX. Martingálok tulajdonságai, Doob-felbontás, kanonikus növekvő folyamata, megállás idő
 
+Adott $\mathcal{F}_1 \sube \mathcal{F}_2 \sube ...$ növekvő $\sigma$-algebra sorozat (Filtráció) és egy $X_1, X_2, ...$ valószínűségi változó sorozata, amik az indexükhöz tartozó $\sigma$-algebrákra mérhetőek (Adaptált sorozat).
+
+### Martingálok
+
+Egy $(x_n, \mathcal{F}_n)$ sorozatpár martingál, ha:
+- $x_n$ adaptált sorozat az $\mathcal{F}_n$ filtrációra
+- minden $n$-re: $\mathbb{E}(\vert x_n \vert) \lt \infty$
+- minden $n$-re: $\mathbb{E}(x_n \mid \mathcal{F}_{n-1}) = x_{n-1}$
+
+Szubmartingál, ha az utolsó feltétel helyett: $\mathbb{E}(x_n \mid \mathcal{F}_{n-1}) \ge x_{n-1}$
+
+Szupermartingál, ha az utolsó feltétel helyett: $\mathbb{E}(x_n \mid \mathcal{F}_{n-1}) \le x_{n-1}$
+
+**Martingál differencia:**
+
+$d_n = x_n - x_{n-1}, \; d_1 = x_1$
+
+Vagyis mennyit változott a martingál egy lépésben.
+
+Ekkor viszont $x_n$ előállítható martingál differenciák összegzésével:
+
+$x_n = \sum\limits_{i=1}^{n} d_i$
+
+**Valószínűségi változók, mint martingál differenciák:**
+
+Ha $d_1, d_2, ..., d_n$ 0 várható értékű, független valószínűségi változók, akkor martingál differenciák adott $\mathcal{F}_n = \sigma(d_1, d_2, ..., d_n)$ filtrációra. Ekkor korrelálatlanok is.
+
+**Megállási idő:**
+
+Adott $\nu: \Omega \to \Z^+ \cup \{\infty\}$ valószínűségi változó, amire:
+
+$\{ \nu = m \} \in \mathcal{F}_m$, $\nu$ az az esemény, $m$-et vesz fel, amikor megállok.
+
+Vagyis $m$ időpontban tudom, hogy megállok-e vagy sem. Előtte még lehet véletlen.
+
+**Megállított szubmartingál:**
+
+Ha $(x_n, \mathcal{F}_n)$ szubmartingál és $\nu$ megállási idő, akkor a megállított szubmartingál $($x_{n \land \nu}, \mathcal{F}_n)$, ahol:
+
+$x_{n \land \nu} = \begin{cases}
+x_n, & n \le \nu(\omega) \\
+x_{\nu(\omega)}, & n \gt \nu(\omega)
+\end{cases}$
+
+Ez felfogható úgy is, hogy a minimumot vesszük a megállási idő és az aktuális idő között.
+
+### Doob-egyenlőtlenség
+
+Ha tudjuk $n$ pillanatbeli momentumot, akkor egész jó képet kapunk a maximumról.
+
+Ha $(x_n, \mathcal{F}_n)$ szubmartingál és $x_n \gt 0$, akkor:
+
+$\mathbb{E}((x_n^*)^p) \le (\frac{p}{p-1})^p \mathbb{E}(x_n^p), \quad p > 1$
+
+Ha $(x_n, \mathcal{F}_n)$ martingál, akkor:
+
+$\Vert x_n^* \Vert_p \le \frac{p}{p-1} \cdot \Vert x_n \Vert_p, \quad p > 1$
+
+Ha abszolút érték helyett más konvex függvényt alkalmazunk, akkor is hasonló egyenlőtlenséget kapunk.
+
+### Doob-felbontás
+
+**Előrejelezhető folyamat:**
+Ha $(x_n, \mathcal{F}_n)$ mérhető, akkor a sorozat mindig az előző $\sigma$-algebrára is mérhető lesz.
+
+**Doob-felbontás:**
+
+$(x_n, \mathcal{F}_n)$ szubmartingál előállítható, mint $X_n = M_n + A_n$, ahol $(M_n, \mathcal{F}_n)$ martingál és $(A_n, \mathcal{F}_n)$ előrejelezhető, nemnegatv, m.m. növekvő folyamat.
+
+Tulajdonságok:
+- $A_n - A_{n-1} = \mathbb{E}(X_n - X_{n-1} \mid \mathcal{F}_{n-1}) = \mathbb{E}(d_n \mid \mathcal{F}_{n-1})$
+- $A_n = \sum\limits_{i=1}^{n} \mathbb{E}(d_i \mid \mathcal{F}_{i-1})$
+- $M_n = \sum\limits_{i=1}^{n} (d_i - \mathbb{E}(d_i \mid \mathcal{F}_{i-1}))$ úgy nevezett Doob-martingál
+
+### Martingálok kanonikus növekvő folyamata
+
+**Négyzetesen integrálható martingál kanonikus növekvő folyamata:**
+
+Ha vesszük egy martingál négyzetét, akkor az egy szubmartingál lesz. Ebből a szubmartingálból előállítható egy kanonikus növekvő folyamat, ami a martingál varianciáját méri.
+
+$\mathbb{E}(d_k^2 \mid \mathcal{F}_{k-1})$ a növekmény, a szummája pedig a kanonikus növekvő folyamat:
+
+$A_n = \sum\limits_{k=1}^{n} \mathbb{E}(d_k^2 \mid \mathcal{F}_{k-1})$
+
+A kanonikus növekvő folyamat tulajdonságai:
+- $A_n$ nemnegatív, m.m. növekvő és jobbról folytonos
+- $A_0 = 0$
 
 ## X. Martingálok konvergencia tételei, nagy-eltérés tételek
 
+### Martingálok konvergenciája
+
+1. Legyen $(x_n, \mathcal{F}_n)$ martingál és $\sup\limits_{n} \mathbb{E}(x_n^2) \lt \infty$, akkor $L_2$-ben korlátos. Ebbők következik, hogy:
+    - $x_n$ konvergens 1 valószínűséggel és $L_2$-ben is
+    - $L_2$-bem korlátos martingál 1 valószínűséggel és $L_1$-ben is konvergens
+    - Doob-egyenlőtlenségből pedig következik, hogy $x_n^*$ is korlátos
+
+2. Legyen $(x_n, \mathcal{F}_n)$ szubmartingál $L_2$-ben korlátos és nemnegatív. Ekkor:
+    - $x_n$ konvergens 1 valószínűséggel és $L_2$-ben is
+    - Ha $\sup\limits_{n} \mathbb{E}(x_n) \lt \infty$, akkor $x_n$ konvergens 1 valószínűséggel és $L_1$-ben is
+3. Legyen $(x_n, \mathcal{F}_n)$ szupermartingál, ha nemnegatív akkor $x_n$ konvergens 1 valószínűséggel és $L_1$-ben is.
+4. Krickeberg-felbontás: Ha $(x_n, \mathcal{F}_n)$ martingál $L_1$-ben korlátos, akkor felbontható két nemnegatív szubmartingál különbségeként: $x_n = x_n^+ - x_n^-$, ahol $x_n^+, x_n^- \ge 0$ és mindkettő $L_1$-ben korlátos.
+5. Ha egy martingál $L_1$-ben korlátos, akkor konvergens 1 valószínűséggel és $L_1$-ben is.
+
+**Reguláris martingál:**
+
+**Ekvivalens állítások:**
+
+Bármilyen martingálra $(x_n, \mathcal{F}_n)$ az alábbi állítások ekvivalensek:
+- $L_1$-ben konvergens 
+- Egyenletesen integrálható
+- Reguláris martingál
+
+**$p \gt 1$ esetén ekvivalensek:**
+
+- $L_p$-ben konvergens
+- $L_p$-ben korlátos
+- Reguláris martingál $x \isin L_p$
+
+### Becslések, egyenlőtlenségek martingálokra
+
+***Bernstein-féle maximum becslés:**
+
+$(x_n, \mathcal{F}_n)$ martingálra akarjuk becsülni, hogy a maximum nagyobb-e, mint adott $\lambda$:
+
+$P(x_n^* \ge \lambda) \le e^{-t\lambda} \cdot \mathbb{E}[e^{t x_n}]$
+
+Ahol $t \gt 0$ és $\lambda$ tetszőleges.
+
+Ha növeljük $\lambda$-t, akkor csökkenni fog az egyenlőtlenség jobb oldala, $t$-t pedig úgy válasszuk meg, hogy minimalizáljuk a jobb oldalt.
+
+**Azuma-Hoeffding egyenlőtlenség:**
+
+Legyen $(x_n, \mathcal{F}_n)$ egy martingál, amire $|x_n - x_{n-1}| \le c_n$ teljesül m.m. minden $n$-re, vagyis a növekményei korlátosak. Ekkor bármilyen $\lambda \gt 0$ és $x_0 = 0$-ra:
+
+$P(x_n \ge \lambda) \le e^{-\frac{\lambda^2}{2 \sum_{k=1}^n c_k^2}}$
+
+$P(\vert x_n \vert \ge \lambda) \le 2 e^{-\frac{\lambda^2}{2 \sum_{k=1}^n c_k^2}}$
+
+Ha $S_n = 1$, vagyis a növekmények korlátja 1, akkor:
+
+$P( x_n \ge \lambda) \le e^{-\frac{\lambda^2}{n}}$
+
+**Talagrand egyenlőtlenség:**
+
+Legyen $x_1, x_2, ..., x_n$ FAE valószínűségi változók $[0,1]$ intervallumon és $f: \R^n \to \R$ konvex és Lipschitz-folytonos függvény:
+
+$P(\vert f(x_1, x_2, ..., x_n) - m_f \vert \ge \lambda) \le 4 e^{-\frac{\lambda^2}{4}}$
+
+Ahol $m_f$ a $f(x_1, x_2, ..., x_n)$ mediánja.
 
 # Statisztika
 
@@ -1837,9 +1984,153 @@ Kritikus tartomány:
 
 ## IX. Khi-négyzet próbák illeszkedésvizsgálatra és következményeik. Folytonos illeszkedésvizsgálat
 
+**Gyakoriságok $\chi^2$ asszimptotája:**
+
+Legyen $A_1, ..., A_r$ teljes eseményrendszer, $P(A_i) = p_i, \; i = 1, ..., r$, a mintában $A_i \, k_i$-szer teljesül, azaz összesen $n$ mintaelemünk van.
+
+$p_1, ..., p_r$ valószínűségekkel és $n$ elemű független mintából az egyes események gyakorisága legyen $n_1, ..., n_r$. Ekkor:
+
+$\chi^2 = \sum\limits_{i=1}^{r} \frac{(n_i - n p_i)^2}{n p_i} \xmapsto{eloszlásban} \chi^2_{r-1}$, ha $n \to \infty$
+
 ### Diszkrét illeszkedésvizsgálat
+
+$n$ db osztályzott mefigyelésünk van, ahol $r$ db osztályba sorolva, $n_1, ..., n_r$ gyakoriságokat kapunk. Az elméleti valószínűségek $p_1, ..., p_r$ adottak.
+
+Hipotézisek:
+- $H_0$: Az eloszlás megfelel az elméletinek, azaz $P(A_i) = p_i, \; i = 1, ..., r$
+- $H_1$: Az eloszlás nem felel meg az elméletinek
+
+Próbafüggvény:
+
+$\chi^2 = \sum\limits_{i=1}^{r} \frac{(n_i - n p_i)^2}{n p_i} \sim \chi^2_{r-1}, \; n \to \infty$
+
+Kritikus tartomány: $\mathcal{X}_k = \{ x : \chi^2 \gt \chi^2_{r-1}(\alpha) \}$, $\alpha$ kritikus érték mellett.
+
+Ökölszabály: Ha $n_i \lt 5$, akkor vonjuk össze az osztályokat.
+
+### Becsléses illeszkedésvizsgálat
+
+Ha $p_i$-k becsült valószínűségek valamilyen paramétercsaládból arra is végezhetünk illeszkedésvizsgálatot.
+
+Legyen $A_1, ..., A_r$ teljes eseményrendszer, ahol $P_{\vartheta}(A_i) = p_i(\vartheta), \; i = 1, ..., r$, a mintában $A_i \, k_i$-szer teljesül, azaz összesen $n$ mintaelemünk van. $\vartheta \isin \Theta \mapsto \R^s$ ;és $\hat \vartheta$ ML becslőfüggvény, ami $\hat \vartheta = \varphi(n_1, ..., n_r)$ becslést ad a valódi $\vartheta$ paraméterre és $\hat p_i = p_i(\hat \vartheta)$.
+
+Próbafüggvény:
+
+$\chi^2 = \sum\limits_{i=1}^{r} \frac{(n_i - n \hat p_i)^2}{n \hat p_i} \xmapsto{eloszlásban} \chi^2_{r - s - 1}, \; n \to \infty$
+
+Hipotézisek:
+- $H_0$: Az eloszlás megfelel az elméletinek, azaz $P_{\vartheta}(A_i) = p_i(\vartheta), \; i = 1, ..., r$
+- $H_1$: Az eloszlás nem felel meg az elméletinek
 
 ### Diszkrét homogenitásvizsgálat
 
+Van két mintánk az $r$ osztályozás szerint: $n_1, ..., n_r$ és $m_1, ..., m_r$ gyakoriságokkal, összesen $n$ és $m$ mintaelemmel. Kérdesünk: Ugyan olyan eloszlásból származnak-e a minták?
+
+Hipotézisek:
+- $H_0$: A két minta ugyan olyan eloszlásból származik
+- $H_1$: A két minta nem ugyan olyan eloszlásból származik
+
+Próbafüggvény:
+
+$\chi^2 = n \cdot m \sum \limits_{i=1}^{r} \frac{( \frac{n_i}{n} - \frac{m_i}{m} )^2}{n_i + m_i} \xmapsto{eloszlásban} \chi^2_{r-1}, \; n, m \to \infty$
+
+**Folytonos eloszlások illeszkedésvizsgálata:**
+
+Diszkretizálás: $r$ db diszjunkt osztályra feldaraboljuk az eseményterünket és így alkalmazzuk a diszkrét illeszkedésvizsgálatot.
+
+De így információt vesztünk, ezért beírjuk $x$-et a saját folytonos eloszlásfüggvényébe, ekkor $F(x) \sim U(0,1)$ lesz. Így visszatranszformáltuk az egyfajta véletlen változóvá.
+
+### Kolgomorov próbák
+
+**Kolmogorov-Smirnov próba:**
+
+Van egy $\hat F_n$ tapasztalai és $F$ elméleti eloszlásfüggvényünk.
+
+Próbafüggvények:
+
+- $D_n^+ = \sup\limits_{x \in \R} ( \hat F_n(x) - F(x) )$
+
+- $D_n^- = \sup\limits_{x \in \R} ( F(x) - \hat F_n(x) )$
+
+- $D_n = \sup\limits_{x \in \R} | \hat F_n(x) - F(x) |$
+
+Vagyis a legnagyobb eltérés az elméleti és a tapasztalati eloszlásfüggvény között.
+
+
+**Kolmogorov eloszlás illeszkedésvizsgálatra:**
+
+Ha $F$ valódi eloszlásfüggvény, akkor:
+
+$D_n^+$-re: $\lim \limits_{n \to \infty} P( \sqrt{n} D_n^+ \le Y ) = 1 - e^{-2 Y^2}$
+
+$D_n$-re: $\lim \limits_{n \to \infty} P( \sqrt{n} D_n \le Y ) = 1 - 2 \sum \limits_{k=1}^{\infty} (-1)^{k} e^{-2 k^2 Y^2}$
+
+Hipotézisek:
+- $H_0$: Az eloszlás megfelel az elméletinek, azaz $F$ az elméleti eloszlásfüggvény
+- $H_1$: Az eloszlás nem felel meg az elmélet
+
+Kritikus tartomány: $\mathcal{X}_e = \{ x : \sqrt{n} D_n \gt D(\alpha) \}$, ahol $D(\alpha)$ a kritikus érték.
+
+
+**Kolmogorov eloszlás homogenitásvizsgálatra:**
+
+Van két minta, amikhez tartozó tapasztalati eloszlásfüggvények: $\hat F_n$ és $\hat G_m$. Ugyan olyan eloszlásból származnak-e a minták?
+
+Próbafüggvény:
+
+$D_{n,m} = \sup\limits_{x \in \R} | \hat F_n(x) - \hat G_m(x) |$
+
+$\lim \limits_{n, m \to \infty} P( \sqrt{\frac{n \cdot m}{n + m}} D_{n,m} \le Y )$ Kolmogorov eloszlásfüggvénye
+
+Hipotézisek:
+- $H_0$: A két minta ugyan olyan eloszlásból származik
+- $H_1$: A két minta nem ugyan olyan eloszlásból származik
+
 ## X. Lineáris modell, Lineáris hipotézis normális lineáris modellben
 
+Legyen $y$ egy $n$ dimenziós normális vektor, $x$ egy $n \times p$ mátrix, $\beta$ egy $p$ dimenziós vektor és $\varepsilon$ hibatag egy $n$ dimenziós normális vektor, ahol $\mathbb{E}(\varepsilon_i) = 0, \; \text{Var}(\varepsilon_i) = \sigma^2$ és $\mathbb{E}(\varepsilon_i \varepsilon_j) = 0$ ha $i \neq j$.
+
+### A lineáris modell:
+
+$y = X \beta + \varepsilon$
+
+OLS: Ordinary Least Squares, azaz a legkisebb négyzetek módszere, ami a hibatag négyzetösszegét minimalizálja:
+
+$\Vert \varepsilon \Vert^2 = \Vert y - X \beta \Vert^2 \to \min_{\beta}$
+
+### Gauss-Markov egyenlet:
+
+Ha $X$ teljes rangú, akkor az OLS becslő:
+
+$\hat \beta = (X^T X)^{-1} X^T y$
+
+### Próbafüggvények lineáris hipotézisek vizsgálatára:
+
+Adott egy lineáris modell, ekkor $\hat y = X \hat \beta$ az OLS becslés a várható értékre és $\hat \varepsilon = y - \hat y$ a becsült hibatag.
+
+**t-próba**
+
+Hipotézisek:
+- $H_0$: $\hat \beta = 0$
+- $H_1$: $\hat \beta \ne 0$
+
+Próbafüggvény:
+
+$t = \frac{\hat \beta_j}{s_n^* \cdot \sqrt{a_{jj}}} \sim t_{n-p}$
+
+Kritikus tartomány:
+- Kétoldali próba: $\mathcal{X}_e = \{ x : |t| \gt t_{n-p, \alpha/2} \}$
+
+**F-próba**
+
+Hipotézisek:
+- $H_0$: A lineáris hipotézis igaz
+- $H_1$: A lineáris hipotézis hamis
+
+Próbafüggvény:
+
+$F = \frac{( \text{RSS}_0 - \text{RSS} ) / q}{\text{RSS} / (n - p)} \sim F_{q, n-p}$
+
+Ahol $\text{RSS}_0$ a nullhipotézis alatti maradék négyzetösszeg, $\text{RSS}$ a teljes modell maradék négyzetösszeg, $q$ a lineáris hipotézis szabadságfoka, $p$ a modell paramétereinek száma és $n$ a minta mérete.
+
+Kritikus tartomány: $\mathcal{X}_e = \{ x : F \gt F_{q, n-p}(\alpha) \}$, ahol $q$ a lineáris hipotézis szabadságfoka.
