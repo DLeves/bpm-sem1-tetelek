@@ -168,12 +168,18 @@ Ha a két fv m.m. megegyezik, akkor az integráljuk is. Ilyenkor $g$ majorálja 
 
 ### Külső mértékek
 
-$\alpha$ külső mérték: $\mathcal{A} \sube \mathcal{P}(X)$ halmazrendszeren, $\alpha(\empty) = 0$ és $\alpha \ge 0$, $\alpha: \mathcal{A} \mapsto \overline \R$. $A_1, A_2, ... \in \mathcal{A}$ halmazokra $\alpha(\cup_{i=1}^{\infty} A_i) \le \sum_{i=1}^{\infty} \alpha(A_i)$
+$\alpha$ külső mérték: $\mathcal{A} \sube \mathcal{P}(X)$ halmazrendszeren, $\alpha(\empty) = 0$ és $\alpha \ge 0$, $\alpha: \mathcal{A} \mapsto \overline \R$. $A_1, A_2, ... \in \mathcal{A}$ halmazokra $\alpha(\cup_{i=1}^{\infty} A_i) \le \sum_{i=1}^{\infty} \alpha(A_i)$, azaz $\sigma$-szubadditív.
 
-$\empty \isin \mathcal{A} \sube \mathcal{P}(X), \; \alpha \ge 0$-ra:
-$\varphi_\alpha(H) = \inf \{ \sum \alpha(A_i) \mid \cup A_i \gt H_i ; A_i \isin \mathcal{A}\}$
+Ekkor legyen:
 
-Legyen $\mathcal{l}_\alpha$ egy külső mérték $\mathcal{P(X)}$-en, ha $\alpha$ egy külső mérték az $\mathcal{A}: \varphi_\alpha \mid \mathcal{A} = \alpha$-n.
+$\alpha = \inf \{ \sum \alpha(A_i) \mid \cup A_i \gt H_i ; A_i \isin \mathcal{A}\}$
+
+
+**Külső mértékek kiterjesztése:**
+
+A külső mértékkel mérhatő halmazok egy $\sigma$-algebrát alkotnak, amennyiben teljesül a Caratheodory feltétel. Legyen ez a $\mathcal{M} \, \sigma$ algebra
+
+Legyen $\\alpha$ egy külső mérték $\mathcal{M}$-en, ha $\alpha$ egy külső mérték az $\mathcal{A}: \varphi_\alpha \mid \mathcal{A} = \alpha$-n.
 
 Legyen $\mathcal{M}_{\varphi_\alpha \subset \mathcal{P}(X) \; \sigma}$-algebra, ekkor: $(X, \mathcal{M}, \mu)$ teljes mértéktér.
 
